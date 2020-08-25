@@ -6,6 +6,17 @@
     <title>Document</title>
 </head>
 <body>
-    <a href="{% url 'store_home' %}">로그인</a>
+    <!--<a href="{% url 'store_home' %}">로그인</a>-->
+    <h1>Login</h1>
+    <form method="POST" action="{% url 'store_login'%}">
+        {% csrf_token %}
+        <p>ID</p>
+        <input name="id" type="text" value="">
+        <br>
+        <p>Password</p>
+        <input name="password" type="password" value="">
+        <br><br>
+        <input class="btn btn-primary" type="submit" value="Login">
+    </form>
 </body>
 </html>
