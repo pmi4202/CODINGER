@@ -16,6 +16,7 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 import DeliveryApp.views
+import DeliveryUserApp.views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -29,5 +30,11 @@ urlpatterns = [
     path('/order2', DeliveryApp.views.store_order2, name='store_order2'),
     path('/order3', DeliveryApp.views.store_order3, name='store_order3'),
     path('/order4', DeliveryApp.views.store_order4, name='store_order4'),
-    
+    path('app/', DeliveryUserApp.views.user_home, name='user_home'),
+    path('app/login/', DeliveryUserApp.views.user_login, name='user_login'),
+    path('app/signup/', DeliveryUserApp.views.user_signup, name='user_signup'),
+    path('app/detail/', DeliveryUserApp.views.user_detail, name='user_detail'),
+    path('app/categories/1/', DeliveryUserApp.views.user_category_list, name='user_category_list'),
+    path('app/map/', DeliveryUserApp.views.user_map, name='user_map'),
+    path('app/stores/1/', DeliveryUserApp.views.user_store_detail, name='user_store_detail'),
 ]

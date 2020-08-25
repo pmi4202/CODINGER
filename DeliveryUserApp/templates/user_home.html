@@ -1,0 +1,112 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/user_home.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/global.css' %}">
+    <link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@400;700&display=swap" rel="stylesheet">
+    <title>Document</title>
+</head>
+<body>
+  
+  <div class="container">
+    <div class='title-wrapper'>
+      <div class='title'>대구시 북구 복현동 it 4호관</div>
+      <div class="icon">
+        <img src="{% static 'image/check-icon.png' %}">
+      </div>
+    </div>
+    <div class="content-wrapper">
+      <div class="input-section">
+        <div class="input-wrapper">
+          <img src="{% static 'image/search-icon.png' %}">
+          <input type="text" placeholder="가게검색" class="search">
+        </div>
+      </div>
+      <div class="label">카테고리</div>
+      <div class="menu-wrapper">
+        <div class="menu-card">
+          <div class="row">
+            <a href="{% url 'user_category_list' %}">
+              <div class="menu">
+                <img src="{% static 'image/menu_1.png' %}">
+                <div>한식</div>
+              </div>
+            </a>
+            <a href="{% url 'user_category_list' %}">
+              <div class="menu">
+                <img src="{% static 'image/menu_2.png' %}">
+                <div>분식</div>
+              </div>
+            </a>
+            <a href="{% url 'user_category_list' %}">
+              <div class="menu">
+                <img src="{% static 'image/menu_3.png' %}">
+                <div>양식</div>
+              </div>
+            </a>
+          </div>
+          <div class="row">
+            <a href="{% url 'user_category_list' %}">
+              <div class="menu">
+                <img src="{% static 'image/menu_4.png' %}">
+                <div>중식</div>
+              </div>
+            </a>
+            <a href="{% url 'user_category_list' %}">
+              <div class="menu">
+                <img src="{% static 'image/menu_5.png' %}">
+                <div>일식</div>
+              </div>
+            </a>
+            <a href="{% url 'user_category_list' %}">
+              <div class="menu">
+                <img src="{% static 'image/menu_6.png' %}">
+                <div>카페</div>
+              </div>
+            </a>
+          </div>
+          <div class="row">
+            <a href="{% url 'user_category_list' %}">
+              <div class="menu">
+                <img src="{% static 'image/menu_3.png' %}">
+                <div>패스트푸드</div>
+              </div>
+            </a>
+            <a href="{% url 'user_category_list' %}">
+              <div class="menu">
+                <img src="{% static 'image/menu_3.png' %}">
+                <div>치킨</div>
+              </div>
+            </a>
+            <a href="{% url 'user_category_list' %}">
+              <div class="menu">
+                <img src="{% static 'image/menu_3.png' %}">
+                <div>All</div>
+              </div>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <img src="{% static 'image/think_1.jpg' %}">
+    <div class="list-wrapper">
+      <div class="row">
+        <div class="label">단골가게</div>
+        <img src="{% static 'image/sub_1.png' %}">
+      </div>
+      <div class="list"></div>
+    </div>
+    
+    <div class="list-wrapper">
+      <div class="row">
+        <div class="label">별점 높은 가게</div>
+        <img src="{% static 'image/sub_1.png' %}">
+      </div>
+      <div class="list"></div>
+    </div>
+  </div>
+</body>
+</html>
