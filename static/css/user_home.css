@@ -1,0 +1,371 @@
+.container {}
+
+.row {
+  display: flex;
+  flex-direction: row;
+}
+
+.column {
+  display: flex;
+  flex-direction: column;
+}
+
+.title-wrapper {
+  height: 68px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 5px #00000029;
+}
+
+.title-wrapper .title {
+  margin-right: 12px;
+  font-size: 15px;
+}
+
+.title-wrapper .icon {
+  background-color: #FB6254;
+  border-radius: 50%;
+  width: 28px;
+  height: 28px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.content-wrapper {
+  padding: 35px 0;
+  background-image: url('/static/image/bg-top.png'), url('/static/image/bg-bottom.png');
+  background-repeat: no-repeat;
+  background-position: 0 69.5px, 0 285px;
+}
+
+.input-section {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.input-wrapper {
+  width: calc(100vw - 103px);
+  border-radius: 27px;
+  height: 56px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  box-shadow: 0 0px 6px #00000029;
+  background-color: #fff;
+  margin-bottom: 24px;
+}
+
+.input-wrapper img {
+  margin: 0 15px;
+  position: absolute;
+  
+}
+
+.input-wrapper input {
+  border: none;
+  text-align: center;
+  color: #727171;
+  font-size: 17px;
+  margin-left: 48px;
+}
+
+.input-wrapper input ::placeholder {
+  color: #727171;
+}
+
+.label {
+  margin-left: 21px;
+  font-size: 17px;
+  font-weight: bold;
+  color: #0D0D0D;
+  margin-bottom: 5px;
+}
+
+.menu-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.menu-card {
+  background-color: #fff;
+  width: calc(100vw - 106px);
+  height: 265px;
+  padding: 35px 32px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  box-shadow: 0 0 5px #00000029;
+}
+
+.think {
+  width: 100vw;
+  height: 72px;
+}
+
+.list-wrapper {
+  margin-bottom: 43px;
+}
+
+/* .menu-card .row {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.row a .menu {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.menu-card .row a .menu div {
+  text-align: center;
+  width: 61px;
+  font-size: 13px;
+} */
+
+/* .background{
+    dispaly:flex; 
+    flex-direction: column;
+    width:375pt;
+    height:812pt;
+
+}
+.back{
+
+}
+.ground1{
+
+}
+.ground2{
+    
+}
+.ground3{
+    
+}
+.ground4{
+    
+} */
+
+/* input {
+
+    background-image : url('pass_14.png'); 
+  
+    background-position:top left; 
+  
+    background-repeat:no-repeat;
+  
+    } */
+/* 
+
+.background{
+    width:375pt;height:200pt;
+    background-image: url('image/pass_1.png'),url('image/pass_2.png');
+    background-repeat:no-repeat;
+    background-position: 50% 10%, 50% 40%;
+    background-size:100% auto;
+    flex-direction: column;
+    background-color:#FEFAF6
+}
+#a{
+    margin-top: 2pt;
+}
+.container {
+    background:
+    dispaly:flex; 
+    flex-direction: column;
+    width:375pt;
+    height:812pt;
+    align-content: flex-start;
+}
+
+.item{
+    flex:grow;
+
+
+}
+
+.item1{
+    background-color:#ffffff 
+    background-image:
+    background-size: cover;
+    height:68pt;
+    text-align:center;
+    font-size:15pt;
+    
+}
+.item2{
+    height:90pt;
+
+}
+.search{
+    margin: 14pt 44pt 10pt 44pt ;
+    height:56pt;
+    width:287pt;
+    border: 1px solid #bfc8cc;
+    border-radius: 40px;
+    background:#ffffff;
+    font-size: 22px;
+    font-weight:;
+    text-align: center;
+    background-image : url('image/pass_14.png'); 
+    background-position: left;
+    background-size: 30pt;
+    background-repeat:no-repeat;
+}
+
+
+.item3{
+    height:427pt;
+    font:17pt bold left;
+}
+.menu{
+    width:339pt;
+    height:335pt;
+    margin: 0 18pt 0 18pt;
+    display:flex;
+    flex-wrap: wrap;
+    justify-content:space-around;
+    background-color: #ffffff;
+    font-size: 15pt;
+
+}
+.menu1{
+    height:63pt;
+    width:63pt;
+    margin: 10pt 10pt 20pt 15pt;
+    background-image: url('image/menu_1.png');
+    background-repeat:no-repeat;
+    background-size: 100%;
+
+
+}
+.menu2{
+    height:63pt;
+    width:63pt;
+    margin: 10pt 10pt 20pt 10pt;
+    background-image: url('image/menu_2.png');
+    background-repeat:no-repeat;
+    background-size: 100%;
+
+    
+}
+.menu3{
+    height:63pt;
+    width:63pt;
+    margin: 10pt 10pt 20pt 10pt;
+    background-image: url('image/menu_3.png');
+    background-repeat:no-repeat;
+    background-size: 100%;
+
+    
+}
+.menu4{
+    height:63pt;
+    width:63pt;   
+    margin: 10pt 10pt 20pt 15pt;
+    background-image: url('image/menu_4.png');
+    background-repeat:no-repeat;
+    background-size: 100%; 
+}
+.menu5{ 
+    height:63pt;
+    width:63pt;
+    margin: 10pt 10pt 20pt 30pt;
+    background-image: url('image/menu_5.png');
+    background-repeat:no-repeat;
+    background-size: 100%;
+    
+
+    
+}
+.menu6{
+    height:63pt;
+    width:63pt;
+    margin: 10pt 05pt 20pt 30pt;
+    background-image: url('image/menu_6.png');
+    background-repeat:no-repeat;
+    background-size: 100%;
+
+    
+    
+
+}
+.menu7{
+    height:63pt;
+    width:63pt;
+    margin: 10pt 10pt 20pt 15pt;
+    background-image: url('image/menu_7.png');
+    background-repeat:no-repeat;
+    background-size: 100%; 
+    font-size: 12pt;;
+
+}
+.menu8{
+    height:63pt;
+    width:63pt;
+    margin: 10pt 10pt 20pt 15pt;
+    background-image: url('image/menu_8.png');
+    background-repeat:no-repeat;
+    background-size: 100%;
+
+}
+.menu9{
+    height:63pt;
+    width:63pt;
+    margin: 10pt 10pt 20pt 20pt;
+    background-image: url('image/menu_9.jpg');
+    background-repeat:no-repeat;
+    background-size: 103%;
+
+}
+.think{
+    height: 72pt;
+    background-image : url('image/think_1.jpg'); 
+}
+.item4{
+    height:125pt;
+    font:17pt bold left;
+}
+.sub{
+    width:339pt;
+    height:105pt;
+    margin: 0 9pt 0 9pt;
+    display:flex;
+    flex-wrap: wrap;
+    justify-content:space-around;
+    background-color:#FEFAF6;
+
+}
+.sub1{
+    height:105pt;
+    width:97pt;
+    margin: 2pt 9pt 0 0;
+    background-image: url('image/moms.png');
+    background-repeat:no-repeat;
+    background-size: 100%;
+
+}
+.sub2{
+    height:105pt;
+    width:97pt;
+    margin: 2pt 9pt 0 9pt;
+    background-image: url('image/myung.png');
+    background-repeat:no-repeat;
+    background-size: 100%;
+}
+.sub3{
+    height:105pt;
+    width:97pt;
+    margin: 2pt 9pt 0 9pt;
+    background-image: url('image/domino.png');
+    background-repeat:no-repeat;
+    background-size: 100%;
+}
+
+ */

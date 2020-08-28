@@ -45,7 +45,12 @@ def store_order_detail(request):
     return render(request, 'store_order_detail.html')
 #주문 접수
 def store_order_add(request):
-    return render(request, 'store_order_add.html')
+    if request.method == 'POST':
+        time=request.POST['time']
+        print(time)
+        return render(request, 'store_order.html', {'time':'time'})
+    else:
+        return render(request, 'store_order_add.html')
 #주문 취소
 def store_order_delete(request):
     return render(request, 'store_order_delete.html')
