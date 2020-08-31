@@ -14,7 +14,7 @@ def store_login(request):
         # 성공
         if user is not None:
             auth.login(request, user)
-            return redirect('store_home')
+            return redirect('store_order')
         # 실패
         else:
             return render(request, 'store_login.html', {'error': 'id or password is incorrect.'})
@@ -25,7 +25,7 @@ def store_logout(request):
     if request.method == 'POST': # POST 방식으로 request를 통해 정보가 오면
         # 로그아웃
         auth.logout(request)
-        return redirect('store_home')
+        return redirect('store_order')
     return render(request, 'store_login.html')
 
 

@@ -11,6 +11,9 @@
     Order
     <a href="{% url 'store_home' %}">홈으로</a>
     <br>
+    <a href="{% url 'store_order' %}">주문 관리</a>
+    <a href="{% url 'store_menu' %}">메뉴 관리</a>
+
     <a href="{% url 'store_order' %}">접수대기</a>
     <!--<a href="{% url 'store_order_detail' %}">주문 정보</a>-->
     <!--<a href="{% url 'store_order' %}" onclick="window.open('detail', 'store_order_detail', 'width=900, height=400, menubar=no, location=no, status=no, toolbar=no, top=200, left=300');">주문정보</a>-->
@@ -32,44 +35,26 @@
             <h2>배달 예상 시간</h2>
             <form method="POST" action="{% url 'store_order_add'%}">
                 {% csrf_token %}
-                <!--
-                <div class="topcoat-button-bar">
-                    <div class="topcoat-button-bar__item">
-                        <input type="radio" name="30분" value=30>
-                        <button class="topcoat-button-bar__button">30분</button>
-                    </div>
-                    <div>hello</div>
-                    <div class="topcoat-button-bar__item">
-                        <input type="radio" name="40분" value=40>
-                        <button class="topcoat-button-bar__button">40분</button>
-                    </div>
-                    <div>hello</div>
-                    <div class="topcoat-button-bar__item">
-                        <input type="radio" name="50분">
-                        <button class="topcoat-button-bar__button">50분</button>
-                    </div>
-                </div>-->
                 <br>
 
                 <div class="form_radio_btn">
                     <input id="radio-1" type="radio" name="time" value="30" checked>
-                    <label for="radio-1">Radio button 1</label>
+                    <label for="radio-1">30분</label>
                 </div>
                 
                 <div class="form_radio_btn">
                     <input id="radio-2" type="radio" name="time" value="40">
-                    <label for="radio-2">Radio button 2</label>
+                    <label for="radio-2">40분</label>
                 </div>
                 
                 <div class="form_radio_btn">
                     <input id="radio-3" type="radio" name="time" value="50">
-                    <label for="radio-3">Radio button 3</label>
+                    <label for="radio-3">50분</label>
                 </div>
 
                 <input class="close2" type="submit" value="확인">
-            
+                <a class="close" href="#">닫기</a>
             </form>
-            
         </div>
     </div>
     <!--<a href="{% url 'store_order_add' %}">접수하기</a>-->
