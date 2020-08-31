@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth.models import User
 from django.contrib import auth
-
+from .models import Store
 # Create your views here.
 
 def store_login(request):
@@ -31,7 +31,8 @@ def store_logout(request):
 
 #로그인 후, 처음 보이는 화면(디자인은 없음..)
 def store_home(request):
-    return render(request, 'store_home.html')
+    store = Store.objects.get(ownerName = request.user.username)
+    return render(request, 'store_home.html', {'store':store})
 
 #메뉴 관리
 def store_menu(request):

@@ -3,6 +3,7 @@ from django.db import models
 # Create your models here.
 
 class Store(models.Model):
+    ownerName = models.CharField (max_length=50, null=False, default="") #ID와 같음
     storeName = models.CharField(max_length=50, null=False)
     minOrderPrice = models.PositiveIntegerField()
     #deliveryPriceList
@@ -12,7 +13,7 @@ class Store(models.Model):
     storeTel = models.CharField(max_length=12)
 
     def __str__(self):
-        return self.storeName
+        return self.ownerName
 
 class Order(models.Model):
     storeId = models.CharField(max_length=50) #class Store의 storeName과 동일 => 구현 중 필요없으면 삭제가능

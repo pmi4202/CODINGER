@@ -9,11 +9,12 @@
 </head>
 <body>
     Order
-    <a href="{% url 'store_home' %}">홈으로</a>
+    <a href="{% url 'store_home' %}">가게 정보</a>
     <br>
-    <a href="{% url 'store_order' %}">주문 관리</a>
-    <a href="{% url 'store_menu' %}">메뉴 관리</a>
-
+    
+        <a href="{% url 'store_order' %}">주문 관리</a>
+        <a href="{% url 'store_menu' %}">메뉴 관리</a>
+    
     <a href="{% url 'store_order' %}">접수대기</a>
     <!--<a href="{% url 'store_order_detail' %}">주문 정보</a>-->
     <!--<a href="{% url 'store_order' %}" onclick="window.open('detail', 'store_order_detail', 'width=900, height=400, menubar=no, location=no, status=no, toolbar=no, top=200, left=300');">주문정보</a>-->
