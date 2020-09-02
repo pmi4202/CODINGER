@@ -24,6 +24,12 @@ urlpatterns = [
     path('logout/', DeliveryApp.views.store_logout, name='store_logout'),
     path('home/', DeliveryApp.views.store_home, name='store_home'),
     path('menu/', DeliveryApp.views.store_menu, name='store_menu'),
+    #메뉴 추가test용
+    path('menu/add', DeliveryApp.views.store_menu_add, name='store_menu_add'),
+    path('menu/delete/<int:menu_id>', DeliveryApp.views.store_menu_delete, name='store_menu_delete'),
+    path('menu/edit/<int:menu_id>', DeliveryApp.views.store_menu_edit, name='store_menu_edit'),
+    path('menu/update/<int:menu_id>', DeliveryApp.views.store_menu_update, name='store_menu_update'),
+    #
     path('order/', DeliveryApp.views.store_order, name='store_order'),
     path('order/detail/', DeliveryApp.views.store_order_detail, name='store_order_detail'),
     path('order/add/', DeliveryApp.views.store_order_add, name='store_order_add'),

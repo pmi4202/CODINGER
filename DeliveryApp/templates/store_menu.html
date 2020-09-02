@@ -8,5 +8,14 @@
 <body>
     Menu
     <a href="{% url 'store_home' %}">홈으로</a>
+    <a href="{% url 'store_menu_add' %}">메뉴추가</a>
+    {% for menu in menus.all %}
+        {{menu.menuName}}
+        {{menu.categoryName}}
+        {{menu.menuPrice}}
+        <a href="{% url 'store_menu_edit' menu.id %}">메뉴편집</a>
+        <a href="{% url 'store_menu_delete' menu.id %}">메뉴삭제</a>
+        <br>
+    {% endfor %}
 </body>
 </html>

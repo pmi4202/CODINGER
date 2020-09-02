@@ -1,22 +1,27 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>로그인</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/store_login.css' %}">
 </head>
 <body>
-    <!--<a href="{% url 'store_home' %}">로그인</a>-->
-    <h1>Login</h1>
     <form method="POST" action="{% url 'store_login'%}">
         {% csrf_token %}
-        <p>ID</p>
-        <input name="id" type="text" value="">
-        <br>
-        <p>Password</p>
-        <input name="password" type="password" value="">
-        <br><br>
-        <input class="btn btn-primary" type="submit" value="Login">
+        <div class="Login_Form" >
+            <h1>로고자리</h1>
+            <div class='txtb1'><input type="text" placeholder='아이디'name="id">
+            <span data-placeholder='Username'></span>
+        </div>
+        <div class="txtb2">
+            <input type="password" placeholder='패스워드' name="password">
+            <span data-placeholder='Password'></span>
+            </div>
+            <div >
+            <input type='submit' class='loginbt' value='로그인'>
+        </div>
     </form>
 </body>
 </html>
