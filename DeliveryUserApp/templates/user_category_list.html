@@ -1,13 +1,93 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/user_category_list.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/global.css' %}">
+    <link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@400;700&display=swap" rel="stylesheet">
+    <title>한식페이지</title>
 </head>
+
 <body>
-    user_category_list
-    <!-- <a href="{% url 'store_menu' %}">메뉴 관리</a>
-    <a href="{% url 'store_order' %}">주문 관리</a> -->
+    <div class="container background">
+        <a href="{% url 'user_home' %}">뒤로 가기</a>
+        <div class="item item1"><br> <img class="detail_1" src="image/detail_1.png" alt=""></IMg> <b>한식</b>
+            <div class="kind">
+                <div class="menu kind1">한식 <br> <img class="nemo" src="image/nemo.png"> </div>
+                <div class="menu kind2">분식</div>
+                <div class="menu kind3">양식</div>
+                <div class="menu kind4">중식</div>
+                <div class="menu kind5">일식</div>
+            </div>
+        </div>
+
+        <div class="item item2">
+            <div class="store">
+                <div class="store1"><img class="store_1" src="image/store_1.png" alt=""></div>
+                <div class="store2"><img class="store_2" src="image/store_2.png" alt=""> </div>
+                <div class="store3"><img class="store_3" src="image/store_3.png" alt=""></div>
+                <div class="store4"><img class="store_4" src="image/store_4.png" alt=""></div>
+                <div class="store5"><img class="store_5" src="image/store_5.png" alt=""></div>
+                <div class="store6"><img class="store_6" src="image/store_6.png" alt=""></div>
+                <div class="store7"><img class="store_7" src="image/store_7.png" alt=""></div>
+                <div class="store8"><img class="store_8" src="image/store_8.png" alt=""></div>
+            </div>
+            <div class="store00">
+                <div class="store01">
+                    <b class="title"> 고봉민김밥</b>
+                    <br> <img src="image/star.png">4.8
+                    <br>최소주문금액 15,000원
+                    <br>배달비 1,000원~4,000원
+                </div>
+                <div class="store02">
+                    <b class="title"> 원할머니보쌈</b>
+                    <br> <img src="image/star.png">4.8
+                    <br>최소주문금액 20,000원
+                    <br>배달비 1,00원~2,000원
+                </div>
+                <div class="store03">
+                    <b class="title">대마족발</b>
+                    <br> <img src="image/star.png">4.9
+                    <br>최소주문금액 15,000원
+                    <br>배달비 1,00원~2,000원
+                </div>
+                <div class="store04">
+                    <b class="title">놀부보쌈</b>
+                    <br> <img src="image/star.png">4.6
+                    <br>최소주문금액 18,000원
+                    <br>배달비 3,000원
+                </div>
+                <div class="store05">
+                    <b class="title">본죽</b>
+
+                    <br> <img src="image/star.png">4.8
+                    <br>최소주문금액 15,000원
+                    <br>배달비 1,00원~4,000원
+                </div>
+                <div class="store06">
+                    <b class="title">황제명태명가</b>
+                    <br> <img src="image/star.png">5.0
+                    <br>최소주문금액 8,000원
+                    <br>배달비 1,00원~3,000원
+                </div>
+                <div class="store07">
+                    <b class="title">자연별곡</b>
+                    <br> <img src="image/star.png">4.4
+                    <br>최소주문금액 15,000원
+                    <br>배달비 1,00원~3,000원
+                </div>
+                <div class="store08">
+                    <b class="title">이바돔감자탕</b>
+                    <br> <img src="image/star.png">4.8
+                    <br>최소주문금액 15,000원
+                    <br>배달비 1,00원~3,000원
+                </div>
+            </div>
+        </div>
+    </div>
 </body>
+
 </html>

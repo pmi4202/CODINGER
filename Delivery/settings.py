@@ -26,7 +26,7 @@ SECRET_KEY = 'n_f)mew817el(y11-qr)r)dzltqk@6=32fpn2@ei0f=i511zz%'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['codinger.pythonanywhere.com']
+ALLOWED_HOSTS = ['127.0.0.1','codinger.pythonanywhere.com']
 
 
 # Application definition
@@ -120,10 +120,11 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 
-STATIC_URL = '/static/'
+STATIC_URL = '/web_static/'
 
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'DeliveryApp', 'static'),
+    os.path.join(BASE_DIR, 'DeliveryUserApp', 'static'),
 ]
 
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')

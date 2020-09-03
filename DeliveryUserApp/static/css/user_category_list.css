@@ -1,16 +1,8 @@
 
-.background{
-
-
-}
-
-
-
-
+.background{}
 
 .container {
-    background:
-    dispaly:flex; 
+    display:flex; 
     flex-direction: column;
     width:375pt;
     height:812pt;
@@ -23,14 +15,12 @@
 
 }
 .item1{
-    background-color:#ffffff 
-    background-image:
+    background-color:#ffffff;
     background-size: cover;
     height:92pt;
     text-align:center;
     font-size:16pt;
     border-bottom: solid 2pt #00000029;
-    
 }
 img.detail_1{
     height:11.5pt;
@@ -38,8 +28,6 @@ img.detail_1{
     top: 5pt;
     left: -145pt;
     position: relative;
-    
-
 }
 .kind{
     display: flex;
@@ -53,7 +41,6 @@ img.detail_1{
 }
 .kind1{
     flex: 1;
-
 }
 .kind2{
     flex: 1;

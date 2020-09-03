@@ -1,0 +1,92 @@
+body{
+    width: 375pt;
+    height: 812pt;
+}
+.background{
+    width:375pt;
+    height:303pt;
+    background-image: url('image/login1_1.png');
+    background-repeat:no-repeat;
+    background-position: top-center;
+    
+    background-size: 100% ;
+    flex-direction: column;
+    background-color:#FFFFFF
+    
+}
+.container {
+    background:
+    dispaly:flex; 
+    flex-direction: column;
+    width:375pt;
+    height:812pt;
+    align-content: flex-start;
+}
+.whiteboard1{
+    width: 342pt;
+    height:717pt;
+    background-repeat:no-repeat;
+    background-size:100%;
+    position: absolute;
+    top: 95pt;
+    left: 18pt;
+}
+.one{
+    display: flex;
+}
+.button1{
+    margin-top: 17pt;
+    border: solid 1pt #FF6B6B;
+    width: 73pt;
+    height: 43pt;
+    border-radius: 5pt;
+    background: #FFFFFF;
+    text:bold;
+    
+}
+div.name span{font: bold;}
+button.button1 span{color:#FF6B6B; font-family: 나눔고딕,bold;}
+#login-form{
+    width:293pt;
+    margin:
+    border-radius: 15pt;
+    padding: 15px;
+    position: absolute;
+    top: 229pt;
+    left: 25pt;
+}
+#login-form input, #login-form label{
+    display:block;
+}
+
+
+#login-form label{
+    margin-top: 10px;
+}
+
+
+
+#login-form input{
+    margin-top: 14pt;
+}
+.userid{
+    width: 212pt;
+    height: 51pt;
+    border-radius: ;
+}
+.password{
+    width: 293pt;
+    height: 51pt;
+    margin-top: 14pt;
+    border-radius:  ;
+}
+.name{
+    font-size: 20pt;
+    color:#FB6254;
+    margin-top: pt;
+    align:left;
+    font-family: 나눔고딕,Extrabold;
+}
+.ok{
+    margin-left: 15pt;
+}

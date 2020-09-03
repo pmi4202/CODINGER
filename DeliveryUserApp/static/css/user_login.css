@@ -1,0 +1,134 @@
+.background{
+    width:375pt;height:303pt;
+    background-image: url('image/login1_1.png');
+    background-repeat:no-repeat;
+    background-position: top-center;
+    
+    background-size: 100% ;
+    flex-direction: column;
+    background-color:#FFFFFF
+    
+}
+.container {
+    background:
+    dispaly:flex; 
+    flex-direction: column;
+    width:375pt;
+    height:812pt;
+    align-content: flex-start;
+}
+/* .item1{
+    background-color:#ffffff 
+    background-image:
+    background-size: cover;
+    height:303pt;
+    text-align:center;
+    font-size:15pt;
+    
+} */
+.item2{
+    height:509pt;
+
+}
+.whiteboard{
+    /* width:342pt; */
+    /* height:717pt;
+    
+    background-repeat:no-repeat;
+    background-size:  100%;
+    position:absolute;
+    top:  */
+
+}
+.whiteboard1{
+    width: 342pt;
+    height:717pt;
+    background-repeat:no-repeat;
+    background-size:100%;
+    position: absolute;
+    top: 95pt;
+    left: 18pt;
+}
+
+#login-form{
+
+    width:293pt;
+
+    margin:
+
+    
+
+    border-radius: 15pt;
+
+    padding: 15px;
+    position: absolute;
+    top: 290pt;
+    left: 25pt;
+
+}
+#login-form input, #login-form label{
+
+    display:block;
+
+}
+
+
+#login-form label{
+
+    margin-top: 10px;
+
+}
+
+
+
+#login-form input{
+
+    margin-top: 15pt;
+
+}
+#login-form input[type='image']{
+    width: 293pt;
+    margin: 10px auto;
+    
+}
+.legend{
+    width: ;
+}
+.userid{
+    width: 293pt;
+    height: 51pt;
+    
+}
+.password{
+    width: 293pt;
+    height: 51pt;
+}
+.new{
+    font: size 14pt;
+    text-align:center;
+}
+.newlogin{
+    
+}
+.two{
+    width: 120pt;
+    color: #FB6254;
+    border: thin solid #FB6254;
+   
+}
+
+h2 {
+    width: 100%; 
+    text-align: center; 
+    border-bottom: 1px solid #FB6254; 
+    line-height: 0.1em;
+    margin: 10px 0 20px; 
+    text:#FB6254;
+ } 
+ 
+ h2 span { 
+     background:#fff; 
+     padding:0 10px; 
+     color: #FB6254;
+     font-size: 14pt;
+ }
