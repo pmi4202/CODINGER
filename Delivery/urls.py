@@ -38,4 +38,6 @@ urlpatterns = [
     path('app/categories/1/', DeliveryUserApp.views.user_category_list, name='user_category_list'),
     path('app/map/', DeliveryUserApp.views.user_map, name='user_map'),
     path('app/stores/1/', DeliveryUserApp.views.user_store_detail, name='user_store_detail'),
+    path('app/order/detail/', DeliveryUserApp.views.user_order_detail, name='user_order_detail'),
+    path('app/order/add/', DeliveryUserApp.views.user_order_add, name='user_order_add'),
 ]

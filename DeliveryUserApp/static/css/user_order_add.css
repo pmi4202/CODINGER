@@ -1,0 +1,67 @@
+body{
+    width: 100vw;
+    height: 812pt;
+}
+.container {
+    display: flex;
+    flex-direction: column;
+    width:100vw;
+    height:812pt;
+    align-content: flex-start;
+}
+#back{
+    margin-top: 10pt;
+    margin-left: 15pt;
+    
+}
+#juice{
+    width: 120pt;
+    height: 120pt;
+    margin: 88pt 127pt 30pt 128pt;
+}
+.item3{
+    font-size: 16pt;
+    font-family: 나눔고딕;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 4pt;
+    
+}
+#item3_1{
+    font-size: 14pt;
+    font-family: 나눔고딕;
+    text-align: center;
+}
+.item4 .hr1{
+    width: 100vw;
+    margin: 0;
+}
+.item5{
+    font-size: 14pt;
+    text-align: center;
+}
+#item5_1{
+    font-size: 14pt;
+    font-family: 나눔고딕;
+}
+#item5_1{
+    font-size: 13pt;
+    font-family: 나눔고딕;
+}
+.item6{
+    font-size: 14pt;
+    text-align: center;
+}
+.item7{
+    background-image: url('image/order1_5.png');
+    background-repeat:no-repeat;
+    background-position:center;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    font-size: 18pt;
+    font-family: 나눔고딕;
+    padding: 19pt 140pt 10pt 170pt;
+    color: #FFFFFF;
+    width: 334pt;
+}

@@ -22,3 +22,9 @@ def user_map(request):
 #앱 가게 정보
 def user_store_detail(request):
     return render(request, 'user_store_detail.html')
+#장바구니
+def user_order_detail(request):
+    return render(request, 'user_order_detail.html')
+#주문담기
+def user_order_add(request):
+    return render(request, 'user_order_add.html')

@@ -4,7 +4,7 @@
 .container {
     display:flex; 
     flex-direction: column;
-    width:375pt;
+    width:100vw;
     height:812pt;
     align-content: flex-start;
 }

@@ -1,17 +1,134 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" type="text/css" href="{% static 'css/user_store_detail.css' %}">
+  <link rel="stylesheet" type="text/css" href="{% static 'css/global.css' %}">
+  <link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@400;700&display=swap" rel="stylesheet">
+  <title>Document</title>
 </head>
 
 <body>
-    <a href="{% url 'user_category_list' %}">뒤로 가기</a>
-    user_store detail
-    <!-- <a href="{% url 'store_menu' %}">메뉴 관리</a>
-    <a href="{% url 'store_order' %}">주문 관리</a> -->
+  <div class="container">
+    <div class="top-wrapper">
+      <div class="nav-wrapper">
+        <a href="{% url 'user_category_list' %}">
+          <img src="{% static 'image/arrow-back.png' %}">
+        </a>
+        <img src="{% static 'image/heart.png' %}" />
+      </div>
+      <div class="icon-wrapper">
+        <img src="{% static 'image/store_01.png' %}">
+        <div>쥬씨 복현점</div>
+      </div>
+    </div>
+    <div class="price-info-wrapper">
+      <div>
+        <div class="row">
+          <div>최소주문 금액</div>
+          <div>10,000원</div>
+        </div>
+        <div class="row">
+          <div>배달비</div>
+          <div>1,000 ~ 4,000원</div>
+        </div>
+      </div>
+      <img src="{% static 'image/phone.png' %}">
+    </div>
+    <div class="tab-wrapper">
+      <div>메뉴</div>
+      <div>정보</div>
+    </div>
+    <div class="content-wrapper">
+      <div class="label">-생과일 쥬스</div>
+      <a href="{% url 'user_order_add' %}">
+        <div class="row between">
+          <div>
+            <div>딸바</div>
+            <div>냉동+딸기+바나나</div>
+            <div>5,000원</div>
+          </div>
+          <img src="{% static 'image/menu_1.png' %}">
+        </div>
+      </a>
+      <a href="{% url 'user_order_add' %}">
+        <div class="row between">
+          <div>
+            <div>딸바</div>
+            <div>냉동+딸기+바나나</div>
+            <div>5,000원</div>
+          </div>
+          <img src="{% static 'image/menu_1.png' %}">
+        </div>
+      </a>
+      <a href="{% url 'user_order_add' %}">
+        <div class="row between">
+          <div>
+            <div>딸바</div>
+            <div>냉동+딸기+바나나</div>
+            <div>5,000원</div>
+          </div>
+          <img src="{% static 'image/menu_1.png' %}">
+        </div>
+      </a>
+      <a href="{% url 'user_order_add' %}">
+        <div class="row between">
+          <div>
+            <div>딸바</div>
+            <div>냉동+딸기+바나나</div>
+            <div>5,000원</div>
+          </div>
+          <img src="{% static 'image/menu_1.png' %}">
+        </div>
+      </a>
+      <a href="{% url 'user_order_add' %}">
+        <div class="row between">
+          <div>
+            <div>딸바</div>
+            <div>냉동+딸기+바나나</div>
+            <div>5,000원</div>
+          </div>
+          <img src="{% static 'image/menu_1.png' %}">
+        </div>
+      </a>
+      <a href="{% url 'user_order_add' %}">
+        <div class="row between">
+          <div>
+            <div>딸바</div>
+            <div>냉동+딸기+바나나</div>
+            <div>5,000원</div>
+          </div>
+          <img src="{% static 'image/menu_1.png' %}">
+        </div>
+      </a>
+      <a href="{% url 'user_order_add' %}">
+        <div class="row between">
+          <div>
+            <div>딸바</div>
+            <div>냉동+딸기+바나나</div>
+            <div>5,000원</div>
+          </div>
+          <img src="{% static 'image/menu_1.png' %}">
+        </div>
+      </a>
+      <a href="{% url 'user_order_add' %}">
+        <div class="row between">
+          <div>
+            <div>딸바</div>
+            <div>냉동+딸기+바나나</div>
+            <div>5,000원</div>
+          </div>
+          <img src="{% static 'image/menu_1.png' %}">
+        </div>
+      </a>
+    </div>
+    <a href="{% url 'user_order_detail' %}">
+      <img class="confirm-btn" src="{% static 'image/menu_add.png' %}">
+    </a>
+  </div>
 </body>
 
 </html>
