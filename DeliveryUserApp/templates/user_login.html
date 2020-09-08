@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 
@@ -16,7 +17,7 @@
         <a href="{% url 'user_home' %}">뒤로 가기</a>
         <div class="whiteboard"> <img class="whiteboard1" src="image/login1_2.png" alt="">
 
-            <form id="login-form" method="post">
+            <!-- <form id="login-form" method="post"> -->
 
 
 
@@ -24,23 +25,22 @@
                 <input name="passwprd" class="password" placeholder="비밀번호" type="password">
 
 
-
-                <input type="image" src="image/login1_5.png" value="로그인">
+                <a href="{% url 'user_detail' %}">
+                    <div>로그인</div>
+                  <!-- <input type="image" src="image/login1_5.png" value="로그인"> -->
+                </a>
                 <br><br>
                 <div class="new"> 아직 회원이 아니신가요? </div>
 
                 <input type="image" class="newlogin" src="image/login1_7.png" value="회원가입">
                 <br><br>
-                <!-- <hr class="two" align="left">또는
-                <hr class="two" align="right"> -->
-
                 <h2><span>또는</span></h2>
                 <p></p>
                 <input type="image" class="" src="image/login1_8.png" value="kakao회원가입">
 
 
 
-            </form>
+            <!-- </form> -->
             <div>
 
             </div>

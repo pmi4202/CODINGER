@@ -83,29 +83,54 @@
             </a>
             <a href="{% url 'user_category_list' %}">
               <div class="menu">
-                <img src="{% static 'image/menu_3.png' %}">
-                <div>All</div>
+                <img src="{% static 'image/menu_9.jpg' %}">
+                <div></div>
               </div>
             </a>
           </div>
         </div>
       </div>
     </div>
-    <img src="{% static 'image/think_1.jpg' %}">
+    <img class="click-img" src="{% static 'image/think_1.jpg' %}">
     <div class="list-wrapper">
       <div class="row">
         <div class="label">단골가게</div>
-        <img src="{% static 'image/sub_1.png' %}">
       </div>
-      <div class="list"></div>
+      <div class="list">
+        <div class="store-wrapper">
+          <img class="store-img" src="{% static 'image/store_01.png' %}" >
+          <div class="store-label">쥬시</div>
+        </div>
+      </div>
     </div>
     
     <div class="list-wrapper">
       <div class="row">
         <div class="label">별점 높은 가게</div>
-        <img src="{% static 'image/sub_1.png' %}">
       </div>
       <div class="list"></div>
+    </div>
+
+    <div class="nav-wrapper">
+      <a href="{% url 'user_home' %}">
+        <div class="column nav">
+          <div class="nav-active"></div>
+          <img class="nav-icon" src="{% static 'image/nav-home.png' %}" >
+          <div class="nav-label">홈</div>
+        </div>
+      </a>
+      <a href="{% url 'user_map' %}">
+        <div class="column nav">
+          <img class="nav-icon" src="{% static 'image/nav-map.png' %}" >
+          <div class="nav-label">모집중공고</div>
+        </div>
+      </a>
+      <a href="{% url 'user_login' %}">
+        <div class="column nav">
+          <img class="nav-icon" src="{% static 'image/nav-profile.png' %}" >
+          <div class="nav-label">마이페이지</div>
+        </div>
+      </a>
     </div>
   </div>
 </body>

@@ -3,6 +3,12 @@
 .row {
   display: flex;
   flex-direction: row;
+  justify-content: space-between;
+}
+
+.row a {
+  text-decoration: none;
+  color: #000000;
 }
 
 .column {
@@ -36,7 +42,7 @@
 
 .content-wrapper {
   padding: 35px 0;
-  background-image: url('/static/image/bg-top.png'), url('/static/image/bg-bottom.png');
+  background-image: url('/web_static/image/bg-top.png'), url('/web_static/image/bg-bottom.png');
   background-repeat: no-repeat;
   background-position: 0 69.5px, 0 285px;
 }
@@ -82,7 +88,24 @@
   font-size: 17px;
   font-weight: bold;
   color: #0D0D0D;
-  margin-bottom: 5px;
+  margin-bottom: 6px;
+}
+
+.menu {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 9px;
+}
+
+.menu img {
+  width: 63px;
+  height: 63px;
+  margin-bottom: 10px;
+}
+
+.menu div {
+  font-size: 13px;
 }
 
 .menu-wrapper {
@@ -102,270 +125,81 @@
   box-shadow: 0 0 5px #00000029;
 }
 
-.think {
+.click-img {
   width: 100vw;
   height: 72px;
+  margin-bottom: 22px;
 }
 
 .list-wrapper {
   margin-bottom: 43px;
 }
 
-/* .menu-card .row {
+.list {
+  padding-left: 18px;
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
 }
 
-.row a .menu {
+.store-wrapper {
+  margin-top: 5px;
   display: flex;
   flex-direction: column;
+}
+
+.store-img {
+  margin-bottom: 5px;
+}
+
+.store-label {
+  font-size: 12px;
+}
+
+.nav-wrapper {
+  display: flex;
+  flex-direction: row;
+  background-color: #fff;
+  color: #000;
+  width: calc(100vw - 102px);
+  padding: 0 51px;
+  height: 67px;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 3px 10px #0000004D;
+  position:fixed;
+	bottom:0;
+	left:0;
+	right:0;
+	z-index:1000;
+}
+
+.nav-wrapper a {
+  text-decoration: none;
+  color: #000000;
+}
+
+.nav {
+  width: 47px;
+  display: flex;
   align-items: center;
 }
 
-.menu-card .row a .menu div {
-  text-align: center;
-  width: 61px;
-  font-size: 13px;
-} */
-
-/* .background{
-    dispaly:flex; 
-    flex-direction: column;
-    width:375pt;
-    height:812pt;
-
-}
-.back{
-
-}
-.ground1{
-
-}
-.ground2{
-    
-}
-.ground3{
-    
-}
-.ground4{
-    
-} */
-
-/* input {
-
-    background-image : url('pass_14.png'); 
-  
-    background-position:top left; 
-  
-    background-repeat:no-repeat;
-  
-    } */
-/* 
-
-.background{
-    width:375pt;height:200pt;
-    background-image: url('image/pass_1.png'),url('image/pass_2.png');
-    background-repeat:no-repeat;
-    background-position: 50% 10%, 50% 40%;
-    background-size:100% auto;
-    flex-direction: column;
-    background-color:#FEFAF6
-}
-#a{
-    margin-top: 2pt;
-}
-.container {
-    background:
-    dispaly:flex; 
-    flex-direction: column;
-    width:375pt;
-    height:812pt;
-    align-content: flex-start;
+.nav-label {
+  font-size: 10px;
+  font-weight: bold;
 }
 
-.item{
-    flex:grow;
-
-
+.nav-active {
+  margin-top: -8.5px;
+  width: 4px;
+  height: 4px;
+  background-color: #FB6254;
+  border-radius: 50%;
+  margin-bottom: 4.5px;
 }
 
-.item1{
-    background-color:#ffffff 
-    background-image:
-    background-size: cover;
-    height:68pt;
-    text-align:center;
-    font-size:15pt;
-    
+.nav-icon {
+  margin-bottom: 4.67px;
+  width: 14px;
+  height: 15.83px;
 }
-.item2{
-    height:90pt;
-
-}
-.search{
-    margin: 14pt 44pt 10pt 44pt ;
-    height:56pt;
-    width:287pt;
-    border: 1px solid #bfc8cc;
-    border-radius: 40px;
-    background:#ffffff;
-    font-size: 22px;
-    font-weight:;
-    text-align: center;
-    background-image : url('image/pass_14.png'); 
-    background-position: left;
-    background-size: 30pt;
-    background-repeat:no-repeat;
-}
-
-
-.item3{
-    height:427pt;
-    font:17pt bold left;
-}
-.menu{
-    width:339pt;
-    height:335pt;
-    margin: 0 18pt 0 18pt;
-    display:flex;
-    flex-wrap: wrap;
-    justify-content:space-around;
-    background-color: #ffffff;
-    font-size: 15pt;
-
-}
-.menu1{
-    height:63pt;
-    width:63pt;
-    margin: 10pt 10pt 20pt 15pt;
-    background-image: url('image/menu_1.png');
-    background-repeat:no-repeat;
-    background-size: 100%;
-
-
-}
-.menu2{
-    height:63pt;
-    width:63pt;
-    margin: 10pt 10pt 20pt 10pt;
-    background-image: url('image/menu_2.png');
-    background-repeat:no-repeat;
-    background-size: 100%;
-
-    
-}
-.menu3{
-    height:63pt;
-    width:63pt;
-    margin: 10pt 10pt 20pt 10pt;
-    background-image: url('image/menu_3.png');
-    background-repeat:no-repeat;
-    background-size: 100%;
-
-    
-}
-.menu4{
-    height:63pt;
-    width:63pt;   
-    margin: 10pt 10pt 20pt 15pt;
-    background-image: url('image/menu_4.png');
-    background-repeat:no-repeat;
-    background-size: 100%; 
-}
-.menu5{ 
-    height:63pt;
-    width:63pt;
-    margin: 10pt 10pt 20pt 30pt;
-    background-image: url('image/menu_5.png');
-    background-repeat:no-repeat;
-    background-size: 100%;
-    
-
-    
-}
-.menu6{
-    height:63pt;
-    width:63pt;
-    margin: 10pt 05pt 20pt 30pt;
-    background-image: url('image/menu_6.png');
-    background-repeat:no-repeat;
-    background-size: 100%;
-
-    
-    
-
-}
-.menu7{
-    height:63pt;
-    width:63pt;
-    margin: 10pt 10pt 20pt 15pt;
-    background-image: url('image/menu_7.png');
-    background-repeat:no-repeat;
-    background-size: 100%; 
-    font-size: 12pt;;
-
-}
-.menu8{
-    height:63pt;
-    width:63pt;
-    margin: 10pt 10pt 20pt 15pt;
-    background-image: url('image/menu_8.png');
-    background-repeat:no-repeat;
-    background-size: 100%;
-
-}
-.menu9{
-    height:63pt;
-    width:63pt;
-    margin: 10pt 10pt 20pt 20pt;
-    background-image: url('image/menu_9.jpg');
-    background-repeat:no-repeat;
-    background-size: 103%;
-
-}
-.think{
-    height: 72pt;
-    background-image : url('image/think_1.jpg'); 
-}
-.item4{
-    height:125pt;
-    font:17pt bold left;
-}
-.sub{
-    width:339pt;
-    height:105pt;
-    margin: 0 9pt 0 9pt;
-    display:flex;
-    flex-wrap: wrap;
-    justify-content:space-around;
-    background-color:#FEFAF6;
-
-}
-.sub1{
-    height:105pt;
-    width:97pt;
-    margin: 2pt 9pt 0 0;
-    background-image: url('image/moms.png');
-    background-repeat:no-repeat;
-    background-size: 100%;
-
-}
-.sub2{
-    height:105pt;
-    width:97pt;
-    margin: 2pt 9pt 0 9pt;
-    background-image: url('image/myung.png');
-    background-repeat:no-repeat;
-    background-size: 100%;
-}
-.sub3{
-    height:105pt;
-    width:97pt;
-    margin: 2pt 9pt 0 9pt;
-    background-image: url('image/domino.png');
-    background-repeat:no-repeat;
-    background-size: 100%;
-}
-
- */
