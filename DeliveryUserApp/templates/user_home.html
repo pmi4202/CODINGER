@@ -97,10 +97,12 @@
         <div class="label">단골가게</div>
       </div>
       <div class="list">
-        <div class="store-wrapper">
-          <img class="store-img" src="{% static 'image/store_01.png' %}" >
-          <div class="store-label">쥬시</div>
-        </div>
+        <a href="{% url 'user_store_detail' %}">
+          <div class="store-wrapper">
+            <img class="store-img" src="{% static 'image/store_01.png' %}" >
+            <div class="store-label">쥬시</div>
+          </div>
+        </a>
       </div>
     </div>
     

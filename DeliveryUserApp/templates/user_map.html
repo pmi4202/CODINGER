@@ -12,17 +12,18 @@
 </head>
 
 <body>
-    모집중인공고
+  <div class="container">
+    <div id="map" class="map"></div>
     <div class="nav-wrapper">
       <a href="{% url 'user_home' %}">
         <div class="column nav">
-          <div class="nav-active"></div>
           <img class="nav-icon" src="{% static 'image/nav-home.png' %}" >
           <div class="nav-label">홈</div>
         </div>
       </a>
       <a href="{% url 'user_map' %}">
         <div class="column nav">
+          <div class="nav-active"></div>
           <img class="nav-icon" src="{% static 'image/nav-map.png' %}" >
           <div class="nav-label">모집중공고</div>
         </div>
@@ -34,6 +35,18 @@
         </div>
       </a>
     </div>
+  </div>
+    <script type="text/javascript"
+        src="//dapi.kakao.com/v2/maps/sdk.js?appkey=2e4861cf241e753c7c60c90ba811a319"></script>
+    <script>
+        var container = document.getElementById('map');
+        var options = {
+            center: new kakao.maps.LatLng(33.450701, 126.570667),
+            level: 3
+        };
+
+        var map = new kakao.maps.Map(container, options);
+    </script>
 </body>
 
 </html>

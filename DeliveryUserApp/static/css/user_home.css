@@ -185,6 +185,7 @@
 }
 
 .nav-label {
+  width: max-content;
   font-size: 10px;
   font-weight: bold;
 }
