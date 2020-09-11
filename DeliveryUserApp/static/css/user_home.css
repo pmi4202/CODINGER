@@ -1,4 +1,6 @@
-.container {}
+.container {
+  padding-bottom: 67px;
+}
 
 .row {
   display: flex;
@@ -42,9 +44,9 @@
 
 .content-wrapper {
   padding: 35px 0;
-  background-image: url('/web_static/image/bg-top.png'), url('/web_static/image/bg-bottom.png');
+  background-position: center;
+  background-image: url('/web_static/image/back.png');
   background-repeat: no-repeat;
-  background-position: 0 69.5px, 0 285px;
 }
 
 .input-section {
