@@ -1,13 +1,43 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/user_signup.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/global.css' %}">
+    <link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@400;700&display=swap" rel="stylesheet">
+    <title>회원가입 페이지</title>
 </head>
+
 <body>
-    user_signup
-    <!-- <a href="{% url 'store_menu' %}">메뉴 관리</a>
-    <a href="{% url 'store_order' %}">주문 관리</a> -->
+
+    <div class="container background">
+        <a href="{% url 'user_home' %}">뒤로 가기</a>
+        <div class="whiteboard"> <img class="whiteboard1" src="image/login1_2.png" alt="">
+            <br><br><br><br><br><br><br><br>
+
+            <form id="login-form" method="post">
+                <div class="name"> <span> 회원가입</span></div>
+
+
+                <div class="one">
+                    <div><input name="userid" class="userid" placeholder="아이디" type="text"></div>
+                    <div> <button class="button1"><span>중복확인</span></button></div>
+                </div>
+                <input name="password" class="password" placeholder="패스워드" type="password">
+                <input name="password" class="password" placeholder="패스워드 재입력" type="password">
+                <input type="image" class="ok" src="image/login2_1.png" value="확인">
+
+
+
+
+
+            </form>
+        </div>
+
+    </div>
+
 </body>
+
 </html>

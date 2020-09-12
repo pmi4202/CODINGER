@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>분류편집</title>
+</head>
+<body>
+    <a href="{% url 'store_category_add' %}">분류추가</a>
+    {% for category in categories.all %}
+        <br>
+        {{category.categoryName}}
+        {{category.orderMethod}}
+        <!--<a href="{% url 'store_category_edit' category.id %}">편집</a>
+        <a href="{% url 'store_category_delete' category.id %}">삭제</a>-->
+    {% endfor %}
+</body>
+</html>

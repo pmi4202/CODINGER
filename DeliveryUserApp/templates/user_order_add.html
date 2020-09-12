@@ -1,0 +1,55 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/user_order_add.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/global.css' %}">
+    <link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@400;700&display=swap" rel="stylesheet">
+    <title>메뉴선택</title>
+</head>
+
+<body>
+    <div class="container">
+        <div class="item1">
+            <a href="{% url 'user_store_detail' %}">
+                <img src="{% static 'image/arrow-back.png' %}">
+            </a>
+        </div>
+        <div class="item2"> <img id="juice" src="{% static 'image/menu_1.png' %}" alt=""> </div>
+        <div class="item3">
+            {{menu.menuName}}
+        </div>
+        <div id="item3_1">{{menu.menuPrice}}<br>
+            {{menu.menuDetail}}<br>
+        </div>
+        <br><br><br>
+        <hr class="hr1">
+        <br><br>
+        <div class="item5">
+            <b id="item5_1"> 수량</id></b>
+            &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+            <img src="{% static 'image/minus.png' %}">&ensp; <id="item5_2">2</id> &ensp; <img
+                    src="{% static 'image/plus.png' %}">
+        </div>
+        <br>
+        <div class="item6">
+            <b id="item5_1"> 금액</id></b>
+            &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+            &ensp; <id="item5_2">10,000원</id>
+
+        </div>
+        <br><br><br><br><br><br>
+        <a href="{% url 'user_store_detail' %}">
+            <div class="item7">
+                <div>담기</div>
+            </div>
+        </a>
+    </div>
+
+
+</body>
+
+</html>

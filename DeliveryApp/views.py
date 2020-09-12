@@ -1,7 +1,8 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth.models import User
 from django.contrib import auth
-from .models import Store, Menu
+from .models import Store, Menu, Order, DeliveryPrice, User, DeliveryInfo, Option, Category
+
 # Create your views here.
 
 def store_login(request):
@@ -40,36 +41,7 @@ def store_menu(request):
     menus = Menu.objects.filter(menuList = store)
     return render(request, 'store_menu.html', {'menus' : menus})
 
-#접수 대기
-def store_order(request):
-    return render(request, 'store_order.html')
-#주문 정보
-def store_order_detail(request):
-    return render(request, 'store_order_detail.html')
-#주문 접수
-def store_order_add(request):
-    if request.method == 'POST':
-        time=request.POST['time']
-        return render(request, 'store_order.html', {'time':'time'})
-    else:
-        return render(request, 'store_order_add.html')
-#주문 취소
-def store_order_delete(request):
-    return render(request, 'store_order_delete.html')
-
-#진행중
-def store_order2(request):
-    return render(request, 'store_order2.html')
-
-#완료내역
-def store_order3(request):
-    return render(request, 'store_order3.html')
-
-#취소내역
-def store_order4(request):
-    return render(request, 'store_order4.html')
-
-#메뉴추가 테스트용
+#메뉴추가
 def store_menu_add(request):
     if request.method == 'POST':
         store = Store.objects.get(ownerName = request.user.username)
@@ -81,7 +53,6 @@ def store_menu_add(request):
         menu.menuDetail = request.POST['menu_detail']
         menu.menuPrice = request.POST['menu_price']
         menu.menuOrder = 0
-        menu.optionNumber = 0 #메뉴 추가할 때 초기 옵션 수는 0
         menu.save()
 
         menus = Menu.objects.filter(menuList = store)
@@ -112,3 +83,58 @@ def store_menu_delete(request, menu_id):
     store = Store.objects.get(ownerName = request.user.username)
     menus = Menu.objects.filter(menuList = store)
     return render(request, 'store_menu.html', {'menus':menus})
+
+#분류관리
+def store_category(request):
+    store = Store.objects.get(ownerName = request.user.username)
+    categories = Category.objects.filter(categoryList = store)
+    return render(request, 'store_category.html', {'categories' : categories})
+
+#분류추가
+def store_category_add(request):
+    if request.method == 'POST':
+        store = Store.objects.get(ownerName = request.user.username)
+
+        category = Category()
+        category.categoryList = store
+        category.categoryName = request.POST['category_name']
+        category.orderMethod = request.POST['category_order_method']
+        category.save()
+
+        categories = Category.objects.filter(categoryList = store)
+        return render(request, 'store_category.html', {'categories' : categories})
+    else:
+        return render(request, 'store_category_add.html')
+
+#접수 대기
+def store_order(request):
+    orders = Order.objects.filter(storeId = request.user.username)
+    wait_orders = orders.filter(status = "접수대기")
+    
+    return render(request, 'store_order.html', {'wait_orders':wait_orders})
+
+#주문 정보
+def store_order_detail(request):
+    return render(request, 'store_order_detail.html')
+#주문 접수
+def store_order_add(request):
+    if request.method == 'POST':
+        time=request.POST['time']
+        return render(request, 'store_order.html', {'time':'time'})
+    else:
+        return render(request, 'store_order_add.html')
+#주문 취소
+def store_order_delete(request):
+    return render(request, 'store_order_delete.html')
+
+#진행중
+def store_order2(request):
+    return render(request, 'store_order2.html')
+
+#완료내역
+def store_order3(request):
+    return render(request, 'store_order3.html')
+
+#취소내역
+def store_order4(request):
+    return render(request, 'store_order4.html')

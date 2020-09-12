@@ -11,14 +11,21 @@
     Order
     <a href="{% url 'store_home' %}">가게 정보</a>
     <br>
-    
-        <a href="{% url 'store_order' %}">주문 관리</a>
-        <a href="{% url 'store_menu' %}">메뉴 관리</a>
-    
+    <a href="{% url 'store_order' %}">주문 관리</a>
+    <a href="{% url 'store_menu' %}">메뉴 관리</a>
+
     <a href="{% url 'store_order' %}">접수대기</a>
-    <!--<a href="{% url 'store_order_detail' %}">주문 정보</a>-->
-    <!--<a href="{% url 'store_order' %}" onclick="window.open('detail', 'store_order_detail', 'width=900, height=400, menubar=no, location=no, status=no, toolbar=no, top=200, left=300');">주문정보</a>-->
     
+    {% for order in wait_orders.all %}
+        {{order.createdAt}}
+        <br>
+        {{order.totalPeople}}
+        <br>
+        {{order.totalPrice}}
+        <br>
+        
+    {% endfor %}
+
     <a class="button" href="#popup1">주문 정보</a>
 
     <div id="popup1" class="overlay">
@@ -64,7 +71,6 @@
     <a href="{% url 'store_order2' %}">진행중</a>
     <a href="{% url 'store_order3' %}">완료내역</a>
     <a href="{% url 'store_order4' %}">취소내역</a>
-
 
 </body>
 </html>
