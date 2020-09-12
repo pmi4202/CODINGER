@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 
@@ -11,33 +12,23 @@
 </head>
 
 <body>
-
-    <div class="container background">
-        <a href="{% url 'user_home' %}">뒤로 가기</a>
-        <div class="whiteboard"> <img class="whiteboard1" src="image/login1_2.png" alt="">
-            <br><br><br><br><br><br><br><br>
-
-            <form id="login-form" method="post">
-                <div class="name"> <span> 회원가입</span></div>
-
-
-                <div class="one">
-                    <div><input name="userid" class="userid" placeholder="아이디" type="text"></div>
-                    <div> <button class="button1"><span>중복확인</span></button></div>
-                </div>
-                <input name="password" class="password" placeholder="패스워드" type="password">
-                <input name="password" class="password" placeholder="패스워드 재입력" type="password">
-                <input type="image" class="ok" src="image/login2_1.png" value="확인">
-
-
-
-
-
-            </form>
+  <div class="container">
+    <img class="background" src="{% static 'image/bg-login.png' %}">
+    <div class="content-wrapper">
+      <div class="content-card">
+        <div class="label">
+          <div>회원가입</div>
         </div>
-
+        <input type="text" placeholder="닉네임" />
+        <input type="text" placeholder="아이디" />
+        <input type="text" placeholder="패스워드" />
+        <input type="text" placeholder="패스워드 재입력" />
+        <a class="newsignup" href="{% url 'user_login' %}">
+          확인
+        </a>
+      </div>
     </div>
-
+  </div>
 </body>
 
 </html>

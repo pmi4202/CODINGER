@@ -1,4 +1,82 @@
-body{
+.container {
+    margin: 0;
+    padding: 0;
+    display:flex; 
+    flex-direction: column;
+    width: 100vw;
+    height: 100vh;
+  }
+  
+  .background{
+    width:100vw;
+    height:303px;
+    margin-top: -8px;
+  
+  }
+  
+  .content-wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: center;
+    position: absolute;
+  }
+  
+  .content-card {
+    background-color: #fff;
+    box-shadow: 0 0px 10px #0000001A;
+    border-top-left-radius: 14px;
+    border-top-right-radius: 14px;
+    width: calc(100vw - 82px);
+    height: calc(100vh - 140px);
+    margin-top: 95px;
+    margin-left: 16.5px;
+    padding: 43px 24.5px 0 24.5px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .label {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: left;
+    font-size: 20px;
+    font-weight: bold;
+    color: #FB6254;
+    margin-bottom: 77px;
+  }
+  
+  input {
+    border-radius: 5px;
+    border: 1px solid rgba(0,0,0,0.29);
+    padding: 18px 0 18px 21px;
+    width: calc(100% - 21px);
+    margin-bottom: 12px;
+    font-size: 13px;
+    line-height: 1.15;
+  }
+  
+  input::placeholder {
+    font-size: 13px;
+    line-height: 1.15;
+  }
+  
+  .newsignup {
+    width: 100%;
+    background-color: rgba(255, 107, 107, 0.86);
+    margin-top: 16px;
+    margin-bottom: 41px;
+    text-align: center;
+    font-size: 18px;
+    font-weight: bold;
+    color: #fff;
+    padding: 15.5px 0;
+    text-decoration: none;
+  }
+
+/* body{
     width: 375pt;
     height: 812pt;
 }
@@ -89,4 +167,4 @@ button.button1 span{color:#FF6B6B; font-family: 나눔고딕,bold;}
 }
 .ok{
     margin-left: 15pt;
-}
+} */
