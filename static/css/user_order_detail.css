@@ -1,0 +1,212 @@
+body{
+    width: 375pt;
+    height: 812pt;
+}
+.background{
+    width:375pt;
+    height:315pt;
+    background-image: url('image/order2_1.png');
+    background-repeat:no-repeat;
+    background-position: top-center;
+    
+    background-size: cover ;
+    flex-direction: column;
+    background-color:#FFFFFF
+
+}
+.item1{
+    height: 69pt;
+    background-color: #FFFFFF;
+    background-repeat:no-repeat;
+    background-position: top-center;
+    background-size: cover;
+    background width: 375pt;
+    background height: 69pt;
+    border-bottom: 1px #00000026 solid;
+}
+#back{
+    width: 17pt;
+    height: 17pt;
+    margin-top: 24pt;
+
+}
+#item1_1{
+    font-size: 16pt;
+    font-family: 나눔고딕;
+    text-align: center;
+}
+/* hr{
+    background-color:#00000029;
+    height: 1pt;
+    border: 0pt;
+} */
+.item2{
+    border: 1px solid #00000026;
+    background-color: #FFFFFF;
+    padding:10pt;
+    width: 334pt;
+    height: 150pt;
+    text-align: ;
+    margin-top: 15pt;
+    margin-left: 10pt;
+    
+  
+}
+#item2_1{
+    font-size: 14pt;
+    color: black;
+    font-weight: 
+    font-family: 나눔고딕;
+
+
+}
+.item2_2{
+    width: 13pt;
+}
+.item3{
+    border: 1px solid #00000026;
+    background-color: #FFFFFF;
+    padding:10pt;
+    width: 334pt;
+    height: 140pt;
+    text-align: ;
+    margin-top: 15pt;
+    margin-left: 10pt;
+    
+}
+.item3_1{
+    font-size: 14pt;
+    color: black;
+    font-weight: bold;
+    font-family: 나눔고딕;
+}
+#item3_2{
+    font-size: 10pt;
+    color: black;
+    font-weight: 
+    font-family: 나눔고딕;
+}
+#item3_3{
+    background-color: #38353526;
+    border-radius: 30%;
+}
+
+
+#item4_1{
+    font-size: 14pt;
+    color: #FB6254;
+    font-weight: bold;
+    font-family: 나눔고딕;
+    margin-top:;
+ 
+}
+#item4_2{
+    font-size: 14pt;
+    color: black;
+    font-weight: bold;
+    font-family: 나눔고딕;
+}
+#item4_3{
+    color: #00000026;
+    width: 320pt;
+    border: 1px solid;
+}
+#item4_4{
+    font-size: 14pt;
+    color: black;
+    font-weight: bold;
+    font-family: 나눔고딕;
+}
+.item4{
+    border: 1px solid #00000026;
+    padding:10pt;
+    width: 334pt;
+    height: 100pt;
+    text-align: ;
+    margin-top: 15pt;
+    margin-left: 10pt;
+    
+}
+
+
+.item5{
+    border: 1px solid #00000026;
+    padding:10pt;
+    width: 145pt;
+    height: 70pt;
+    margin-right: 12pt;
+    margin-left: 17pt;
+    text-align: left;
+    font: 12pt #FB6254 나눔고딕;
+}
+.item6{
+    border: 1px solid #00000026;
+    padding:10pt;
+    width: 145pt;
+    height: 70pt;
+    text-align: left;
+    
+}
+.item56{
+    display: flex;
+    width: 375pt;
+    margin-top: 12pt;
+}
+#item5_1{
+    font-size: 12pt;
+    color: #FB6254;
+    font-weight: bold;
+    font-family: 나눔고딕;
+    margin-top: 17pt;
+}
+#item6_1{
+    font-size: 12pt;
+    color: #FB6254;
+    font-weight: bold;
+    font-family: 나눔고딕;
+    margin-top: 17pt ;
+}
+.item6_2{
+    width: 14pt;
+    margin-left: 15pt;
+    margin-right: 10pt;
+
+}
+.item6_3{
+    width: 14pt;
+    margin-left: 10pt;
+    
+
+}
+
+.item7{
+    border: 1px solid #00000026;
+    padding:10pt;
+    width: 334pt;
+    height: 40pt;
+    text-align: center;
+    margin-top: 15pt;
+    margin-left: 10pt;
+    
+}
+#item7_1{
+    font-size: 14pt;
+    color: #FB6254;
+    font-weight: bold;
+    font-family: 나눔고딕;
+    margin-top: 20pt;
+}
+#item7_2{
+    font-size: 14pt;
+    color: black;
+    font-weight: bold;
+    font-family: 나눔고딕;
+    margin-top: ;
+}
+.item8{
+    background-image: url('image/order1_5.png');
+    background-repeat:no-repeat;
+    background-position:center;
+
+    height: 59pt;
+}

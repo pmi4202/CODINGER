@@ -1,0 +1,149 @@
+.container {
+  width: 100vw;
+  background-color: #FEFAF6;
+}
+
+.top-wrapper {
+  padding-top: 32px;
+  background-color: #fff;
+  padding: 32px 30px 26px 30px;
+  margin-bottom: 6px;
+  box-shadow: 0 1px 2px #00000029;
+}
+
+.nav-wrapper {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.icon-back {
+  width: 11px;
+  height: 11px;
+}
+
+.icon-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: -6px;
+}
+
+.icon-wrapper img {
+  width: 77px;
+  height: 77px;
+  margin-bottom: 14px;
+}
+
+.price-info-wrapper {
+  padding: 13px 29px 14px 27px;
+  background-color: #fff;
+  margin-bottom: 6px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  box-shadow: 0 1px 2px #00000029;
+  align-items: center;
+}
+
+.price-column {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: -9px;
+}
+
+.icon-phone {
+  width: 33px;
+  height: 33px;
+}
+
+.row {
+  display: flex;
+  flex-direction: row;
+}
+
+.row div {
+  font-size: 11px;
+  margin-bottom: 9px;
+}
+
+.tab-wrapper {
+  display: flex;
+  flex-direction: row;
+  background-color: #fff;
+  justify-content: space-between;
+  padding: 22px 91px 0 91px;
+  box-shadow: 0 1px 2px #00000029;
+}
+
+.tab-wrapper div {
+  padding-bottom: 15px;
+  font-size: 15px;
+  line-height: 1.13;
+  color: #636363;
+}
+
+.tab-wrapper .active {
+  border-bottom: 4px solid #FF6B6B;
+  font-weight: bold;
+  color: #000;
+}
+
+.content-wrapper {}
+
+.content-wrapper a {
+  text-decoration: none;
+  color: #000;
+}
+
+.between {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 36px;
+  background-color: #fff;
+  border-bottom: 1px solid #00000029;
+}
+
+.label {
+  background-color: #EBE7E766;
+  padding: 16px 36px 12.5px 36px;
+  font-size: 14px;
+  line-height: 1.14;
+}
+
+.confirm-btn {
+  position: fixed;
+  width: 60.6pt;
+  width: 60.6pt;
+  bottom: 35px;
+  right: 28.4px;
+}
+
+.menu-info-wrapper {}
+
+.menu-label {
+  font-weight: bold;
+  font-size: 15px;
+  line-height: 1.13;
+  margin-bottom: 7px;
+}
+
+.menu-sub-label {
+  font-size: 12px;
+  line-height: 1.16;
+  color: #585858;
+  margin-bottom: 11px;
+}
+
+.menu-cost {
+  font-size: 15px;
+  line-height: 1.13;
+}
+
+.menu-mark {
+  width: 68px;
+  height: 68px;
+}
