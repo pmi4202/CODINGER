@@ -1,0 +1,69 @@
+*{
+    margin: 0;
+    padding : 0; 
+    text-decoration:none; 
+    box-sizing : border-box;
+}
+
+body{
+    min-height:100vh;
+}
+
+.Login_Form{
+    width : 450px;
+    background-color : white;
+    height : 600px;
+    padding : 90px 50px;
+    border-radius: 5px;
+    position : absolute;
+    left : 50%;
+    top:50%;
+    transform : translate(-50%,-50%);
+    border: solid 1px #ccc;
+    box-shadow: 3px 3px 3px #ccc;
+}
+
+.Login_Form h1{
+    text-align:center;
+    margin-bottom : 170px;
+}
+
+.txtb1{
+    margin-bottom: 10px;
+    }
+.txtb2{
+    margin-bottom: 60px;
+    } 
+.txtb1 input{
+    font-size : 15px; 
+    color : #333; 
+    width : 100%;
+    border : solid 2px #dadbdd; 
+    border-radius: 6px;
+    padding-left : 30px; 
+    height : 40px; 
+    outline : none;   
+}
+.txtb2 input{
+    font-size : 15px; 
+    color : #333; 
+    width : 100%;
+    border : solid 2px #dadbdd; 
+    border-radius: 6px;
+    padding-left : 30px; 
+    height : 40px; 
+    outline : none;   
+}
+.loginbt{
+    display : block; 
+    width :70%;
+    height : 50px; 
+    border : none; 
+    background:#ff6b6b;
+    background-size : 200%;
+    color : #fff; 
+    outline : none ;
+    transition :.5s;   
+    font-weight: bold;
+    margin: auto;
+}

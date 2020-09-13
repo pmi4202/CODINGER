@@ -1,6 +1,7 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth.models import User
 from django.contrib import auth
+from .models import Store, Menu, Order, DeliveryPrice, User, DeliveryInfo, Option, Category
 
 # Create your views here.
 
@@ -14,7 +15,7 @@ def store_login(request):
         # 성공
         if user is not None:
             auth.login(request, user)
-            return redirect('store_home')
+            return redirect('store_order')
         # 실패
         else:
             return render(request, 'store_login.html', {'error': 'id or password is incorrect.'})
@@ -25,21 +26,93 @@ def store_logout(request):
     if request.method == 'POST': # POST 방식으로 request를 통해 정보가 오면
         # 로그아웃
         auth.logout(request)
-        return redirect('store_home')
+        return redirect('store_order')
     return render(request, 'store_login.html')
 
 
 #로그인 후, 처음 보이는 화면(디자인은 없음..)
 def store_home(request):
-    return render(request, 'store_home.html')
+    store = Store.objects.get(ownerName = request.user.username)
+    return render(request, 'store_home.html', {'store':store})
 
 #메뉴 관리
 def store_menu(request):
-    return render(request, 'store_menu.html')
+    store = Store.objects.get(ownerName = request.user.username)
+    menus = Menu.objects.filter(menuList = store)
+    return render(request, 'store_menu.html', {'menus' : menus})
+
+#메뉴추가
+def store_menu_add(request):
+    if request.method == 'POST':
+        store = Store.objects.get(ownerName = request.user.username)
+
+        menu = Menu()
+        menu.menuList = store
+        menu.categoryName = request.POST['menu_category']
+        menu.menuName = request.POST['menu_name']
+        menu.menuDetail = request.POST['menu_detail']
+        menu.menuPrice = request.POST['menu_price']
+        menu.menuOrder = 0
+        menu.save()
+
+        menus = Menu.objects.filter(menuList = store)
+        return render(request, 'store_menu.html', {'menus':menus})
+    else:
+        return render(request, 'store_menu_add.html')
+
+def store_menu_edit(request, menu_id):
+    menu = get_object_or_404(Menu, pk= menu_id) # 특정 객체 가져오기(없으면 404 에러)
+    return render(request, 'store_menu_edit.html', {'menu':menu})
+
+def store_menu_update(request, menu_id):
+    menu= get_object_or_404(Menu, pk= menu_id) # 특정 객체 가져오기(없으면 404 에러)
+    menu.categoryName = request.GET['categoryName'] # 내용 채우기
+    menu.menuName = request.GET['menuName'] # 내용 채우기
+    menu.menuPrice = request.GET['menuPrice']
+    menu.menuDetail = request.GET['menuDetail']
+    menu.save()
+    
+    store = Store.objects.get(ownerName = request.user.username)
+    menus = Menu.objects.filter(menuList = store)
+    return render(request, 'store_menu.html', {'menus':menus})
+
+def store_menu_delete(request, menu_id):
+    menu= get_object_or_404(Menu, pk= menu_id) # 특정 객체 가져오기(없으면 404 에러)
+    menu.delete()
+
+    store = Store.objects.get(ownerName = request.user.username)
+    menus = Menu.objects.filter(menuList = store)
+    return render(request, 'store_menu.html', {'menus':menus})
+
+#분류관리
+def store_category(request):
+    store = Store.objects.get(ownerName = request.user.username)
+    categories = Category.objects.filter(categoryList = store)
+    return render(request, 'store_category.html', {'categories' : categories})
+
+#분류추가
+def store_category_add(request):
+    if request.method == 'POST':
+        store = Store.objects.get(ownerName = request.user.username)
+
+        category = Category()
+        category.categoryList = store
+        category.categoryName = request.POST['category_name']
+        category.orderMethod = request.POST['category_order_method']
+        category.save()
+
+        categories = Category.objects.filter(categoryList = store)
+        return render(request, 'store_category.html', {'categories' : categories})
+    else:
+        return render(request, 'store_category_add.html')
 
 #접수 대기
 def store_order(request):
-    return render(request, 'store_order.html')
+    orders = Order.objects.filter(storeId = request.user.username)
+    wait_orders = orders.filter(status = "접수대기")
+    
+    return render(request, 'store_order.html', {'wait_orders':wait_orders})
+
 #주문 정보
 def store_order_detail(request):
     return render(request, 'store_order_detail.html')
@@ -47,7 +120,6 @@ def store_order_detail(request):
 def store_order_add(request):
     if request.method == 'POST':
         time=request.POST['time']
-        print(time)
         return render(request, 'store_order.html', {'time':'time'})
     else:
         return render(request, 'store_order_add.html')

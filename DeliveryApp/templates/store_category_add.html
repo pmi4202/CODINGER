@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>분류추가</title>
+</head>
+<body>
+    <form method="POST" action ="{% url 'store_category_add'%}">
+        {% csrf_token %}
+        분류명 : <input type="text" name="category_name"></input>
+        <br>
+        주문방식 : <input type="text" name="category_order_method"></input>
+        <input type="submit" value="저장"></input>
+    </form>
+</body>
+</html>

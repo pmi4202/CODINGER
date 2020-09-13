@@ -21,9 +21,9 @@
     <div class="content-wrapper">
       <img id="juice" src="{% static 'image/menu_1.svg' %}" alt="">
       <div class="item3">
-        딸바
-        <div id="item3_1">5000원<br>
-          냉동 딸기+바나나<br>
+        {{menu.menuName}}
+        <div id="item3_1">{{menu.menuPrice}}<br>
+          {{menu.menuDetail}}<br>
         </div>
       </div>
       <div class="item5">

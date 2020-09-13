@@ -7,8 +7,17 @@
 </head>
 <body>
     Home
-    <a href="{% url 'store_menu' %}">메뉴 관리</a>
-    <a href="{% url 'store_order' %}">주문 관리</a>
-    
+    <!--가게 정보 테스트용으로..-->
+    {{store.ownerName}}
+    <br>
+    {{store.storeName}}
+    <br>
+    최소주문금액 : {{store.minOrderPrice}}원
+    <br>
+    {{store.createdAt}}
+    <br>
+    {{store.storeAddress}}
+    <br>
+    {{store.storeTel}}
 </body>
 </html>

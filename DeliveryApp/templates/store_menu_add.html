@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>메뉴추가</title>
+</head>
+<body>
+    <form method="POST" action ="{% url 'store_menu_add'%}">
+        {% csrf_token %}
+        <!--<input type="hidden" value = "{{Store.id}}" name="storeid"></input>-->
+        메뉴분류 : <input type="text" name="menu_category"></input>
+        <br>
+        메뉴명 : <input type="text" name="menu_name"></input>
+        <br>
+        가격 : <input type="text" name="menu_price"></input>
+        <br>
+        상세설명 : <input type="text" name="menu_detail"></input>
+        <br>
+        <input type="submit" value="저장"></input>
+    </form>
+</body>
+</html>

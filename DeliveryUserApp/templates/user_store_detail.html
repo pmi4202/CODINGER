@@ -14,6 +14,61 @@
 <body>
   <div class="container">
     <div class="top-wrapper">
+        <div class="nav-wrapper">
+            <a href="{% url 'user_category_list' %}">
+            <img src="{% static 'image/arrow-back.png' %}">
+            </a>
+            <img src="{% static 'image/heart.png' %}" />
+        </div>
+        <div class="icon-wrapper">
+            <img src="{% static 'image/store_01.png' %}">
+            <div>쥬씨 복현점</div>
+        </div>
+    </div>
+    <div class="price-info-wrapper">
+        <div>
+            <div class="row">
+            <div>최소주문 금액</div>
+            <div>10,000원</div>
+            </div>
+            <div class="row">
+            <div>배달비</div>
+            <div>1,000 ~ 4,000원</div>
+            </div>
+        </div>
+        <img src="{% static 'image/phone.png' %}">
+    </div>
+    <div class="tab-wrapper">
+        <div>메뉴</div>
+        <div>정보</div>
+    </div>
+    <div class="content-wrapper">
+        {% for category in categories.all %}
+        <br>
+        <div class="label">{{category.categoryName}}</div>
+            {% for menu in menus.all %}
+                {% if menu.categoryName == category.categoryName %}
+                    <br>
+                    <a href="{% url 'user_order_add' menu.id %}">
+                        <div class="row between">
+                            <div>
+                                <div>{{menu.menuName}}</div>
+                                <div>{{menu.menuDetail}}</div>
+                                <div>{{menu.menuPrice}}</div>
+                            </div>
+                            <img src="{% static 'image/menu_1.png' %}">
+                        </div>
+                    </a>
+                {% endif %}
+            {% endfor %}
+        {% endfor %}
+
+    <a href="{% url 'user_order_detail' %}">
+        <img class="confirm-btn" src="{% static 'image/menu_add.png' %}">
+    </a>
+  </div>
+  <!-- <div class="container">
+    <div class="top-wrapper">
       <div class="nav-wrapper">
         <a href="{% url 'user_category_list' %}">
           <img class="icon-back" src="{% static 'image/arrow-back.png' %}">
@@ -128,7 +183,7 @@
     <a href="{% url 'user_order_detail' %}">
       <img class="confirm-btn" src="{% static 'image/menu_add.png' %}">
     </a>
-  </div>
+  </div> -->
 </body>
 
 </html>
