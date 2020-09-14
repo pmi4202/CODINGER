@@ -111,12 +111,38 @@
         </div>
       </div>
       <div class="action-wrapper">
-        <a class="action-btn" href="{% url 'user_home' %}">
+        <div class="action-btn" id="action-modal">
           공구 모집하기
+        </div>
+      </div>  
+    </div>
+    <div id="modal" class="modal-wrapper">
+      <div class="modal-card">
+        <div class="modal-label">공구 모집 시작</div>
+        <div class="modal-label2">진행 현황은 MY페이지에서 확인해주세요</div>
+        <a class="action-btn3" href="{% url 'user_home' %}">
+          홈으로
+        </a>
+        <a class="action-btn3 non-margin" href="{% url 'user_detail' %}">
+          현황보기
         </a>
       </div>
-      
     </div>
+    <script>
+      var modal = document.getElementById('modal');
+ 
+      var btn = document.getElementById("action-modal");
+        
+      btn.onclick = function() {
+        modal.style.display = "flex";
+      }
+
+      window.onclick = function(event) {
+        if (event.target == modal) {
+          modal.style.display = "none";
+        }
+      }
+    </script>
 </body>
 
 </html>

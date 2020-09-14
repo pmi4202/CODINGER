@@ -13,7 +13,62 @@
 
 <body>
   <div class="container">
-    <div id="map" class="map"></div>
+    <div id="map" class="map">
+        <div class="top-section">
+            <div class="dropdown">
+                <button onclick="myFunction('dropdown1')" class="dropbtn">반경: 100m</button>
+                <div id="dropdown1" class="dropdown-content">
+                    <div>100m</div>
+                    <div>200m</div>
+                    <div>300m</div>
+                </div>
+            </div>
+            <div class="dropdown">
+                <button onclick="myFunction('dropdown2')" class="dropbtn">분류: 전체</button>
+                <div id="dropdown2" class="dropdown-content">
+                    <div>전체</div>
+                    <div>한식</div>
+                    <div>일식</div>
+                </div>
+            </div>
+            <div class="dropdown">
+                <button onclick="myFunction('dropdown3')" class="dropbtn">중간 수령</button>
+                <div id="dropdown3" class="dropdown-content">
+                    <div>중간수령</div>
+                    <div>개인수령</div>
+                </div>
+            </div>
+        </div>
+        <div class="bottom-section">
+            <div class="info-wrapper">
+                <div class="row row-margin9">
+                    <img class="mark" src="{% static 'image/menu_2.svg' %}">
+                    <div class="label1">쥬씨 복현점</div>
+                    <img class="arrow" src="{% static 'image/sub_1.png' %}">
+                </div>
+                <div class="label2 row-margin28">딸기바나나 2, 아메리카노(ICE) 1, 블루베리 2</div>
+                <div class="between">
+                    <div class="info">
+                        <div class="label3">배달지</div>
+                        <div class="label2">대학로 8길 27</div>
+                    </div>
+                    <div class="info">
+                        <img class="info-icon" src="{% static 'image/map-time.png' %}">
+                        <div class="label2">2</div>
+                    </div>
+                    <div class="info">
+                        <img class="info-icon" src="{% static 'image/map-time.png' %}">
+                        <div class="label2">07:58</div>
+                    </div>
+                </div>
+            </div>
+            <div id="action-modal" class="action-btn">
+                <div></div>
+                <div class="label4">참여하기</div>
+                <div class="label5">4,000원</div>
+            </div>
+        </div>
+    </div>
     <div class="nav-wrapper">
       <a href="{% url 'user_home' %}">
         <div class="column nav">
@@ -33,6 +88,18 @@
           <img class="nav-icon" src="{% static 'image/nav-profile.png' %}" >
           <div class="nav-label">마이페이지</div>
         </div>
+      </a>
+    </div>
+  </div>
+  <div id="modal" class="modal-wrapper">
+    <div class="modal-card">
+      <div class="modal-label">공구 참여 완료</div>
+      <div class="modal-label2">진행 현황은 MY페이지에서 확인해주세요</div>
+      <a class="action-btn3" href="{% url 'user_home' %}">
+        홈으로
+      </a>
+      <a class="action-btn3 non-margin" href="{% url 'user_detail' %}">
+        현황보기
       </a>
     </div>
   </div>
@@ -110,6 +177,40 @@
             };
         }
     </script>
+    <script>
+        function myFunction(id) {
+            document.getElementById(id).classList.toggle("show");
+        }
+
+        // Close the dropdown if the user clicks outside of it
+        window.onclick = function(event) {
+            if (!event.target.matches('.dropbtn')) {
+                var dropdowns = document.getElementsByClassName("dropdown-content");
+                var i;
+                for (i = 0; i < dropdowns.length; i++) {
+                var openDropdown = dropdowns[i];
+                if (openDropdown.classList.contains('show')) {
+                    openDropdown.classList.remove('show');
+                }
+                }
+            }
+        }
+    </script>
+    <script>
+        var modal = document.getElementById('modal');
+   
+        var btn = document.getElementById("action-modal");
+          
+        btn.onclick = function() {
+          modal.style.display = "flex";
+        }
+  
+        window.onclick = function(event) {
+          if (event.target == modal) {
+            modal.style.display = "none";
+          }
+        }
+      </script>
 </body>
 
 </html>

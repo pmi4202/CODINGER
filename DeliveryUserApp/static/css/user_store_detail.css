@@ -90,8 +90,6 @@
   color: #000;
 }
 
-.content-wrapper {}
-
 .content-wrapper a {
   text-decoration: none;
   color: #000;
@@ -116,13 +114,11 @@
 
 .confirm-btn {
   position: fixed;
-  width: 60.6pt;
-  width: 60.6pt;
+  width: 100px;
+  width: 100px;
   bottom: 35px;
-  right: 28.4px;
+  right: 14.2px;
 }
-
-.menu-info-wrapper {}
 
 .menu-label {
   font-weight: bold;

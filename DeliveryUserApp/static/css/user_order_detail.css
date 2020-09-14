@@ -175,3 +175,55 @@
     font-size: 11px;
     font-weight: normal;
 }
+
+.modal-wrapper {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 100; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100vw; /* Full width */
+    height: 100vh; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+.modal-card {
+    background-color: #fff;
+    border-radius: 7px;
+    padding: 20px 0;
+    border: 1.5px solid #FB6254;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: calc(100vw - 40px); /* Could be more or less, depending on screen size */                          
+}
+
+.modal-label {
+    font-size: 13px;
+    font-weight: bold;
+    margin-bottom: 7px;
+}
+
+.modal-label2 {
+    font-size: 11px;
+    font-weight: normal;
+    margin-bottom: 16px;
+}
+
+.action-btn3 {
+    width: 76px;
+    height: 26px;
+    margin-bottom: 8px;
+    border-radius: 10px;
+    font-weight: bold;
+    font-size: 11px;
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #FB6254;
+    text-decoration: none;
+}

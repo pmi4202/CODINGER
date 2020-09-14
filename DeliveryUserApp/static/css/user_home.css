@@ -159,6 +159,11 @@
   color: #000;
 }
 
+.list a {
+  text-decoration: none;
+  color: #000;
+}
+
 .nav-wrapper {
   display: flex;
   flex-direction: row;
