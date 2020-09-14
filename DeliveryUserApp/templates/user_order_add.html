@@ -13,34 +13,34 @@
 
 <body>
   <div class="container">
-    <div class="item1">
-      <a href="{% url 'user_store_detail' %}">
-        <img class="icon-back" src="{% static 'image/arrow-back.png' %}">
-      </a>
-    </div>
     <div class="content-wrapper">
+      <div class="item1">
+        <a href="{% url 'user_store_detail' %}">
+          <img class="icon-back" src="{% static 'image/arrow-back.png' %}">
+        </a>
+      </div>
       <img id="juice" src="{% static 'image/menu_1.svg' %}" alt="">
       <div class="item3">
-        {{menu.menuName}}
-        <div id="item3_1">{{menu.menuPrice}}<br>
-          {{menu.menuDetail}}<br>
+        <div class="label1">{{menu.menuName}}</div>
+        <div class="label2">{{menu.menuPrice}}원</div>
+        <div class="label3">{{menu.menuDetail}}</div>
+      </div>
+      <div class="item4 bottom">
+        <div class="label4">수량</div>
+        <div class="between">
+          <img class="action-icon" src="{% static 'image/minus.png' %}">
+          <div class="label5">2</div>
+          <img class="action-icon" src="{% static 'image/plus.png' %}">
         </div>
       </div>
-      <div class="item5">
-        <b id="item5_1"> 수량</id></b>
-          &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
-        <img src="{% static 'image/minus.png' %}">
-          &ensp; &ensp; 
-        <img src="{% static 'image/plus.png' %}">
+      <div class="item4">
+        <div class="label4">금액</div>
+        <div class="label5">10,000원</div>
       </div>
-      <div class="item6">
-        <b id="item5_1"> 금액</id></b>
-        &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
-        &ensp;
-      </div>
-      <a class="newadd" href="{% url 'user_store_detail' %}">
-        담기
-      </a>
+    </div>
+    <a class="newadd" href="{% url 'user_store_detail' %}">
+      담기
+    </a>
     </div>
   </div>
 </body>
