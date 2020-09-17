@@ -4,15 +4,51 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>분류편집</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/store_category.css' %}">
 </head>
 <body>
-    <a href="{% url 'store_category_add' %}">분류추가</a>
-    {% for category in categories.all %}
-        <br>
-        {{category.categoryName}}
-        {{category.orderMethod}}
-        <!--<a href="{% url 'store_category_edit' category.id %}">편집</a>
-        <a href="{% url 'store_category_delete' category.id %}">삭제</a>-->
-    {% endfor %}
+    <div class="grid">
+        <div class="menu-1">
+            <div class="mg1">
+                <a class="w" href="{% url 'store_order' %}">주문 관리</a>
+            </div>
+            <div class="mg2">
+                <a class="w" href="{% url 'store_menu' %}">메뉴 관리</a>
+            </div>
+        </div>
+        <div class="menu-2">
+            <div class="mg3">
+                <a href="{% url 'store_menu' %}">메뉴편집</a>
+            </div>
+            <div class="mg4">
+                <a href="{% url 'store_category' %}">분류편집</a>
+            </div>
+        </div>
+        <div class="menu-3">
+            <div class="m3-t">
+                <div class="m3-t-1">분류명</div>
+                <div class="m3-t-2">주문방식</div>
+                <div class="none"></div>
+                <div class="none"></div>
+                <div class="none"></div>
+                <div class="m3-t-3"><p class="plus">
+                        <a href="{% url 'store_category' %}" class="w">분류추가<a></a>
+                    <p></div>
+            </div>
+            <div class="m3-b">
+                {% for category in categories.all %}
+                <div class="bb">
+                    <div class="b-1">{{category.categoryName}}</div>
+                    <div class="b-2">{{category.orderMethod}}</div>
+                    <div class="b-3"></div>
+                    <div class="none"></div>
+                    <div class="b-5">편집</div>
+                    <div class="b-6">삭제</div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
 </body>
 </html>

@@ -3,22 +3,56 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>메뉴 관리</title>
+        {% load static %}
+    <link rel="stylesheet" href="{% static 'css/store_menu.css' %}">
 </head>
 <body>
-    Menu
-    <a href="{% url 'store_home' %}">홈으로</a>
-    <a href="{% url 'store_menu' %}">메뉴편집</a>
-    <a href="{% url 'store_category' %}">분류편집</a>
-
-    <a href="{% url 'store_menu_add' %}">메뉴추가</a>
-    {% for menu in menus.all %}
-        {{menu.menuName}}
-        {{menu.categoryName}}
-        {{menu.menuPrice}}
-        <a href="{% url 'store_menu_edit' menu.id %}">편집</a>
-        <a href="{% url 'store_menu_delete' menu.id %}">삭제</a>
-        <br>
-    {% endfor %}
-</body>
+        <div class="grid">
+            <div class="menu-1">
+                <div class="mg1">
+                    <a class="w" href="{% url 'store_order' %}">주문 관리</a>
+                </div>
+                <div class="mg2">
+                    <a class="w" href="{% url 'store_menu' %}">메뉴 관리</a>
+                </div>
+            </div>
+            <div class="menu-2">
+                <div class="mg3">
+                    <a href="{% url 'store_menu' %}">메뉴편집</a>
+                </div>
+                <div class="mg4">
+                    <a href="{% url 'store_category' %}">분류편집</a>
+                </div>
+            </div>
+            <div class="menu-3">
+                <div class="m3-t">
+                    <div class="m3-t-1">메뉴명</div>
+                    <div class="m3-t-2">분류</div>
+                    <div class="t-3">가격</div>
+                    <div class="none"></div>
+                    <div class="none"></div>
+                    <div class="m3-t-4"><p class="plus">
+                        <a class="w" href="{% url 'store_menu_add' %}">메뉴추가</a>
+                        <p></div>
+                </div>
+                <div class="m3-b">
+                    {% for menu in menus.all %}
+                    <div class="bb">
+                        <div class="b-1">{{menu.menuName}}</div>
+                        <div class="b-2">{{menu.categoryName}}</div>
+                        <div class="b-3">{{menu.menuPrice}}원</div>
+                        <div class="none"></div>
+                        <div class="b-5">
+                            <a href="{% url 'store_menu_edit' menu.id %}">편집</a>
+                        </div>
+                        <div class="b-6">
+                            <a href="{% url 'store_menu_delete' menu.id %}">삭제</a>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+                </div>
+        </div>
+    </body>
 </html>

@@ -4,20 +4,72 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>메뉴추가</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/store_menu_add.css' %}">
+
 </head>
 <body>
+    <body>
+        Order
+        <a href="{% url 'store_home' %}">홈으로</a>
+        <br>
+        <a href="{% url 'store_order' %}">접수대기</a>
+        <!--<a href="{% url 'store_order_detail' %}">주문 정보</a>-->
+        <!--<a href="{% url 'store_order' %}" onclick="window.open('detail', 'store_order_detail', 'width=900, height=400, menubar=no, location=no, status=no, toolbar=no, top=200, left=300');">주문정보</a>-->
+       
     <form method="POST" action ="{% url 'store_menu_add'%}">
         {% csrf_token %}
-        <!--<input type="hidden" value = "{{Store.id}}" name="storeid"></input>-->
-        메뉴분류 : <input type="text" name="menu_category"></input>
-        <br>
-        메뉴명 : <input type="text" name="menu_name"></input>
-        <br>
-        가격 : <input type="text" name="menu_price"></input>
-        <br>
-        상세설명 : <input type="text" name="menu_detail"></input>
-        <br>
-        <input type="submit" value="저장"></input>
+        <a class="button" href="#popup1">주문 정보</a>
+    
+        <div id="popup1" class="overlay">
+            <div class="popup">
+                <div class="popup-in">
+                    <header>
+                        <h3 class="top">메뉴추가</h3>
+                    </header>
+                    <hr>
+                    <main>
+                        <div class="list">
+                            메뉴명 <br><br>
+                            메뉴분류 <br><br>
+                            가격 <br><br>
+                            상세설명 <br><br><br><br>
+                            메뉴사진 <br><br>
+                        </div>
+                        <div>
+                            <input type="text"> <br><br>
+                            <select name="menu_type">
+                            <option value="fruit">생과일쥬스</option>
+                            <option value="coffee">커피</option>
+                            </select> <br><br>
+                            <input type="text"> <br><br>
+                            <textarea name="detail" cols="50" rows="3"></textarea> <br><br>
+                            <div class="filebox"> <label for="ex_file"></label> <input type="file" id="ex_file"> 
+                            </div>
+                        </div>
+                    </main>
+    
+                    <footer>
+                        <div class="can">
+                            <a class="save" value="저장">취소</a>
+                        </div>
+                        <div class="ok">
+                            <input type="submit" class="save" value="저장">
+                        </div>
+                    </footer>
+                </div>
+    
+            </div>
+        </div>
     </form>
-</body>
+    
+        <!--<a href="{% url 'store_order_add' %}">접수하기</a>-->
+        <a href="{% url 'store_order_delete' %}">취소하기</a>
+    
+        <a href="{% url 'store_order2' %}">진행중</a>
+        <a href="{% url 'store_order3' %}">완료내역</a>
+        <a href="{% url 'store_order4' %}">취소내역</a>
+    
+    </body>
+    </body>
 </html>

@@ -1,0 +1,19 @@
+.text{
+    padding: 300px;
+    padding-left: 600px;
+}
+
+a{
+    text-align: center;
+    font-weight: bold;
+    font-size: 20px;
+}
+.check{
+    margin-left: 130px;
+    text-decoration: none;
+    color: white;
+    background-color: #ff6b6b;
+    padding: 20px;
+    border-radius: 100%;
+    font-size: 15px;
+}

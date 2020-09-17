@@ -54,7 +54,7 @@
   padding-left: 10px;
   text-align: center;
   margin: auto;
-  background-color:#ff6b6b;
+  border: 1px solid #dadbdd;
   font-weight: bold;
 }
 .mg4{
@@ -66,7 +66,7 @@
   padding-left: 10px;
   text-align: center;
   margin: auto;
-  border: 1px solid #dadbdd;
+  background-color:#ff6b6b;
   font-weight: bold;
 }
 .mg5{

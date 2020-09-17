@@ -4,9 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+        {% load static %}
+    <link rel="stylesheet" href="{% static 'css/store_order_delete.css' %}">
 </head>
 <body>
-    취소하기 page (취소 확인 메시지 띄우기)
-    <a href="{% url 'store_order' %}">확인</a>
+    <div class="text">
+        <a>주문이 정상적으로 취소되었습니다.</a><br><br><br><br>
+        <a href="{% url 'store_order' %}" class="check">확인</a>
+    </div>
 </body>
 </html>
