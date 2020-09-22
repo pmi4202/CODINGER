@@ -21,21 +21,27 @@
       </div>
       <img id="juice" src="{% static 'image/menu_1.svg' %}" alt="">
       <div class="item3">
-        <div class="label1">{{menu.menuName}}</div>
-        <div class="label2">{{menu.menuPrice}}원</div>
-        <div class="label3">{{menu.menuDetail}}</div>
+        <div class="label1">{{menu_order.menuName}}</div>
+        <div class="label2">{{menu_order.menuPrice}}원</div>
+        <div class="label3">{{menu_order.menuDetail}}</div>
       </div>
       <div class="item4 bottom">
         <div class="label4">수량</div>
         <div class="between">
-          <img class="action-icon" src="{% static 'image/minus.png' %}">
-          <div class="label5">2</div>
-          <img class="action-icon" src="{% static 'image/plus.png' %}">
+          <a href="{% url 'user_menu_minus' menu_order.id %}">
+            <img class="action-icon" src="{% static 'image/minus.png' %}">
+          </a>
+          <div class="label5">
+            {{menu_order.menuOrder}}
+          </div>
+          <a href="{% url 'user_menu_plus' menu_order.id %}">
+            <img class="action-icon" src="{% static 'image/plus.png' %}">
+          </a>
         </div>
       </div>
       <div class="item4">
         <div class="label4">금액</div>
-        <div class="label5">10,000원</div>
+        <div class="label5">{{menu_order.menuOrderPrice}}원</div>
       </div>
     </div>
     <a class="newadd" href="{% url 'user_store_detail' %}">

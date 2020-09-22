@@ -8,7 +8,7 @@
   <link rel="stylesheet" type="text/css" href="{% static 'css/user_store_detail.css' %}">
   <link rel="stylesheet" type="text/css" href="{% static 'css/global.css' %}">
   <link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@400;700&display=swap" rel="stylesheet">
-  <title>Document</title>
+  <title>가게 정보</title>
 </head>
 
 <body>
@@ -18,7 +18,8 @@
             <a href="{% url 'user_category_list' %}">
               <img class="icon-back" src="{% static 'image/arrow-back.png' %}">
             </a>
-            <img src="{% static 'image/heart.png' %}" />
+            <img id="heart" src="{% static 'image/heart.png' %}" onclick="toggleImg()" />
+            <img id="heart-active" src="{% static 'image/heart-active.png' %}" onclick="toggleImg()" />
         </div>
         <div class="icon-wrapper">
             <img src="{% static 'image/store_01.png' %}">
@@ -64,6 +65,19 @@
         <img class="confirm-btn" src="{% static 'image/menu_add.png' %}">
     </a>
   </div>
+  <script language="javascript" type="text/javascript">
+    function toggleImg() {
+      const img1 = document.getElementById('heart');
+      const img2 = document.getElementById('heart-active');
+      if(img1.style.display === 'none'){
+        img1.style.display = 'flex';
+        img2.style.display = 'none';
+      } else {
+        img2.style.display = 'flex';
+        img1.style.display = 'none';
+      }
+    }
+</script>
 </body>
 
 </html>

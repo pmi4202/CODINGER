@@ -32,6 +32,38 @@ def user_store_detail(request):
 def user_order_detail(request):
   return render(request, 'user_order_detail.html')
 #주문담기
-def user_order_add(request, order_id):
-  menu= get_object_or_404(Menu, pk= order_id) # 특정 객체 가져오기(없으면 404 에러)
-  return render(request, 'user_order_add.html', {'menu':menu})
+def user_order_add(request, menu_id):
+    menu = get_object_or_404(Menu, pk = menu_id) # 특정 객체 가져오기(없으면 404 에러)
+    #menu_order = menu
+
+    menu_order = Menu() #새로운 객체 생성
+    menu_order.menuList = menu.menuList
+    menu_order.categoryName = menu.categoryName
+    menu_order.menuName = menu.menuName
+    menu_order.menuDetail = menu.menuDetail
+    menu_order.menuPrice = menu.menuPrice
+    menu_order.menuOrderPrice = menu.menuPrice
+    menu_order.menuOrder = menu.menuOrder+1
+    menu_order.save()
+
+    return render(request, 'user_order_add.html', {'menu_order':menu_order})
+
+#메뉴 MINUS
+def user_menu_minus(request, menu_id):
+    menu_order = get_object_or_404(Menu, pk = menu_id)
+    if menu_order.menuOrder > 1 :
+        menu_order.menuOrder = menu_order.menuOrder -1
+        menu_order.menuOrderPrice = menu_order.menuOrder * menu_order.menuPrice
+    menu_order.save()
+    return render(request, 'user_order_add.html', {'menu_order':menu_order})
+
+#메뉴 PLUS
+def user_menu_plus(request, menu_id):
+    menu_order = get_object_or_404(Menu, pk = menu_id)
+
+    menu_order.menuOrder = menu_order.menuOrder +1
+    menu_order.menuOrderPrice = menu_order.menuOrder * menu_order.menuPrice
+    menu_order.save()
+    return render(request, 'user_order_add.html', {'menu_order':menu_order})
+
+#뒤로 가기 누르면 객체 없애기.. 

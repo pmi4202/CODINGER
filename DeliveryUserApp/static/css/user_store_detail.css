@@ -18,7 +18,20 @@
   align-items: center;
 }
 
-.icon-back {
+.nav-wrapper img {
+  width: 25px;
+  height: 25px;
+}
+
+.nav-wrapper #heart {
+  display: flex;
+}
+
+.nav-wrapper #heart-active {
+  display: none;
+}
+
+.nav-wrapper .icon-back {
   width: 11px;
   height: 11px;
 }

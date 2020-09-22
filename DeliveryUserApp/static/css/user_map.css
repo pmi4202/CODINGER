@@ -274,7 +274,47 @@
 
 .dropdown-content div {
   color: black;
-  display: block;
+  display: flex;
+  flex-direction: row;
+  height: 22px;
+  justify-content: center;
 }
 
 .show {display: block;}
+
+.dropdown1-item img {
+  display: none;
+}
+
+.dropdown1-item.active img {
+  display: flex;
+  width: 10px;
+  height: 10px;
+  margin-left: -15px;
+  margin-right: 5px;
+}
+
+.dropdown2-item img {
+  display: none;
+}
+
+.dropdown2-item.active img {
+  display: flex;
+  width: 10px;
+  height: 10px;
+  margin-left: -15px;
+  margin-right: 5px;
+}
+
+
+.dropdown3-item img {
+  display: none;
+}
+
+.dropdown3-item.active img {
+  display: flex;
+  width: 10px;
+  height: 10px;
+  margin-left: -15px;
+  margin-right: 5px;
+}

@@ -16,26 +16,50 @@
     <div id="map" class="map">
         <div class="top-section">
             <div class="dropdown">
-                <button onclick="myFunction('dropdown1')" class="dropbtn">반경: 100m</button>
+                <button id="dropdown1-label" onclick="myFunction('dropdown1')" class="dropbtn">반경: 100m</button>
                 <div id="dropdown1" class="dropdown-content">
-                    <div>100m</div>
-                    <div>200m</div>
-                    <div>300m</div>
+                    <div class="dropdown1-item active">
+                        <img src="{% static 'image/check.png' %}">
+                        <div>100m</div>
+                    </div>
+                    <div class="dropdown1-item">
+                        <img src="{% static 'image/check.png' %}">
+                        <div>200m</div>
+                    </div>
+                    <div class="dropdown1-item">
+                        <img src="{% static 'image/check.png' %}">
+                        <div>300m</div>
+                    </div>
                 </div>
             </div>
             <div class="dropdown">
-                <button onclick="myFunction('dropdown2')" class="dropbtn">분류: 전체</button>
+                <button id="dropdown2-label" onclick="myFunction('dropdown2')" class="dropbtn">분류: 전체</button>
                 <div id="dropdown2" class="dropdown-content">
-                    <div>전체</div>
-                    <div>한식</div>
-                    <div>일식</div>
+                    <div class="dropdown2-item active">
+                        <img src="{% static 'image/check.png' %}">
+                        <div>전체</div>
+                    </div>
+                    <div class="dropdown2-item">
+                        <img src="{% static 'image/check.png' %}">
+                        <div>한식</div>
+                    </div>
+                    <div class="dropdown2-item">
+                        <img src="{% static 'image/check.png' %}">
+                        <div>일식</div>
+                    </div>
                 </div>
             </div>
             <div class="dropdown">
-                <button onclick="myFunction('dropdown3')" class="dropbtn">중간 수령</button>
+                <button id="dropdown3-label" onclick="myFunction('dropdown3')" class="dropbtn">중간 수령</button>
                 <div id="dropdown3" class="dropdown-content">
-                    <div>중간수령</div>
-                    <div>개인수령</div>
+                    <div class="dropdown3-item active">
+                        <img src="{% static 'image/check.png' %}">
+                        <div>중간수령</div>
+                    </div>
+                    <div class="dropdown3-item">
+                        <img src="{% static 'image/check.png' %}">
+                        <div>개인수령</div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -209,6 +233,44 @@
           if (event.target == modal) {
             modal.style.display = "none";
           }
+        }
+        var target1 = document.getElementById("dropdown1");
+        var dropdownlist1 = target1.getElementsByClassName("dropdown1-item");
+        for (var i = 0; i < dropdownlist1.length; i++) {
+            dropdownlist1[i].addEventListener("click", function() {
+                var modal = document.getElementById('modal');
+                var current = document.getElementsByClassName("dropdown1-item active");
+                current[0].className = current[0].className.replace(" active", "");
+                this.className += " active";
+                document.getElementById('dropdown1-label').textContent = '반경: '+ current[0].textContent.trim();
+                document.getElementById('dropdown1').classList.remove("show");
+            });
+        }
+
+        var target2 = document.getElementById("dropdown2");
+        var dropdownlist2 = target2.getElementsByClassName("dropdown2-item");
+        for (var i = 0; i < dropdownlist2.length; i++) {
+            dropdownlist2[i].addEventListener("click", function() {
+                var modal = document.getElementById('modal');
+                var current = document.getElementsByClassName("dropdown2-item active");
+                current[0].className = current[0].className.replace(" active", "");
+                this.className += " active";
+                document.getElementById('dropdown2-label').textContent = '분류: '+ current[0].textContent.trim();
+                document.getElementById('dropdown2').classList.remove("show");
+            });
+        }
+
+        var target3 = document.getElementById("dropdown3");
+        var dropdownlist3 = target3.getElementsByClassName("dropdown3-item");
+        for (var i = 0; i < dropdownlist3.length; i++) {
+            dropdownlist3[i].addEventListener("click", function() {
+                var modal = document.getElementById('modal');
+                var current = document.getElementsByClassName("dropdown3-item active");
+                current[0].className = current[0].className.replace(" active", "");
+                this.className += " active";
+                document.getElementById('dropdown3-label').textContent = current[0].textContent.trim();
+                document.getElementById('dropdown3').classList.remove("show");
+            });
         }
       </script>
 </body>

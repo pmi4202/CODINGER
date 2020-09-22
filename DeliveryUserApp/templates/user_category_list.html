@@ -21,7 +21,7 @@
             <div>한식</div>
             <div></div>
           </div>
-          <div class="kind">
+          <div id='menu-kind' class="kind">
             <div class="menu kind1 active">한식</div>
             <div class="menu kind2">분식</div>
             <div class="menu kind3">양식</div>
@@ -130,6 +130,17 @@
           </a>
         </div>
     </div>
+    <script>
+      var target = document.getElementById("menu-kind");
+      var menulist = target.getElementsByClassName("menu");
+      for (var i = 0; i < menulist.length; i++) {
+        menulist[i].addEventListener("click", function() {
+        var current = document.getElementsByClassName("active");
+        current[0].className = current[0].className.replace(" active", "");
+        this.className += " active";
+        });
+      }
+    </script>
 </body>
 
 </html>
