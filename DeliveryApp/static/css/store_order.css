@@ -12,8 +12,6 @@
   margin-left: -8px;
 }
 
-
-
 .mg1{
   grid-column: 1;
   grid-row: 2;
@@ -532,7 +530,7 @@ h2{
 .form_radio_btn input[type=radio]:checked + label {
     background: #ff6b6b;
     border: 1.25px solid #ff6b6b;
-   color: white;
+    color: white;
 }
 
 /* Hover */

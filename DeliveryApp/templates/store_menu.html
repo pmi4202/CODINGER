@@ -3,11 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>메뉴 관리</title>
+    <title>메뉴 관리(=메뉴 편집)</title>
         {% load static %}
     <link rel="stylesheet" href="{% static 'css/store_menu.css' %}">
 </head>
-<body>
+    <body>
         <div class="grid">
             <div class="menu-1">
                 <div class="mg1">
@@ -33,7 +33,7 @@
                     <div class="none"></div>
                     <div class="none"></div>
                     <div class="m3-t-4"><p class="plus">
-                        <a class="w" href="{% url 'store_menu_add' %}">메뉴추가</a>
+                        <a class="w" href="#popup1">메뉴추가</a><!--팝업test-->
                         <p></div>
                 </div>
                 <div class="m3-b">
@@ -52,7 +52,26 @@
                     </div>
                 </div>
                 {% endfor %}
-                </div>
+            </div>
         </div>
+        <!--팝업start-->
+        <div id ="popup1" class="overlay_menu_add">
+            <div class = "popup">
+                <form method="POST" action ="{% url 'store_menu_add'%}">
+                    {% csrf_token %}
+                    메뉴분류 : <input type="text" name="menu_category"></input>
+                    <br>
+                    메뉴명 : <input type="text" name="menu_name"></input>
+                    <br>
+                    가격 : <input type="text" name="menu_price"></input>
+                    <br>
+                    상세설명 : <input type="text" name="menu_detail"></input>
+                    <br>
+                    <input type="submit" value="저장"></input>
+                </form>
+                <a class="close" href="#">&times;</a>
+            </div>
+        </div>
+        <!--팝업end-->
     </body>
 </html>

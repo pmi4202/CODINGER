@@ -33,7 +33,7 @@
         </div>
         <div class="order_list-3">
             {% for order in wait_orders.all %}
-           <div class="mid_inf">
+            <div class="mid_inf">
                 <div class="mid_1">{{order.createdAt}}</div>
                 <div class="mid_2">
                     <div class="mid_2-t">
@@ -41,8 +41,8 @@
                         <p class="mid_t-2">딸바 2 / 블루베리 2 / 아메리카노(ICE)</p> 
                     </div>
                     <div class="mid_2-b">
-                               <p class="mid_b-1">[단일배송]   북구 대학로 8길 27</p>  
-                               <p class="mid_b-2">그 외 주소</p> 
+                            <p class="mid_b-1">[단일배송]   북구 대학로 8길 27</p>  
+                            <p class="mid_b-2">그 외 주소</p> 
                     </div>
                 </div>
                 <div class="mid_3">
@@ -58,8 +58,8 @@
                         <a href="{% url 'store_order_delete' %}">취소하기</a>
                     </div>
                 </div>
-           </div>
-           {% endfor %}
+            </div>
+            {% endfor %}
         </div>
     </div>
 
@@ -153,5 +153,5 @@
         </div>
     </div>
 
-        </body>
+    </body>
 </html>

@@ -58,7 +58,9 @@ def store_menu_add(request):
         menus = Menu.objects.filter(menuList = store)
         return render(request, 'store_menu.html', {'menus':menus})
     else:
-        return render(request, 'store_menu_add.html')
+        store = Store.objects.get(ownerName = request.user.username)
+        menus = Menu.objects.filter(menuList = store)
+        return render(request, 'store_menu.html', {'menus':menus})
 
 def store_menu_edit(request, menu_id):
     menu = get_object_or_404(Menu, pk= menu_id) # 특정 객체 가져오기(없으면 404 에러)
