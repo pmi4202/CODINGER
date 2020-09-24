@@ -38,8 +38,8 @@ urlpatterns = [
     path('category/delete/<int:category_id>/', DeliveryApp.views.store_category_delete, name='store_category_delete'),
     #
     path('order/', DeliveryApp.views.store_order, name='store_order'),
-    path('order/detail/', DeliveryApp.views.store_order_detail, name='store_order_detail'),
-    path('order/add/', DeliveryApp.views.store_order_add, name='store_order_add'),
+    path('order/detail/<int:order_id>/', DeliveryApp.views.store_order_detail, name='store_order_detail'),
+    path('order/add/<int:order_id>/', DeliveryApp.views.store_order_add, name='store_order_add'),
     path('order/delete/', DeliveryApp.views.store_order_delete, name='store_order_delete'),
     path('order2/', DeliveryApp.views.store_order2, name='store_order2'),
     path('order3/', DeliveryApp.views.store_order3, name='store_order3'),

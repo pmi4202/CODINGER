@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth.models import User
 from django.contrib import auth
-from .models import Store, Menu, Order, DeliveryPrice, User, DeliveryInfo, Option, Category
+from .models import Store, Menu, Order, DeliveryPrice, User, DeliveryInfo, Option, Category, MenuSimple
 
 # Create your views here.
 
@@ -38,7 +38,7 @@ def store_home(request):
 #메뉴 관리 start
 def store_menu(request):
     store = Store.objects.get(ownerName = request.user.username)
-    menus = Menu.objects.filter(menuList = store)
+    menus = Menu.objects.filter(menuList = store).filter(menuOrder = 0)
     return render(request, 'store_menu.html', {'menus' : menus})
 
 def store_menu_add(request):
@@ -54,16 +54,16 @@ def store_menu_add(request):
         menu.menuOrder = 0
         menu.save()
 
-        menus = Menu.objects.filter(menuList = store)
+        menus = Menu.objects.filter(menuList = store).filter(menuOrder = 0)
         return render(request, 'store_menu.html', {'menus':menus})
     else:
         store = Store.objects.get(ownerName = request.user.username)
-        menus = Menu.objects.filter(menuList = store)
+        menus = Menu.objects.filter(menuList = store).filter(menuOrder = 0)
         return render(request, 'store_menu.html', {'menus':menus})
 
 def store_menu_edit(request, menu_id):
     store = Store.objects.get(ownerName = request.user.username) #객체 전체 보여주기 용
-    menus = Menu.objects.filter(menuList = store) #객체 전체 보여주기 용
+    menus = Menu.objects.filter(menuList = store).filter(menuOrder = 0) #객체 전체 보여주기 용
     menu = get_object_or_404(Menu, pk= menu_id) # 특정 객체 가져오기(없으면 404 에러)
     return render(request, 'store_menu_edit.html', {'menu':menu, 'menus':menus})
 
@@ -76,7 +76,7 @@ def store_menu_update(request, menu_id):
     menu.save()
     
     store = Store.objects.get(ownerName = request.user.username)
-    menus = Menu.objects.filter(menuList = store)
+    menus = Menu.objects.filter(menuList = store).filter(menuOrder = 0)
     return render(request, 'store_menu.html', {'menus':menus})
 
 def store_menu_delete(request, menu_id):
@@ -84,7 +84,7 @@ def store_menu_delete(request, menu_id):
     menu.delete()
 
     store = Store.objects.get(ownerName = request.user.username)
-    menus = Menu.objects.filter(menuList = store)
+    menus = Menu.objects.filter(menuList = store).filter(menuOrder = 0)
     return render(request, 'store_menu.html', {'menus':menus})
 #메뉴 관리 end
 
@@ -147,17 +147,30 @@ def store_category_delete(request, category_id):
 def store_order(request):
     orders = Order.objects.filter(storeId = request.user.username)
     wait_orders = orders.filter(status = "접수대기")
-    
-    return render(request, 'store_order.html', {'wait_orders':wait_orders})
+    order_menus = MenuSimple.objects.all()
+    return render(request, 'store_order.html', {'wait_orders':wait_orders, 'order_menus': order_menus})
 
 #주문 정보
-def store_order_detail(request):
-    return render(request, 'store_order_detail.html')
+def store_order_detail(request, order_id):
+    order= get_object_or_404(Order, pk= order_id)
+    deliveryInfo = DeliveryInfo.objects.filter(deliveryInfoList = order)
+    menu_simples = MenuSimple.objects.filter(orderId = order)
+
+    return render(request, 'store_order_detail.html', {'order':order, 'deliveryInfo':deliveryInfo, 'menu_simples':menu_simples})
+
 #주문 접수
-def store_order_add(request):
+def store_order_add(request, order_id):
     if request.method == 'POST':
-        time=request.POST['time']
-        return render(request, 'store_order.html', {'time':'time'})
+        order= get_object_or_404(Order, pk= order_id)
+        order.status = "진행중"
+        order.deliveryTime = request.POST['time']
+        order.save()
+        #store_order.html에 필요한 자료=>#
+        orders = Order.objects.filter(storeId = request.user.username)
+        wait_orders = orders.filter(status = "접수대기")
+        order_menus = MenuSimple.objects.all()
+        #
+        return render(request, 'store_order.html', {'wait_orders':wait_orders, 'order_menus': order_menus})
     else:
         return render(request, 'store_order_add.html')
 #주문 취소
@@ -166,7 +179,9 @@ def store_order_delete(request):
 
 #진행중
 def store_order2(request):
-    return render(request, 'store_order2.html')
+    orders = Order.objects.filter(storeId = request.user.username)
+    proceed_orders = orders.filter(status = "진행중")
+    return render(request, 'store_order2.html', {'proceed_orders':proceed_orders})
 
 #완료내역
 def store_order3(request):

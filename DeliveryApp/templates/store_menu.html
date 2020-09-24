@@ -39,18 +39,18 @@
                 <div class="m3-b">
                     {% csrf_token %}
                     {% for menu in menus.all %}
-                    <div class="bb">
-                        <div class="b-1">{{menu.menuName}}</div>
-                        <div class="b-2">{{menu.categoryName}}</div>
-                        <div class="b-3">{{menu.menuPrice}}원</div>
-                        <div class="none"></div>
-                        <div class="b-5">
-                            <a href="{% url 'store_menu_edit' menu.id %}">편집</a><!--팝업test-->
+                        <div class="bb">
+                            <div class="b-1">{{menu.menuName}}</div>
+                            <div class="b-2">{{menu.categoryName}}</div>
+                            <div class="b-3">{{menu.menuPrice}}원</div>
+                            <div class="none"></div>
+                            <div class="b-5">
+                                <a href="{% url 'store_menu_edit' menu.id %}">편집</a><!--팝업test-->
+                            </div>
+                            <div class="b-6">
+                                <a href="{% url 'store_menu_delete' menu.id %}">삭제</a>
+                            </div>
                         </div>
-                        <div class="b-6">
-                            <a href="{% url 'store_menu_delete' menu.id %}">삭제</a>
-                        </div>
-                    </div>
                     {% endfor %}
                 </div>
             </div>

@@ -33,125 +33,79 @@
         </div>
         <div class="order_list-3">
             {% for order in wait_orders.all %}
-            <div class="mid_inf">
-                <div class="mid_1">{{order.createdAt}}</div>
-                <div class="mid_2">
-                    <div class="mid_2-t">
-                        <p class="mid_t-1">[{{order.totalPeople}}명]   {{order.totalPrice}}원</p>
-                        <p class="mid_t-2">딸바 2 / 블루베리 2 / 아메리카노(ICE)</p> 
+                    <div class="mid_inf">
+                        <div class="mid_1">{{order.createdAt}}</div>
+                        <div class="mid_2">
+                            <div class="mid_2-t">
+                                <p class="mid_t-1">[{{order.totalPeople}}명]   {{order.totalPrice}}원</p>
+                                {% for order_menu in order_menus.all %}
+                                    {% if order_menu.orderId == order.id %}
+                                        <p class="mid_t-2">/ 블루베리 2 / 아메리카노(ICE)</p> 
+                                    {% endif %}
+                                {% endfor %}
+                            </div>
+                            <div class="mid_2-b">
+                                    <p class="mid_b-1">[단일배송]   북구 대학로 8길 27</p>  
+                                    <p class="mid_b-2">그 외 주소</p>
+                            </div>
+                        </div>
+                        <div class="mid_3">
+                            <a href="{% url 'store_order_detail' order.id %}">
+                                주문정보
+                            </a>
+                        </div>
+                        <div class="mid_4">
+                            <div class="sub">
+                                <a class="button" href="#popup2">접수하기</a>
+                            </div>
+                            <div class="can">
+                                <a href="{% url 'store_order_delete' %}">취소하기</a>
+                            </div>
+                        </div>
                     </div>
-                    <div class="mid_2-b">
-                            <p class="mid_b-1">[단일배송]   북구 대학로 8길 27</p>  
-                            <p class="mid_b-2">그 외 주소</p> 
+                    <!--팝업 start-->
+                    <div id="popup2" class="overlay2">
+                        <div class="popup2">
+                            <h2>배달 예상 시간</h2>
+                            <form class="pop_in" method="POST" action="{% url 'store_order_add' order.id %}">
+                                {% csrf_token %}
+                                <br>
+                                <div class="pop22">
+                                    <div class="form_radio_btn">
+                                        <input id="radio-1" type="radio" name="time" value=30 checked>
+                                        <label for="radio-1">30분</label>
+                                    </div>
+                                    
+                                    <div class="form_radio_btn">
+                                        <input id="radio-2" type="radio" name="time" value=40>
+                                        <label for="radio-2">40분</label>
+                                    </div>
+                                    
+                                    <div class="form_radio_btn">
+                                        <input id="radio-3" type="radio" name="time" value=50>
+                                        <label for="radio-3">50분</label>
+                                    </div>
+
+                                    <div class="form_radio_btn">
+                                        <input id="radio-4" type="radio" name="time" value=60>
+                                        <label for="radio-4">60분</label>
+                                    </div>
+
+                                    <div class="form_radio_btn">
+                                        <input id="radio-5" type="radio" name="time" value=70>
+                                        <label for="radio-5">70분</label>
+                                    </div>
+                                </div>
+                                <div class="pop33">
+                                    <a class="close" href="{% url 'store_order' %}">취소</a>
+                                    <input class="close2" type="submit" value="확인">
+                                </div>
+                            </form>    
+                        </div>
                     </div>
-                </div>
-                <div class="mid_3">
-                    <a href="#popup1">
-                        주문정보
-                    </a>
-                </div>
-                <div class="mid_4">
-                    <div class="sub">
-                        <a class="button" href="#popup2">접수하기</a>
-                    </div>
-                    <div class="can">
-                        <a href="{% url 'store_order_delete' %}">취소하기</a>
-                    </div>
-                </div>
-            </div>
+                    <!--팝업 end-->
             {% endfor %}
         </div>
     </div>
-
-    <div id="popup1" class="overlay">
-        <div class="popup">
-            <div class="popup-in">
-                <div class="pop1">주문정보</div>
-                <div></div>
-                <div></div>
-                <div></div>
-                <div class="pop2">
-                    <a class="close3" href="#">&times;</a>
-                </div>
-            </div>
-            <div class="popup-in2">
-                <div class="pop3">메뉴</div>
-                <div class="pop4">딸바2 / 블루베리2 / 아메리카노(ICE)</div>
-                <div class="pop5"><p class="print">영수증 인쇄</p></div>
-                <div></div>
-                <div></div>
-            </div>
-            <div class="popup-in3">
-                <div class="pop6">배송지<p class="num">4</p></div>
-                <div class="pop7">
-                    <div>북구 조암로 3길 50</div>
-                    <div>북구 조암로 2길 14</div>
-                    <div>북구 조암로 2길 20</div>
-                    <div>북구 조암로 3길 49</div>
-                </div>
-                <div></div>
-                <div></div>
-                <div></div>
-            </div>
-
-        </div>
-    </div>
-    <div id="popup2" class="overlay2">
-        <div class="popup2">
-            <h2>배달 예상 시간</h2>
-            <form class="pop_in" method="POST" action="{% url 'store_order_add'%}">
-                <!--
-                <div class="topcoat-button-bar">
-                    <div class="topcoat-button-bar__item">
-                        <input type="radio" name="30분" value=30>
-                        <button class="topcoat-button-bar__button">30분</button>
-                    </div>
-                    <div>hello</div>
-                    <div class="topcoat-button-bar__item">
-                        <input type="radio" name="40분" value=40>
-                        <button class="topcoat-button-bar__button">40분</button>
-                    </div>
-                    <div>hello</div>
-                    <div class="topcoat-button-bar__item">
-                        <input type="radio" name="50분">
-                        <button class="topcoat-button-bar__button">50분</button>
-                    </div>
-                </div>-->
-                <br>
-                <div class="pop22">
-                    <div class="form_radio_btn">
-                        <input id="radio-1" type="radio" name="time" value="30" checked>
-                        <label for="radio-1">30분</label>
-                    </div>
-                    
-                    <div class="form_radio_btn">
-                        <input id="radio-2" type="radio" name="time" value="40">
-                        <label for="radio-2">40분</label>
-                    </div>
-                    
-                    <div class="form_radio_btn">
-                        <input id="radio-3" type="radio" name="time" value="50">
-                        <label for="radio-3">50분</label>
-                    </div>
-
-                    <div class="form_radio_btn">
-                        <input id="radio-4" type="radio" name="time" value="60">
-                        <label for="radio-4">60분</label>
-                    </div>
-
-                    <div class="form_radio_btn">
-                        <input id="radio-5" type="radio" name="time" value="70">
-                        <label for="radio-5">70분</label>
-                    </div>
-                </div>
-                <div class="pop33">
-                    <a class="close" href="#">취소</a>
-                    <input class="close2" type="submit" value="확인">
-                </div>
-            </form>
-            
-        </div>
-    </div>
-
     </body>
 </html>
