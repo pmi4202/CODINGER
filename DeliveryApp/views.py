@@ -63,15 +63,17 @@ def store_menu_add(request):
         return render(request, 'store_menu.html', {'menus':menus})
 
 def store_menu_edit(request, menu_id):
+    store = Store.objects.get(ownerName = request.user.username) #객체 전체 보여주기 용
+    menus = Menu.objects.filter(menuList = store) #객체 전체 보여주기 용
     menu = get_object_or_404(Menu, pk= menu_id) # 특정 객체 가져오기(없으면 404 에러)
-    return render(request, 'store_menu_edit.html', {'menu':menu})
+    return render(request, 'store_menu_edit.html', {'menu':menu, 'menus':menus})
 
 def store_menu_update(request, menu_id):
     menu= get_object_or_404(Menu, pk= menu_id) # 특정 객체 가져오기(없으면 404 에러)
-    menu.categoryName = request.GET['categoryName'] # 내용 채우기
-    menu.menuName = request.GET['menuName'] # 내용 채우기
-    menu.menuPrice = request.GET['menuPrice']
-    menu.menuDetail = request.GET['menuDetail']
+    menu.categoryName = request.GET['menu_category'] # 내용 채우기
+    menu.menuName = request.GET['menu_name'] # 내용 채우기
+    menu.menuPrice = request.GET['menu_price']
+    menu.menuDetail = request.GET['menu_detail']
     menu.save()
     
     store = Store.objects.get(ownerName = request.user.username)
