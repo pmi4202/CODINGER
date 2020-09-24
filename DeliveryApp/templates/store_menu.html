@@ -44,7 +44,7 @@
                         <div class="b-3">{{menu.menuPrice}}원</div>
                         <div class="none"></div>
                         <div class="b-5">
-                            <a href="{% url 'store_menu_edit' menu.id %}">편집</a>
+                            <a href="#popup2">편집</a><!--팝업test-->
                         </div>
                         <div class="b-6">
                             <a href="{% url 'store_menu_delete' menu.id %}">삭제</a>
@@ -57,21 +57,79 @@
         <!--팝업start-->
         <div id ="popup1" class="overlay_menu_add">
             <div class = "popup">
+                <h3>메뉴추가</h3>
                 <form method="POST" action ="{% url 'store_menu_add'%}">
-                    {% csrf_token %}
-                    메뉴분류 : <input type="text" name="menu_category"></input>
-                    <br>
-                    메뉴명 : <input type="text" name="menu_name"></input>
-                    <br>
-                    가격 : <input type="text" name="menu_price"></input>
-                    <br>
-                    상세설명 : <input type="text" name="menu_detail"></input>
-                    <br>
-                    <input type="submit" value="저장"></input>
-                </form>
-                <a class="close" href="#">&times;</a>
+                    <div class="outer">
+                        <div class="inner">
+                            <div>
+                                메뉴명<br><br>
+                                메뉴분류<br><br>
+                                가격<br><br>
+                                상세설명<br><br>
+                                이미지<br><br>
+                            </div>    
+                            <div>
+                                {% csrf_token %}
+                                <input type="text" name="menu_name"></input>
+                                <br><br>
+                                <input type="text" name="menu_category"></input>
+                                <br><br>
+                                <input type="text" name="menu_price"></input>
+                                <br><br>
+                                <input type="text" name="menu_detail"></input>
+                                <br><br>
+                                <div class="filebox">
+                                    <label for="ex_file"></label> <input type="file">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="inner2">
+                            <a class="close" href="#">취소</a>
+                            <input type="submit" value="저장" class="save"></input>
+                        </div>
+                    </div>
+            </form>
             </div>
         </div>
         <!--팝업end-->
+                <!--팝업start-->
+                <div id ="popup2" class="overlay_menu_add">
+                    <div class = "popup">
+                        <h3>메뉴편집</h3>
+                        <form method="POST" action ="{% url 'store_menu_add'%}">
+                            <div class="outer">
+                                <div class="inner">
+                                    <div>
+                                        메뉴명<br><br>
+                                        메뉴분류<br><br>
+                                        가격<br><br>
+                                        상세설명<br><br>
+                                        이미지<br><br>
+                                    </div>    
+                                    <div>
+                                        {% csrf_token %}
+                                        <input type="text" name="menu_name" value="{{menu.menuName}}"></input>
+                                        <br><br>
+                                        <input type="text" name="menu_category" value="{{menu.categoryName}}"></input>
+                                        <br><br>
+                                        <input type="text" name="menu_price" value="{{menu.menuPrice}}"></input>
+                                        <br><br>
+                                        <input type="text" name="menu_detail" value="{{menu.menuDetail}}"></input>
+                                        <br><br>
+                                        <div class="filebox">
+                                            <label for="ex_file"></label> <input type="file">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="inner2">
+                                    <a class="close" href="#">취소</a>
+                                    <input type="submit" value="저장" class="save"></input>
+                                </div>
+                            </div>
+                    </form>
+                    </div>
+                </div>
+                <!--팝업end-->
+        
     </body>
 </html>

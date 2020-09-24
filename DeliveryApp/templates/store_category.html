@@ -33,7 +33,7 @@
                 <div class="none"></div>
                 <div class="none"></div>
                 <div class="m3-t-3"><p class="plus">
-                        <a href="{% url 'store_category_add' %}" class="w">분류추가<a></a>
+                        <a href="#popup1" class="w">분류추가<a></a>
                     <p></div>
             </div>
             <div class="m3-b">
@@ -50,5 +50,44 @@
             </div>
         </div>
     </div>
+        <!--팝업start-->
+        <div id ="popup1" class="overlay_menu_add">
+            <div class = "popup">
+                <h3>메뉴추가</h3>
+                <form method="POST" action ="{% url 'store_category_add' %}">
+                    <div class="outer">
+                        <div class="inner">
+                            <div>
+                                메뉴명<br><br>
+                                메뉴분류<br><br>
+                                가격<br><br>
+                                상세설명<br><br>
+                                이미지<br><br>
+                            </div>    
+                            <div>
+                                {% csrf_token %}
+                                <input type="text" name="menu_name"></input>
+                                <br><br>
+                                <input type="text" name="menu_category"></input>
+                                <br><br>
+                                <input type="text" name="menu_price"></input>
+                                <br><br>
+                                <input type="text" name="menu_detail"></input>
+                                <br><br>
+                                <div class="filebox">
+                                    <label for="ex_file"></label> <input type="file">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="inner2">
+                            <a class="close" href="#">취소</a>
+                            <input type="submit" value="저장" class="save"></input>
+                        </div>
+                    </div>
+            </form>
+            </div>
+        </div>
+        <!--팝업end-->
+
 </body>
 </html>
