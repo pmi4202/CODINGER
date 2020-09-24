@@ -43,7 +43,9 @@
                     <div class="b-2">{{category.orderMethod}}</div>
                     <div class="b-3"></div>
                     <div class="none"></div>
-                    <div class="b-5">편집</div>
+                    <div class="b-5">
+                        <a href="#popup2">편집</a>
+                    </div>
                     <div class="b-6">삭제</div>
                 </div>
                 {% endfor %}
@@ -53,30 +55,19 @@
         <!--팝업start-->
         <div id ="popup1" class="overlay_menu_add">
             <div class = "popup">
-                <h3>메뉴추가</h3>
+                <h3>분류추가</h3>
                 <form method="POST" action ="{% url 'store_category_add' %}">
                     <div class="outer">
                         <div class="inner">
                             <div>
-                                메뉴명<br><br>
-                                메뉴분류<br><br>
-                                가격<br><br>
-                                상세설명<br><br>
-                                이미지<br><br>
+                                분류명<br><br>
+                                주문방식<br><br>
                             </div>    
                             <div>
                                 {% csrf_token %}
-                                <input type="text" name="menu_name"></input>
+                                <input type="text" name="category_name"></input>
                                 <br><br>
-                                <input type="text" name="menu_category"></input>
-                                <br><br>
-                                <input type="text" name="menu_price"></input>
-                                <br><br>
-                                <input type="text" name="menu_detail"></input>
-                                <br><br>
-                                <div class="filebox">
-                                    <label for="ex_file"></label> <input type="file">
-                                </div>
+                                <input type="text" name="category_order_method"></input>
                             </div>
                         </div>
                         <div class="inner2">
@@ -88,6 +79,32 @@
             </div>
         </div>
         <!--팝업end-->
-
+        <!--팝업start-->
+        <div id ="popup2" class="overlay_menu_add">
+            <div class = "popup">
+                <h3>분류추가</h3>
+                <form method="POST" action ="{% url 'store_category_add' %}">
+                    <div class="outer">
+                        <div class="inner">
+                            <div>
+                                분류명<br><br>
+                                주문방식<br><br>
+                            </div>    
+                            <div>
+                                {% csrf_token %}
+                                <input type="text" name="category_name">{{category.categoryName}}</input>
+                                <br><br>
+                                <input type="text" name="category_order_method">{{category.orderMethod}}</input>
+                            </div>
+                        </div>
+                        <div class="inner2">
+                            <a class="close" href="#">취소</a>
+                            <input type="submit" value="저장" class="save"></input>
+                        </div>
+                    </div>
+            </form>
+            </div>
+        </div>
+        <!--팝업end-->
 </body>
 </html>

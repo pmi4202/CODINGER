@@ -37,6 +37,7 @@
                         <p></div>
                 </div>
                 <div class="m3-b">
+                    {% csrf_token %}
                     {% for menu in menus.all %}
                     <div class="bb">
                         <div class="b-1">{{menu.menuName}}</div>
@@ -50,8 +51,8 @@
                             <a href="{% url 'store_menu_delete' menu.id %}">삭제</a>
                         </div>
                     </div>
+                    {% endfor %}
                 </div>
-                {% endfor %}
             </div>
         </div>
         <!--팝업start-->
