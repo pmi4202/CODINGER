@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>분류편집</title>
+    <title>category_edit</title>
     {% load static %}
-    <link rel="stylesheet" href="{% static 'css/store_category.css' %}">
+    <link rel="stylesheet" href="{% static 'css/store_category_edit.css' %}">
 </head>
 <body>
     <div class="grid">
@@ -54,32 +54,32 @@
             </div>
         </div>
     </div>
-        <!--팝업start-->
-        <div id ="popup1" class="overlay_menu_add">
-            <div class = "popup">
-                <h3>분류추가</h3>
-                <form method="POST" action ="{% url 'store_category_add' %}">
-                    <div class="outer">
-                        <div class="inner">
-                            <div>
-                                분류명<br><br>
-                                주문방식<br><br>
-                            </div>    
-                            <div>
-                                {% csrf_token %}
-                                <input type="text" name="category_name"></input>
-                                <br><br>
-                                <input type="text" name="category_order_method"></input>
-                            </div>
-                        </div>
-                        <div class="inner2">
-                            <a class="close" href="#">취소</a>
-                            <input type="submit" value="저장" class="save"></input>
+    <!--팝업start-->
+    <div class="overlay_menu_add">
+        <div class = "popup">
+            <h3>분류추가</h3>
+            <form action ="{% url 'store_category_update' category.id %}">
+                <div class="outer">
+                    <div class="inner">
+                        <div>
+                            분류명<br><br>
+                            주문방식<br><br>
+                        </div>    
+                        <div>
+                            {% csrf_token %}
+                            <input type="text" name="category_name" value="{{category.categoryName}}"></input>
+                            <br><br>
+                            <input type="text" name="category_order_method" value="{{category.orderMethod}}"></input>
                         </div>
                     </div>
-            </form>
-            </div>
+                    <div class="inner2">
+                        <a class="close" href="{% url 'store_category' %}">취소</a>
+                        <input type="submit" value="저장" class="save"></input>
+                    </div>
+                </div>
+        </form>
         </div>
-        <!--팝업end-->
+    </div>
+    <!--팝업end-->
 </body>
 </html>

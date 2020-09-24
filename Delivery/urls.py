@@ -25,14 +25,17 @@ urlpatterns = [
     path('logout/', DeliveryApp.views.store_logout, name='store_logout'),
     path('home/', DeliveryApp.views.store_home, name='store_home'),
     path('menu/', DeliveryApp.views.store_menu, name='store_menu'),
-    #메뉴 추가test용
+    #메뉴 관리
     path('menu/add', DeliveryApp.views.store_menu_add, name='store_menu_add'),
-    path('menu/delete/<int:menu_id>/', DeliveryApp.views.store_menu_delete, name='store_menu_delete'),
     path('menu/edit/<int:menu_id>/', DeliveryApp.views.store_menu_edit, name='store_menu_edit'),
     path('menu/update/<int:menu_id>/', DeliveryApp.views.store_menu_update, name='store_menu_update'),
-    #분류 추가test용
+    path('menu/delete/<int:menu_id>/', DeliveryApp.views.store_menu_delete, name='store_menu_delete'),
+    #분류 관리
     path('category/', DeliveryApp.views.store_category, name='store_category'),
     path('category/add/', DeliveryApp.views.store_category_add, name='store_category_add'),
+    path('category/edit/<int:category_id>/', DeliveryApp.views.store_category_edit, name='store_category_edit'),
+    path('category/update/<int:category_id>/', DeliveryApp.views.store_category_update, name='store_category_update'),
+    path('category/delete/<int:category_id>/', DeliveryApp.views.store_category_delete, name='store_category_delete'),
     #
     path('order/', DeliveryApp.views.store_order, name='store_order'),
     path('order/detail/', DeliveryApp.views.store_order_detail, name='store_order_detail'),

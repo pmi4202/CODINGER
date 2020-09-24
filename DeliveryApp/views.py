@@ -35,13 +35,12 @@ def store_home(request):
     store = Store.objects.get(ownerName = request.user.username)
     return render(request, 'store_home.html', {'store':store})
 
-#메뉴 관리
+#메뉴 관리 start
 def store_menu(request):
     store = Store.objects.get(ownerName = request.user.username)
     menus = Menu.objects.filter(menuList = store)
     return render(request, 'store_menu.html', {'menus' : menus})
 
-#메뉴추가
 def store_menu_add(request):
     if request.method == 'POST':
         store = Store.objects.get(ownerName = request.user.username)
@@ -87,14 +86,14 @@ def store_menu_delete(request, menu_id):
     store = Store.objects.get(ownerName = request.user.username)
     menus = Menu.objects.filter(menuList = store)
     return render(request, 'store_menu.html', {'menus':menus})
+#메뉴 관리 end
 
-#분류관리
+#분류관리 start
 def store_category(request):
     store = Store.objects.get(ownerName = request.user.username)
     categories = Category.objects.filter(categoryList = store)
     return render(request, 'store_category.html', {'categories' : categories})
 
-#분류추가
 def store_category_add(request):
     if request.method == 'POST':
         store = Store.objects.get(ownerName = request.user.username)
@@ -109,6 +108,40 @@ def store_category_add(request):
         return render(request, 'store_category.html', {'categories' : categories})
     else:
         return render(request, 'store_category_add.html')
+
+def store_category_edit(request, category_id):
+    store = Store.objects.get(ownerName = request.user.username) #객체 전체 보여주기 용
+    categories = Category.objects.filter(categoryList = store) #객체 전체 보여주기 용
+    category = get_object_or_404(Category, pk= category_id) # 특정 객체 가져오기(없으면 404 에러)
+    return render(request, 'store_category_edit.html', {'category':category, 'categories':categories})
+
+def store_category_update(request, category_id):
+    category= get_object_or_404(Category, pk= category_id) # 특정 객체 가져오기(없으면 404 에러)
+    store = Store.objects.get(ownerName = request.user.username)
+    menus = Menu.objects.filter(menuList = store) # 해당 가게 메뉴 불러오기
+    change_name = request.GET['category_name'] #변경 할 category이름
+
+    for menu in menus:
+        if menu.categoryName == category.categoryName :
+            menu.categoryName = change_name
+            menu.save()
+
+    category.categoryName = change_name # 내용 채우기
+    category.orderMethod = request.GET['category_order_method'] # 내용 채우기
+    category.save()
+    
+    store = Store.objects.get(ownerName = request.user.username)
+    categories = Category.objects.filter(categoryList = store)
+    return render(request, 'store_category.html', {'categories':categories})
+
+def store_category_delete(request, category_id):
+    category= get_object_or_404(Category, pk= category_id) # 특정 객체 가져오기(없으면 404 에러)
+    category.delete()
+
+    store = Store.objects.get(ownerName = request.user.username)
+    categories = Category.objects.filter(categoryList = store)
+    return render(request, 'store_category.html', {'categories':categories})
+#분류관리 end
 
 #접수 대기
 def store_order(request):
