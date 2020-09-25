@@ -1,5 +1,5 @@
 from django.db import models
-from datetime import datetime
+from datetime import datetime, timedelta
 
 # Create your models here.
 
@@ -33,12 +33,13 @@ class DeliveryPrice(models.Model):
 class Order(models.Model):
     storeId = models.CharField(max_length=50) #class Store의 userName과 동일
     status = models.CharField(max_length=10, default="접수대기")
-    deliveryTime = models.PositiveIntegerField(default=30)
+    deliveryTime = models.DateTimeField(default=datetime.now())
+    deliveryEndTime = models.DateTimeField(default=datetime.now())
     totalPrice = models.PositiveIntegerField(default=0)
     #orderPrice = models.PositiveIntegerField(default=0)
     deliveryPrice = models.PositiveIntegerField(default=0)
     totalPeople = models.PositiveIntegerField(default=0)
-    createdAt = models.TimeField(default=datetime.now())
+    createdAt = models.DateTimeField(default=datetime.now())
     deliveryType = models.CharField(max_length=10, default = "단일배송")
     address = models.CharField(max_length=50, default="", blank=True, null=True)
     isDelivery = models.BooleanField(default=False)
@@ -47,7 +48,7 @@ class Order(models.Model):
         return self.storeId
 
 class MenuSimple(models.Model):
-    orderId = models.ForeignKey(Order, on_delete=models.CASCADE, blank = True, null = True)
+    orderId = models.ForeignKey(Order, on_delete=models.CASCADE, related_name='orderId', blank = False, default="")
     menuName = models.CharField(max_length=20)
     menuNumber = models.PositiveIntegerField(default=0)
 

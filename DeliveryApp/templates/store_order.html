@@ -34,19 +34,31 @@
         <div class="order_list-3">
             {% for order in wait_orders.all %}
                     <div class="mid_inf">
-                        <div class="mid_1">{{order.createdAt}}</div>
+                        <div class="mid_1">{{order.createdAt | date:"G:i"}}</div>
                         <div class="mid_2">
                             <div class="mid_2-t">
                                 <p class="mid_t-1">[{{order.totalPeople}}명]   {{order.totalPrice}}원</p>
+                                <p class="mid_t-2">
                                 {% for order_menu in order_menus.all %}
-                                    {% if order_menu.orderId == order.id %}
-                                        <p class="mid_t-2">/ 블루베리 2 / 아메리카노(ICE)</p> 
+                                    {% if order_menu.orderId.id == order.id %}
+                                        {{order_menu.menuName}}{{order_menu.menuNumber}}
                                     {% endif %}
                                 {% endfor %}
+                                </p>
                             </div>
                             <div class="mid_2-b">
-                                    <p class="mid_b-1">[단일배송]   북구 대학로 8길 27</p>  
-                                    <p class="mid_b-2">그 외 주소</p>
+                                {% if order.deliveryType == "단일배송" %}
+                                    <p class="mid_b-1">[단일배송] {{order.address}}</p> 
+                                {% else %}
+                                    {% for delivery_info in delivery_infos %}
+                                        {% if delivery_info.deliveryInfoList.id == order.id %}
+                                            {% for address in delivery_info %}
+                                                <div>{{address.user.address}}</div>
+                                            {% endfor %}
+                                        {% endif %}
+                                    {% endfor %}
+                                        <p class="mid_b-2">[개별배송] 그 외 주소</p>
+                                {% endif %}
                             </div>
                         </div>
                         <div class="mid_3">
@@ -59,7 +71,7 @@
                                 <a class="button" href="#popup2">접수하기</a>
                             </div>
                             <div class="can">
-                                <a href="{% url 'store_order_delete' %}">취소하기</a>
+                                <a href="{% url 'store_order_delete' order.id %}">취소하기</a>
                             </div>
                         </div>
                     </div>

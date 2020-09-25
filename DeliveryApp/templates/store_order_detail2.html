@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>주문정보</title>
+    <title>진행중 주문정보 팝업</title>
     {% load static %}
     <link rel="stylesheet" href="{% static 'css/store_order_detail.css' %}">
 </head>
@@ -32,7 +32,7 @@
             </div>
         </div>
         <div class="order_list-3">
-            {% for order in wait_orders.all %}
+            {% for order in proceed_orders.all %}
                     <div class="mid_inf">
                         <div class="mid_1">{{order.createdAt | date:"G:i"}}</div>
                         <div class="mid_2">
@@ -88,7 +88,7 @@
                 <div></div>
                 <div></div>
                 <div class="pop2">
-                    <a class="close3" href="{% url 'store_order' %}">&times;</a>
+                    <a class="close3" href="{% url 'store_order2' %}">&times;</a>
                 </div>
             </div>
             <div class="popup-in2">

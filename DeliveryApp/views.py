@@ -2,6 +2,9 @@ from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth.models import User
 from django.contrib import auth
 from .models import Store, Menu, Order, DeliveryPrice, User, DeliveryInfo, Option, Category, MenuSimple
+from datetime import timedelta, datetime
+from django.utils import timezone
+from django.utils.timezone import utc
 
 # Create your views here.
 
@@ -148,22 +151,57 @@ def store_order(request):
     orders = Order.objects.filter(storeId = request.user.username)
     wait_orders = orders.filter(status = "접수대기")
     order_menus = MenuSimple.objects.all()
-    return render(request, 'store_order.html', {'wait_orders':wait_orders, 'order_menus': order_menus})
+    delivery_infos = DeliveryInfo.objects.all()
+    return render(request, 'store_order.html', {'wait_orders':wait_orders, 'order_menus': order_menus, 'delivery_infos': delivery_infos})
 
 #주문 정보
 def store_order_detail(request, order_id):
     order= get_object_or_404(Order, pk= order_id)
     deliveryInfo = DeliveryInfo.objects.filter(deliveryInfoList = order)
     menu_simples = MenuSimple.objects.filter(orderId = order)
+    #뒷 배경용 =>
+    wait_orders = orders.filter(status = "접수대기")
+    order_menus = MenuSimple.objects.all()
+    delivery_infos = DeliveryInfo.objects.all()
+    return render(request, 'store_order_detail.html', {'order':order, 'deliveryInfo':deliveryInfo, 'wait_orders':wait_orders, 'menu_simples':menu_simples, 'order_menus': order_menus, 'delivery_infos': delivery_infos})
 
-    return render(request, 'store_order_detail.html', {'order':order, 'deliveryInfo':deliveryInfo, 'menu_simples':menu_simples})
+#주문정보2
+def store_order_detail2(request, order_id):
+    order= get_object_or_404(Order, pk= order_id)
+    deliveryInfo = DeliveryInfo.objects.filter(deliveryInfoList = order)
+    menu_simples = MenuSimple.objects.filter(orderId = order)
+    #뒷 배경용 =>
+    orders = Order.objects.filter(storeId = request.user.username)
+    proceed_orders = orders.filter(status = "진행중")
+    order_menus = MenuSimple.objects.all()
+    delivery_infos = DeliveryInfo.objects.all()
+    return render(request, 'store_order_detail2.html', {'order':order, 'deliveryInfo':deliveryInfo, 'proceed_orders':proceed_orders, 'menu_simples':menu_simples, 'order_menus': order_menus, 'delivery_infos': delivery_infos})
 
 #주문 접수
 def store_order_add(request, order_id):
     if request.method == 'POST':
         order= get_object_or_404(Order, pk= order_id)
         order.status = "진행중"
-        order.deliveryTime = request.POST['time']
+        time = int(request.POST['time'])
+        #new
+        #배달 예상 시간
+        today = datetime.now()
+        if today.minute + time >= 60:
+            if today.hour +1 >=24:
+                today = today.replace(date = today.date + 1)
+                today = today.replace(hour = 0)
+            else:
+                today = today.replace(hour = today.hour +1)
+
+            today = today.replace(minute = today.minute + time-60)
+        else :
+            today = today.replace(minute = today.minute + time)
+
+        order.deliveryEndTime = order.deliveryEndTime.replace(hour = today.hour, minute = today.minute, second= today.second)
+
+        #Duration 시간
+        order.deliveryTime = order.deliveryTime.replace(hour = int(time/60), minute = int(time%60), second =0)
+        #
         order.save()
         #store_order.html에 필요한 자료=>#
         orders = Order.objects.filter(storeId = request.user.username)
@@ -174,14 +212,45 @@ def store_order_add(request, order_id):
     else:
         return render(request, 'store_order_add.html')
 #주문 취소
-def store_order_delete(request):
-    return render(request, 'store_order_delete.html')
+def store_order_delete(request, order_id):
+    order= get_object_or_404(Order, pk= order_id)
+    order.status = "취소"
+    order.save()
+
+    orders = Order.objects.filter(storeId = request.user.username).filter(status = "취소")
+
+    return render(request, 'store_order_delete.html', {'orders':orders})
 
 #진행중
 def store_order2(request):
     orders = Order.objects.filter(storeId = request.user.username)
     proceed_orders = orders.filter(status = "진행중")
-    return render(request, 'store_order2.html', {'proceed_orders':proceed_orders})
+    for order in proceed_orders:
+        #Duration 시간
+        today = datetime.now()
+        #초
+        if order.deliveryEndTime.second - today.second < 0: #현재 남은 초
+            if order.deliveryEndTime.minute - today.minute > 0: #현재 남은 분
+                order.deliveryTime = order.deliveryTime.replace(second = order.deliveryEndTime.second - today.second + 60)
+                #분
+                order.deliveryTime = order.deliveryTime.replace(minute = order.deliveryEndTime.minute - today.minute-1)
+            else :
+                if order.deliveryEndTime.hour - today.hour > 0: #현재 남은 시간
+                    order.deliveryTime = order.deliveryTime.replace(hour = order.deliveryEndTime.hour - today.hour -1)
+                    order.deliveryTime = order.deliveryTime.replace(minute = order.deliveryEndTime.minute - today.minute-1+60)
+                    order.deliveryTime = order.deliveryTime.replace(second = order.deliveryEndTime.second - today.second + 60)
+                else:
+                    order.deliveryTime = order.deliveryTime.replace(second = 0)
+        else :
+            if order.deliveryEndTime.hour - today.hour > 0 or order.deliveryEndTime.minute - today.minute > 0 :
+                order.deliveryTime = order.deliveryTime.replace(second = order.deliveryEndTime.second - today.second)
+
+        order.save()
+
+    menu_simples2 = MenuSimple.objects.all()
+    delivery_infos = DeliveryInfo.objects.all()
+
+    return render(request, 'store_order2.html', {'proceed_orders':proceed_orders, 'menu_simples2': menu_simples2, 'delivery_infos': delivery_infos})
 
 #완료내역
 def store_order3(request):
