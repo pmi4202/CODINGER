@@ -1,0 +1,229 @@
+.container {
+    z-index: 100;
+    margin-top: -319px;
+    position: absolute;
+}
+.background{
+    width:100vw;
+    height:315px;
+    z-index: 1;
+}
+
+.icon-back {
+    width: 11px;
+    height: 11px;
+}
+
+.title {
+    font-size: 16px;
+    font-weight: bold;
+    line-height: 17px;
+
+}
+
+.top-section {
+    background-color: #fff;
+    height: 69px;
+    display: flex;
+    flex-direction: row;
+    padding: 0 29.5px;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 2px 5px #00000029;
+    margin-bottom: 18px;
+    width: calc(100vw - 59px);
+}
+
+.row {
+    display: flex;
+    flex-direction: row;
+}
+
+.row-margin {
+    margin-bottom: 15px;
+}
+
+.row-margin11 {
+    margin-bottom: 11px;
+}
+
+.row-margin25 {
+    margin-bottom: 25px;
+}
+
+.column {
+    display: flex;
+    flex-direction: column;
+}
+
+.between {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.between.bottom {
+    border-bottom: 0.2px solid #e2e2e2;
+    padding-bottom: 8px;
+    margin-bottom: 11px;
+}
+
+.icon-between {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 82px;
+}
+
+.label4-width {
+   width: calc(100vw - 118px);
+}
+
+.action-icon {
+    width: 13px;
+    height: 13px;
+}
+
+.action-icon.margin {
+    margin-right: 13px;
+}
+
+.content-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    height: calc(100vh - 122px);
+}
+
+.item1 {
+    background-color: #fff;
+    width: calc(100vw - 78px);
+    padding: 16px 19px;
+    box-shadow: 0 2px 5px #00000029;
+    margin-bottom: 14px;
+}
+
+.item2 {
+    background-color: #fff;
+    width: calc(50vw - 65px);
+    padding: 16px 19px;
+    box-shadow: 0 2px 5px #00000029;
+    margin-bottom: 14px;
+}
+
+.item2.margin {
+    margin-right: 14px;
+}
+
+.action-wrapper {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-end;
+    margin: 21px 0 35px 0;
+}
+
+.action-btn {
+    width: calc(100vw - 40px);
+    text-decoration: none;
+    font-size: 20px;
+    line-height: 18px;
+    color: #fff;
+    font-weight: bold;
+    border-radius: 30px;
+    padding: 20px 0;
+    text-align: center;
+    background: rgb(255,107,107);
+    background: linear-gradient(189deg, rgba(255,107,107,1) 0%, rgba(254,172,94,1) 100%);
+}
+
+.action-btn2 {
+    border-radius: 5px;
+    background-color: #7B7878;
+    width: 30px;
+    height: 15px;
+    font-size: 9px;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.label1 {
+    font-size: 12px;
+    color: #FB6254;
+    font-weight: bold;
+    margin-bottom: 28px;
+}
+
+.non-margin {
+    margin: 0;
+}
+
+.label2 {
+    font-size: 13px;
+}
+
+.label4 {
+    font-size: 11px;
+    font-weight: bold;
+}
+
+.label5 {
+    font-size: 11px;
+    font-weight: normal;
+}
+
+.modal-wrapper {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 100; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100vw; /* Full width */
+    height: 100vh; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+.modal-card {
+    background-color: #fff;
+    border-radius: 7px;
+    padding: 20px 0;
+    border: 1.5px solid #FB6254;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: calc(100vw - 40px); /* Could be more or less, depending on screen size */                          
+}
+
+.modal-label {
+    font-size: 13px;
+    font-weight: bold;
+    margin-bottom: 7px;
+}
+
+.modal-label2 {
+    font-size: 11px;
+    font-weight: normal;
+    margin-bottom: 16px;
+}
+
+.action-btn3 {
+    width: 76px;
+    height: 26px;
+    margin-bottom: 8px;
+    border-radius: 10px;
+    font-weight: bold;
+    font-size: 11px;
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #FB6254;
+    text-decoration: none;
+}

@@ -1,17 +1,278 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/user_map.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/global.css' %}">
+    <link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@400;700&display=swap" rel="stylesheet">
     <title>Document</title>
 </head>
 
 <body>
-    user_home
-    <a href="{% url 'user_home' %}">뒤로 가기</a>
-    <!-- <a href="{% url 'store_menu' %}">메뉴 관리</a>
-    <a href="{% url 'store_order' %}">주문 관리</a> -->
+  <div class="container">
+    <div id="map" class="map">
+        <div class="top-section">
+            <div class="dropdown">
+                <button id="dropdown1-label" onclick="myFunction('dropdown1')" class="dropbtn">반경: 100m</button>
+                <div id="dropdown1" class="dropdown-content">
+                    <div class="dropdown1-item active">
+                        <img src="{% static 'image/check.png' %}">
+                        <div>100m</div>
+                    </div>
+                    <div class="dropdown1-item">
+                        <img src="{% static 'image/check.png' %}">
+                        <div>200m</div>
+                    </div>
+                    <div class="dropdown1-item">
+                        <img src="{% static 'image/check.png' %}">
+                        <div>300m</div>
+                    </div>
+                </div>
+            </div>
+            <div class="dropdown">
+                <button id="dropdown2-label" onclick="myFunction('dropdown2')" class="dropbtn">분류: 전체</button>
+                <div id="dropdown2" class="dropdown-content">
+                    <div class="dropdown2-item active">
+                        <img src="{% static 'image/check.png' %}">
+                        <div>전체</div>
+                    </div>
+                    <div class="dropdown2-item">
+                        <img src="{% static 'image/check.png' %}">
+                        <div>한식</div>
+                    </div>
+                    <div class="dropdown2-item">
+                        <img src="{% static 'image/check.png' %}">
+                        <div>일식</div>
+                    </div>
+                </div>
+            </div>
+            <div class="dropdown">
+                <button id="dropdown3-label" onclick="myFunction('dropdown3')" class="dropbtn">중간 수령</button>
+                <div id="dropdown3" class="dropdown-content">
+                    <div class="dropdown3-item active">
+                        <img src="{% static 'image/check.png' %}">
+                        <div>중간수령</div>
+                    </div>
+                    <div class="dropdown3-item">
+                        <img src="{% static 'image/check.png' %}">
+                        <div>개인수령</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="bottom-section">
+            <div class="info-wrapper">
+                <div class="row row-margin9">
+                    <img class="mark" src="{% static 'image/menu_2.svg' %}">
+                    <div class="label1">쥬씨 복현점</div>
+                    <img class="arrow" src="{% static 'image/sub_1.png' %}">
+                </div>
+                <div class="label2 row-margin28">딸기바나나 2, 아메리카노(ICE) 1, 블루베리 2</div>
+                <div class="between">
+                    <div class="info">
+                        <div class="label3">배달지</div>
+                        <div class="label2">대학로 8길 27</div>
+                    </div>
+                    <div class="info">
+                        <img class="info-icon" src="{% static 'image/map-time.png' %}">
+                        <div class="label2">2</div>
+                    </div>
+                    <div class="info">
+                        <img class="info-icon" src="{% static 'image/map-time.png' %}">
+                        <div class="label2">07:58</div>
+                    </div>
+                </div>
+            </div>
+            <div id="action-modal" class="action-btn">
+                <div></div>
+                <div class="label4">참여하기</div>
+                <div class="label5">4,000원</div>
+            </div>
+        </div>
+    </div>
+    <div class="nav-wrapper">
+      <a href="{% url 'user_home' %}">
+        <div class="column nav">
+          <img class="nav-icon" src="{% static 'image/nav-home.png' %}" >
+          <div class="nav-label">홈</div>
+        </div>
+      </a>
+      <a href="{% url 'user_map' %}">
+        <div class="column nav">
+          <div class="nav-active"></div>
+          <img class="nav-icon" src="{% static 'image/nav-map.png' %}" >
+          <div class="nav-label">모집중공고</div>
+        </div>
+      </a>
+      <a href="{% url 'user_detail' %}">
+        <div class="column nav">
+          <img class="nav-icon" src="{% static 'image/nav-profile.png' %}" >
+          <div class="nav-label">마이페이지</div>
+        </div>
+      </a>
+    </div>
+  </div>
+  <div id="modal" class="modal-wrapper">
+    <div class="modal-card">
+      <div class="modal-label">공구 참여 완료</div>
+      <div class="modal-label2">진행 현황은 MY페이지에서 확인해주세요</div>
+      <a class="action-btn3" href="{% url 'user_home' %}">
+        홈으로
+      </a>
+      <a class="action-btn3 non-margin" href="{% url 'user_detail' %}">
+        현황보기
+      </a>
+    </div>
+  </div>
+    <script type="text/javascript"
+        src="//dapi.kakao.com/v2/maps/sdk.js?appkey=2e4861cf241e753c7c60c90ba811a319"></script>
+    <script>
+        var container = document.getElementById('map');
+        var options = {
+            center: new kakao.maps.LatLng(35.8936753753173, 128.60955504475183),
+            level: 3
+        };
+
+        var map = new kakao.maps.Map(container, options); // 지도를 생성합니다
+
+        // 마커를 표시할 위치와 내용을 가지고 있는 객체 배열입니다 
+        var positions = [
+            {
+                content: '<div>쥬씨 복현점</div>',
+                latlng: new kakao.maps.LatLng(35.89354830746703, 128.6092866794105)
+            },
+            {
+                content: '<div>청년다방 경북대점</div>',
+                latlng: new kakao.maps.LatLng(35.89264885845113, 128.60714215454357)
+            },
+            {
+                content: '<div>엽떡 경북대점</div>',
+                latlng: new kakao.maps.LatLng(35.89428033771388, 128.61013764525038)
+            },
+            {
+                content: '<div>그리다빵 경북대점</div>',
+                latlng: new kakao.maps.LatLng(35.89406533431324, 128.60970691205117)
+            },
+            {
+                content: '<div>싸움의 고수</div>',
+                latlng: new kakao.maps.LatLng(35.89420795571923, 128.60982331650388)
+            },
+            {
+                content: '<div>써브웨이 경대점</div>',
+                latlng: new kakao.maps.LatLng(35.89305941363336, 128.6094567455977)
+            }
+
+
+        ];
+
+        for (var i = 0; i < positions.length; i++) {
+            // 마커를 생성합니다
+            var marker = new kakao.maps.Marker({
+                map: map, // 마커를 표시할 지도
+                position: positions[i].latlng // 마커의 위치
+            });
+
+            // 마커에 표시할 인포윈도우를 생성합니다 
+            var infowindow = new kakao.maps.InfoWindow({
+                content: positions[i].content // 인포윈도우에 표시할 내용
+            });
+
+            // 마커에 mouseover 이벤트와 mouseout 이벤트를 등록합니다
+            // 이벤트 리스너로는 클로저를 만들어 등록합니다 
+            // for문에서 클로저를 만들어 주지 않으면 마지막 마커에만 이벤트가 등록됩니다
+            kakao.maps.event.addListener(marker, 'mouseover', makeOverListener(map, marker, infowindow));
+            kakao.maps.event.addListener(marker, 'mouseout', makeOutListener(infowindow));
+        }
+
+        // 인포윈도우를 표시하는 클로저를 만드는 함수입니다 
+        function makeOverListener(map, marker, infowindow) {
+            return function () {
+                infowindow.open(map, marker);
+            };
+        }
+
+        // 인포윈도우를 닫는 클로저를 만드는 함수입니다 
+        function makeOutListener(infowindow) {
+            return function () {
+                infowindow.close();
+            };
+        }
+    </script>
+    <script>
+        function myFunction(id) {
+            document.getElementById(id).classList.toggle("show");
+        }
+
+        // Close the dropdown if the user clicks outside of it
+        window.onclick = function(event) {
+            if (!event.target.matches('.dropbtn')) {
+                var dropdowns = document.getElementsByClassName("dropdown-content");
+                var i;
+                for (i = 0; i < dropdowns.length; i++) {
+                var openDropdown = dropdowns[i];
+                if (openDropdown.classList.contains('show')) {
+                    openDropdown.classList.remove('show');
+                }
+                }
+            }
+        }
+    </script>
+    <script>
+        var modal = document.getElementById('modal');
+   
+        var btn = document.getElementById("action-modal");
+          
+        btn.onclick = function() {
+          modal.style.display = "flex";
+        }
+  
+        window.onclick = function(event) {
+          if (event.target == modal) {
+            modal.style.display = "none";
+          }
+        }
+        var target1 = document.getElementById("dropdown1");
+        var dropdownlist1 = target1.getElementsByClassName("dropdown1-item");
+        for (var i = 0; i < dropdownlist1.length; i++) {
+            dropdownlist1[i].addEventListener("click", function() {
+                var modal = document.getElementById('modal');
+                var current = document.getElementsByClassName("dropdown1-item active");
+                current[0].className = current[0].className.replace(" active", "");
+                this.className += " active";
+                document.getElementById('dropdown1-label').textContent = '반경: '+ current[0].textContent.trim();
+                document.getElementById('dropdown1').classList.remove("show");
+            });
+        }
+
+        var target2 = document.getElementById("dropdown2");
+        var dropdownlist2 = target2.getElementsByClassName("dropdown2-item");
+        for (var i = 0; i < dropdownlist2.length; i++) {
+            dropdownlist2[i].addEventListener("click", function() {
+                var modal = document.getElementById('modal');
+                var current = document.getElementsByClassName("dropdown2-item active");
+                current[0].className = current[0].className.replace(" active", "");
+                this.className += " active";
+                document.getElementById('dropdown2-label').textContent = '분류: '+ current[0].textContent.trim();
+                document.getElementById('dropdown2').classList.remove("show");
+            });
+        }
+
+        var target3 = document.getElementById("dropdown3");
+        var dropdownlist3 = target3.getElementsByClassName("dropdown3-item");
+        for (var i = 0; i < dropdownlist3.length; i++) {
+            dropdownlist3[i].addEventListener("click", function() {
+                var modal = document.getElementById('modal');
+                var current = document.getElementsByClassName("dropdown3-item active");
+                current[0].className = current[0].className.replace(" active", "");
+                this.className += " active";
+                document.getElementById('dropdown3-label').textContent = current[0].textContent.trim();
+                document.getElementById('dropdown3').classList.remove("show");
+            });
+        }
+      </script>
 </body>
 
 </html>
