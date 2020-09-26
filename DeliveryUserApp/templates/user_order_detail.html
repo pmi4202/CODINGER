@@ -12,89 +12,137 @@
 </head>
 
 <body>
-
-    <div class="container background">
-        <div class="item1"> <img id="back" src="image/order1_1.png" alt="">
-            &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<b id="item1_1">장바구니</b>
-
-
-        </div>
-
-        <div class="item2">
-            <span id="item4_1">주문내역</span><br><br><br>
-            <div id="item2_1">
-                &emsp; 딸바&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
-                <img class="item2_2" src="image/order2_4.png" alt="">&emsp; 2&emsp; <img class="item2_2"
-                    src="image/order2_3.png" alt="">
-                <br><br>
-                &emsp; 아메리카노(ICE)&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
-                <img class="item2_2" src="image/order2_4.png" alt="">&emsp; 1&emsp; <img class="item2_2"
-                    src="image/order2_3.png" alt="">
-                <br><br>
-                &emsp; 블루베리 &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp; &ensp;&ensp;&ensp;&ensp;&ensp;
-                <img class="item2_2" src="image/order2_4.png" alt="">&emsp; 2&emsp; <img class="item2_2"
-                    src="image/order2_3.png" alt="">
-
-
-
-
-            </div>
-
-
-
-
-
-        </div>
-        <div class="item3">
-            <span id="item4_1">배달 정보</span><br><br><br>
-            <div class="item3_1">
-                &emsp; <img src="image/order2_6.png" alt=""> &emsp; 개인수령<br>
-                &emsp;&emsp;&emsp; &emsp; <span id="item3_2"> 북구 북현동 it 4호관</span> &emsp; &emsp; &emsp; &emsp;
-                &emsp;&emsp;&emsp;
-                <button id="item3_3">변경</button>
-                <br><br><br>
-                &emsp; <img src="image/order2_5.png" alt="">&emsp; 중간 지점 수령
-            </div>
-
-        </div>
-        <div class="item4">&emsp;
-            <span id="item4_1">총 금액</span> &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp; &emsp; &emsp; &emsp; &emsp; &emsp;
-            &emsp; <span id="item4_2">
-                24,000원</span>
-            <hr id="item4_3"><br>
-            <div id="item4_4">주문금액
-                &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
-                20,000원<br>
-                <br>배달료&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
-                4,000원
-
-
-
-            </div>
-        </div>
-
-        <div class="item56">
-            <div class="item5"> <span id="item5_1"> 공구인원</span> <br> <br><br>
-                &emsp; <span id="item5_1">최소</span> 명 ~<span id="item5_1">최대</span> 명
-            </div>
-            <div class="item6"> <span id="item6_1"> 모집시간</span><br><br><br>
-                <img class="item6_2" src="image/order2_4.png">20분<img class="item6_3" src="image/order2_3.png" alt="">
-
-            </div>
-        </div>
-
-        <div class="item7"><br> <span id="item7_1"> 1인당 최종 결제금액 &emsp;&emsp;&emsp;</span> <span id="item7_2"> 6,000원 ~
-                12,000원</span> </div>
+  <img class="background" src="{% static 'image/order-bg.png' %}" />
+  <div class="container">
+    <div class="top-section">
+      <a href="{% url 'user_store_detail' %}">
+        <img class="icon-back" src="{% static 'image/arrow-back.png' %}">
+      </a>
+      <div class="title">장바구니</div>
+      <div></div>
     </div>
-    <a href="{% url 'user_home' %}">
-        <div class="item8">
-            공구 모집하기
+    <div class="content-section">
+      <div>
+        <div class="item1">
+          <div class="label1">주문내역</div>
+          <div class="between row-margin">
+            <div class="label2">딸바</div>
+            <div class="icon-between">
+              <img class="action-icon" src="{% static 'image/minus.png' %}">
+              <div class="label2">2</div>
+              <img class="action-icon" src="{% static 'image/plus.png' %}">
+            </div>         
+          </div>
+          <div class="between row-margin">
+            <div class="label2">아메리카노(ICE)</div>
+            <div class="icon-between">
+              <img class="action-icon" src="{% static 'image/minus.png' %}">
+              <div class="label2">2</div>
+              <img class="action-icon" src="{% static 'image/plus.png' %}">
+            </div>         
+          </div>
+          <div class="between">
+            <div class="label2">블루베리</div>
+            <div class="icon-between">
+              <img class="action-icon" src="{% static 'image/minus.png' %}">
+              <div class="label2">2</div>
+              <img class="action-icon" src="{% static 'image/plus.png' %}">
+            </div>         
+          </div>
         </div>
-    </a>
+        <div class="item1">
+          <div class="label1">배달정보</div>
+          <div class="row row-margin25">
+            <img class="action-icon margin" src="{% static 'image/inactive-check.png' %}" >
+            <div class="column">
+              <div class="label4">개인수령</div>
+              <div class="label4-width between">
+                <div class="label5">북구 복현동 it4호관</div>
+                <div class="action-btn2">변경</div>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <img class="action-icon margin" src="{% static 'image/active-check.png' %}" >
+            <div class="label4">중간 지점 수령</div>
+          </div>
+          <div>
 
+          </div>
+        </div>
+        <div class="item1">
+          <div class="between bottom">
+            <div class="label1 non-margin">총금액</div>
+            <div class="label4">24,000원</div>
+          </div>
+          <div class="between row-margin11">
+            <div class="label4">주문금액</div>
+            <div class="label4">20,000원</div>
+          </div>
+          <div class="between">
+            <div class="label4">배달료</div>
+            <div class="label4">4,000원</div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="item2 margin">
+            <div class="label1">공구인원</div>
+            <div class="row">
+              <div class="label1 non-margin">최소</div>
+              <div class="label2">2명</div>
+              <div class="label1 non-margin"> ~ 최대</div>
+              <div class="label2">4명</div>
+            </div>
+          </div>
+          <div class="item2">
+            <div class="label1">모집시간</div>
+            <div class="icon-between">
+              <img class="action-icon" src="{% static 'image/minus.png' %}">
+              <div class="label2">2</div>
+              <img class="action-icon" src="{% static 'image/plus.png' %}">
+            </div>
+          </div>
+        </div>
+        <div class="item1">
+          <div class="between">
+            <div class="label1 non-margin">1인당 최종 결제금액</div>
+            <div class="label4">6000원 ~ 12000원</div>
+          </div>
+        </div>
+      </div>
+      <div class="action-wrapper">
+        <div class="action-btn" id="action-modal">
+          공구 모집하기
+        </div>
+      </div>  
+    </div>
+    <div id="modal" class="modal-wrapper">
+      <div class="modal-card">
+        <div class="modal-label">공구 모집 시작</div>
+        <div class="modal-label2">진행 현황은 MY페이지에서 확인해주세요</div>
+        <a class="action-btn3" href="{% url 'user_home' %}">
+          홈으로
+        </a>
+        <a class="action-btn3 non-margin" href="{% url 'user_detail' %}">
+          현황보기
+        </a>
+      </div>
+    </div>
+    <script>
+      var modal = document.getElementById('modal');
+ 
+      var btn = document.getElementById("action-modal");
+        
+      btn.onclick = function() {
+        modal.style.display = "flex";
+      }
 
-
-
+      window.onclick = function(event) {
+        if (event.target == modal) {
+          modal.style.display = "none";
+        }
+      }
+    </script>
 </body>
 
 </html>

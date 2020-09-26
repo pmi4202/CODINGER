@@ -3,70 +3,81 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="{% static 'css/user_store_detail.css' %}">
-    <link rel="stylesheet" type="text/css" href="{% static 'css/global.css' %}">
-    <link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@400;700&display=swap" rel="stylesheet">
-    <title>가게메뉴들</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" type="text/css" href="{% static 'css/user_store_detail.css' %}">
+  <link rel="stylesheet" type="text/css" href="{% static 'css/global.css' %}">
+  <link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@400;700&display=swap" rel="stylesheet">
+  <title>가게 정보</title>
 </head>
 
 <body>
-    <div class="container">
-        <div class="top-wrapper">
-            <div class="nav-wrapper">
-                <a href="{% url 'user_category_list' %}">
-                <img src="{% static 'image/arrow-back.png' %}">
-                </a>
-                <img src="{% static 'image/heart.png' %}" />
-            </div>
-            <div class="icon-wrapper">
-                <img src="{% static 'image/store_01.png' %}">
-                <div>쥬씨 복현점</div>
-            </div>
+  <div class="container">
+    <div class="top-wrapper">
+        <div class="nav-wrapper">
+            <a href="{% url 'user_category_list' %}">
+              <img class="icon-back" src="{% static 'image/arrow-back.png' %}">
+            </a>
+            <img id="heart" src="{% static 'image/heart.png' %}" onclick="toggleImg()" />
+            <img id="heart-active" src="{% static 'image/heart-active.png' %}" onclick="toggleImg()" />
         </div>
-        <div class="price-info-wrapper">
-            <div>
-                <div class="row">
-                <div>최소주문 금액</div>
-                <div>10,000원</div>
-                </div>
-                <div class="row">
-                <div>배달비</div>
-                <div>1,000 ~ 4,000원</div>
-                </div>
-            </div>
-            <img src="{% static 'image/phone.png' %}">
+        <div class="icon-wrapper">
+            <img src="{% static 'image/store_01.png' %}">
+            <div>쥬씨 복현점</div>
         </div>
-        <div class="tab-wrapper">
-            <div>메뉴</div>
-            <div>정보</div>
-        </div>
-        <div class="content-wrapper">
-            {% for category in categories.all %}
-            <br>
-            <div class="label">{{category.categoryName}}</div>
-                {% for menu in menus.all %}
-                    {% if menu.categoryName == category.categoryName %}
-                        <br>
-                        <a href="{% url 'user_order_add' menu.id %}">
-                            <div class="row between">
-                                <div>
-                                    <div>{{menu.menuName}}</div>
-                                    <div>{{menu.menuDetail}}</div>
-                                    <div>{{menu.menuPrice}}</div>
-                                </div>
-                                <img src="{% static 'image/menu_1.png' %}">
-                            </div>
-                        </a>
-                    {% endif %}
-                {% endfor %}
-            {% endfor %}
-
-        <a href="{% url 'user_order_detail' %}">
-            <img class="confirm-btn" src="{% static 'image/menu_add.png' %}">
-        </a>
     </div>
+    <div class="price-info-wrapper">
+      <div class="price-column">
+        <div class="row">
+          <div>최소주문 금액</div>
+          <div>10,000원</div>
+        </div>
+        <div class="row">
+          <div>배달비</div>
+          <div>1,000 ~ 4,000원</div>
+        </div>
+      </div>
+      <img class="icon-phone" src="{% static 'image/call.svg' %}">
+    </div>
+    <div class="tab-wrapper">
+      <div class="active">메뉴</div>
+      <div>정보</div>
+    </div>
+    <div class="content-wrapper">
+        {% for category in categories.all %}
+        <div class="label">{{category.categoryName}}</div>
+            {% for menu in menus.all %}
+                {% if menu.categoryName == category.categoryName %}
+                    <a href="{% url 'user_order_add' menu.id %}">
+                        <div class="between">
+                          <div class="menu-info-wrapper">
+                            <div class="menu-label">{{menu.menuName}}</div>
+                            <div class="menu-sub-label">{{menu.menuDetail}}</div>
+                            <div class="menu-cost">{{menu.menuPrice}}</div>
+                          </div>
+                          <img class="menu-mark" src="{% static 'image/menu_1.svg' %}">
+                        </div>
+                    </a>
+                {% endif %}
+            {% endfor %}
+        {% endfor %}
+    <a href="{% url 'user_order_detail' %}">
+        <img class="confirm-btn" src="{% static 'image/menu_add.png' %}">
+    </a>
+  </div>
+  <script language="javascript" type="text/javascript">
+    function toggleImg() {
+      const img1 = document.getElementById('heart');
+      const img2 = document.getElementById('heart-active');
+      if(img1.style.display === 'none'){
+        img1.style.display = 'flex';
+        img2.style.display = 'none';
+      } else {
+        img2.style.display = 'flex';
+        img1.style.display = 'none';
+      }
+    }
+</script>
 </body>
 
 </html>

@@ -13,87 +13,134 @@
 
 <body>
     <div class="container background">
-        <a href="{% url 'user_home' %}">뒤로 가기</a>
-        <div class="item item1">
-            <br>
-            <img class="detail_1" src="image/detail_1.png" alt="">
-            <b>한식</b>
-            <div class="kind">
-                <div class="menu kind1">한식
-                    <br><img class="nemo" src="image/nemo.png">
-                </div>
-                <div class="menu kind2">분식</div>
-                <div class="menu kind3">양식</div>
-                <div class="menu kind4">중식</div>
-                <div class="menu kind5">일식</div>
-            </div>
+        <div class="title-section">
+          <div class="title-wrapper">
+            <a href="{% url 'user_home' %}">
+              <img class="icon-back" src="{% static 'image/arrow-back.png' %}">
+            </a>
+            <div>한식</div>
+            <div></div>
+          </div>
+          <div id='menu-kind' class="kind">
+            <div class="menu kind1 active">한식</div>
+            <div class="menu kind2">분식</div>
+            <div class="menu kind3">양식</div>
+            <div class="menu kind4">중식</div>
+            <div class="menu kind5">일식</div>
+          </div>
         </div>
-        <div class="item item2">
-            <div class="store">
-                <div class="store1"><img class="store_1" src="{% static 'image/menu_1.png' %}" alt=""></div>
-                <div class="store2"><img class="store_2" src="{% static 'image/menu_1.png' %}" alt=""> </div>
-                <div class="store3"><img class="store_3" src="{% static 'image/menu_1.png' %}" alt=""></div>
-                <div class="store4"><img class="store_4" src="{% static 'image/menu_1.png' %}" alt=""></div>
-                <div class="store5"><img class="store_5" src="{% static 'image/menu_1.png' %}" alt=""></div>
-                <div class="store6"><img class="store_6" src="{% static 'image/menu_1.png' %}" alt=""></div>
-                <div class="store7"><img class="store_7" src="{% static 'image/menu_1.png' %}" alt=""></div>
-                <div class="store8"><img class="store_8" src="{% static 'image/menu_1.png' %}" alt=""></div>
+        <div class="item item2 column">
+          <a href="{% url 'user_store_detail' %}">
+            <div class="store-wrapper">
+              <img class="store-mark" src="{% static 'image/menu_1.svg' %}" alt="">
+              <div class="store-info-wrapper">
+                <div class="store-info-label">고봉민김밥</div>
+                <div class="store-info-rating">
+                  <img class="store-rating-icon" src="{% static 'image/star.png' %}">
+                  <div class="store-rating-label">4.8</div>
+                </div>
+                <div class="store-info-cost">최소주문금액 15,000원</div>
+                <div class="store-info-cost">배달비 1,000원~4,000원</div>
+              </div>
             </div>
-            <div class="store00">
-                <a href="{% url 'user_store_detail' %}">
-                    <div class="store01">
-                        <b class="title"> 고봉민김밥</b>
-                        <br> <img src="image/star.png">4.8
-                        <br>최소주문금액 15,000원
-                        <br>배달비 1,000원~4,000원
-                    </div>
-                </a>
-                <div class="store02">
-                    <b class="title"> 원할머니보쌈</b>
-                    <br> <img src="image/star.png">4.8
-                    <br>최소주문금액 20,000원
-                    <br>배달비 1,00원~2,000원
+          </a>
+          <a href="{% url 'user_store_detail' %}">
+            <div class="store-wrapper">
+              <img class="store-mark" src="{% static 'image/menu_1.svg' %}" alt="">
+              <div class="store-info-wrapper">
+                <div class="store-info-label">원할머니보쌈</div>
+                <div class="store-info-rating">
+                  <img class="store-rating-icon" src="{% static 'image/star.png' %}">
+                  <div class="store-rating-label">4.8</div>
                 </div>
-                <div class="store03">
-                    <b class="title">대마족발</b>
-                    <br> <img src="image/star.png">4.9
-                    <br>최소주문금액 15,000원
-                    <br>배달비 1,00원~2,000원
-                </div>
-                <div class="store04">
-                    <b class="title">놀부보쌈</b>
-                    <br> <img src="image/star.png">4.6
-                    <br>최소주문금액 18,000원
-                    <br>배달비 3,000원
-                </div>
-                <div class="store05">
-                    <b class="title">본죽</b>
-
-                    <br> <img src="image/star.png">4.8
-                    <br>최소주문금액 15,000원
-                    <br>배달비 1,00원~4,000원
-                </div>
-                <div class="store06">
-                    <b class="title">황제명태명가</b>
-                    <br> <img src="image/star.png">5.0
-                    <br>최소주문금액 8,000원
-                    <br>배달비 1,00원~3,000원
-                </div>
-                <div class="store07">
-                    <b class="title">자연별곡</b>
-                    <br> <img src="image/star.png">4.4
-                    <br>최소주문금액 15,000원
-                    <br>배달비 1,00원~3,000원
-                </div>
-                <div class="store08">
-                    <b class="title">이바돔감자탕</b>
-                    <br> <img src="image/star.png">4.8
-                    <br>최소주문금액 15,000원
-                    <br>배달비 1,00원~3,000원
-                </div>
+                <div class="store-info-cost">최소주문금액 15,000원</div>
+                <div class="store-info-cost">배달비 1,000원~4,000원</div>
+              </div>
             </div>
+          </a>
+          <a href="{% url 'user_store_detail' %}">
+            <div class="store-wrapper">
+              <img class="store-mark" src="{% static 'image/menu_1.svg' %}" alt="">
+              <div class="store-info-wrapper">
+                <div class="store-info-label">대마족발</div>
+                <div class="store-info-rating">
+                  <img class="store-rating-icon" src="{% static 'image/star.png' %}">
+                  <div class="store-rating-label">4.8</div>
+                </div>
+                <div class="store-info-cost">최소주문금액 15,000원</div>
+                <div class="store-info-cost">배달비 1,000원~4,000원</div>
+              </div>
+            </div>
+          </a>
+          <a href="{% url 'user_store_detail' %}">
+            <div class="store-wrapper">
+              <img class="store-mark" src="{% static 'image/menu_1.svg' %}" alt="">
+              <div class="store-info-wrapper">
+                <div class="store-info-label">놀부보쌈</div>
+                <div class="store-info-rating">
+                  <img class="store-rating-icon" src="{% static 'image/star.png' %}">
+                  <div class="store-rating-label">4.8</div>
+                </div>
+                <div class="store-info-cost">최소주문금액 15,000원</div>
+                <div class="store-info-cost">배달비 1,000원~4,000원</div>
+              </div>
+            </div>
+          </a>
+          <a href="{% url 'user_store_detail' %}">
+            <div class="store-wrapper">
+              <img class="store-mark" src="{% static 'image/menu_1.svg' %}" alt="">
+              <div class="store-info-wrapper">
+                <div class="store-info-label">본죽</div>
+                <div class="store-info-rating">
+                  <img class="store-rating-icon" src="{% static 'image/star.png' %}">
+                  <div class="store-rating-label">4.8</div>
+                </div>
+                <div class="store-info-cost">최소주문금액 15,000원</div>
+                <div class="store-info-cost">배달비 1,000원~4,000원</div>
+              </div>
+            </div>
+          </a>
+          <a href="{% url 'user_store_detail' %}">
+            <div class="store-wrapper">
+              <img class="store-mark" src="{% static 'image/menu_1.svg' %}" alt="">
+              <div class="store-info-wrapper">
+                <div class="store-info-label">황제명태명가</div>
+                <div class="store-info-rating">
+                  <img class="store-rating-icon" src="{% static 'image/star.png' %}">
+                  <div class="store-rating-label">4.8</div>
+                </div>
+                <div class="store-info-cost">최소주문금액 15,000원</div>
+                <div class="store-info-cost">배달비 1,000원~4,000원</div>
+              </div>
+            </div>
+          </a>
+          <a href="{% url 'user_store_detail' %}">
+            <div class="store-wrapper">
+              <img class="store-mark" src="{% static 'image/menu_1.svg' %}" alt="">
+              <div class="store-info-wrapper">
+                <div class="store-info-label">이바돔감자탕</div>
+                <div class="store-info-rating">
+                  <img class="store-rating-icon" src="{% static 'image/star.png' %}">
+                  <div class="store-rating-label">4.8</div>
+                </div>
+                <div class="store-info-cost">최소주문금액 15,000원</div>
+                <div class="store-info-cost">배달비 1,000원~4,000원</div>
+              </div>
+            </div>
+          </a>
         </div>
     </div>
+    <script>
+      var target = document.getElementById("menu-kind");
+      var menulist = target.getElementsByClassName("menu");
+      for (var i = 0; i < menulist.length; i++) {
+        menulist[i].addEventListener("click", function() {
+        var current = document.getElementsByClassName("active");
+        current[0].className = current[0].className.replace(" active", "");
+        this.className += " active";
+        });
+      }
+    </script>
 </body>
 
 </html>

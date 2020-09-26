@@ -1,17 +1,90 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/user_detail.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/global.css' %}">
+    <link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@400;700&display=swap" rel="stylesheet">
     <title>Document</title>
 </head>
 
 <body>
-    <a href="{% url 'user_home' %}">뒤로 가기</a>
-    마이페이지
-    <!-- <a href="{% url 'store_menu' %}">메뉴 관리</a>
-    <a href="{% url 'store_order' %}">주문 관리</a> -->
+  <div class="container">
+    <div class="top-section">
+      <a href="{% url 'user_store_detail' %}">
+        <img class="icon-back" src="{% static 'image/arrow-back.png' %}">
+      </a>
+      <div class="title">마이페이지</div>
+      <div></div>
+    </div>
+    <div class="info-section">
+      <div class="label1">코딩거 님</div>
+      <a class="action-btn" href="{% url 'user_login' %}">
+        로그아웃
+      </a>
+    </div>
+    <div class="content-section">
+      <div class="label2">현재 참여 중인 공구</div>
+      <div class="active-wrapper">
+        <div class="row row-margin10">
+          <div class="label4">주문내역</div>
+          <div class="label5 label-width">쥬씨 복현점(딸바2,아메리카노1, 블루베리2)</div>
+        </div>
+        <div class="row row-margin10">
+          <div class="label4">참여내역</div>
+          <div class="label5">2명 / 6명</div>
+        </div>
+        <div class="row row-margin16">
+          <div class="label4">남은시간</div>
+          <div class="label5">07:58</div>
+        </div>
+        <div class="action-btn2">취소하기</div>
+      </div>
+
+      <div class="label3">결제완료</div>
+      <div class="inactive-wrapper">
+        <div class="between row-margin10">
+          <div class="row">
+            <div class="label4">주문내역</div>
+            <div class="label5 label-width">쥬씨 복현점(딸바2,아메리카노1, 블루베리2)</div>
+          </div>
+          <div class="label6">8월 25일</div>
+        </div>
+        <div class="row">
+          <div class="label4">결제금액</div>
+          <div class="label5">5,000원</div>
+        </div>
+      </div>
+      <div class="label3">결제완료</div>
+      <div class="inactive-wrapper">
+
+      </div>
+    </div>
+  </div>
+    <div class="nav-wrapper">
+      <a href="{% url 'user_home' %}">
+        <div class="column nav">
+          <img class="nav-icon" src="{% static 'image/nav-home.png' %}" >
+          <div class="nav-label">홈</div>
+        </div>
+      </a>
+      <a href="{% url 'user_map' %}">
+        <div class="column nav">
+          <img class="nav-icon" src="{% static 'image/nav-map.png' %}" >
+          <div class="nav-label">모집중공고</div>
+        </div>
+      </a>
+      <a href="{% url 'user_detail' %}">
+        <div class="column nav">
+          <div class="nav-active"></div>
+          <img class="nav-icon" src="{% static 'image/nav-profile.png' %}" >
+          <div class="nav-label">마이페이지</div>
+        </div>
+      </a>
+    </div>
 </body>
 
 </html>
