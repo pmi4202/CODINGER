@@ -3,12 +3,12 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="{% static 'css/user_order_detail.css' %}">
-    <link rel="stylesheet" type="text/css" href="{% static 'css/global.css' %}">
-    <link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@400;700&display=swap" rel="stylesheet">
-    <title>Document</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" type="text/css" href="{% static 'css/user_order_detail.css' %}">
+  <link rel="stylesheet" type="text/css" href="{% static 'css/global.css' %}">
+  <link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@400;700&display=swap" rel="stylesheet">
+  <title>Document</title>
 </head>
 
 <body>
@@ -28,32 +28,35 @@
           <div class="between row-margin">
             <div class="label2">딸바</div>
             <div class="icon-between">
-              <img class="action-icon" src="{% static 'image/minus.png' %}">
-              <div class="label2">2</div>
-              <img class="action-icon" src="{% static 'image/plus.png' %}">
-            </div>         
+              <img onclick="increaseMenu(-1, 'menu1')" class="action-icon" src="{% static 'image/minus.png' %}">
+              <div id='menu1' class="label2">1</div>
+              <img onclick="increaseMenu(1, 'menu1')" class="action-icon" src="{% static 'image/plus.png' %}">
+            </div>
           </div>
           <div class="between row-margin">
             <div class="label2">아메리카노(ICE)</div>
             <div class="icon-between">
-              <img class="action-icon" src="{% static 'image/minus.png' %}">
-              <div class="label2">2</div>
-              <img class="action-icon" src="{% static 'image/plus.png' %}">
-            </div>         
+              <img onclick="increaseMenu(-1, 'menu2')" class="action-icon" src="{% static 'image/minus.png' %}">
+              <div id='menu2' class="label2">1</div>
+              <img onclick="increaseMenu(1, 'menu2')" class="action-icon" src="{% static 'image/plus.png' %}">
+            </div>
           </div>
           <div class="between">
             <div class="label2">블루베리</div>
             <div class="icon-between">
-              <img class="action-icon" src="{% static 'image/minus.png' %}">
-              <div class="label2">2</div>
-              <img class="action-icon" src="{% static 'image/plus.png' %}">
-            </div>         
+              <img onclick="increaseMenu(-1, 'menu3')" class="action-icon" src="{% static 'image/minus.png' %}">
+              <div id='menu3' class="label2">1</div>
+              <img onclick="increaseMenu(1, 'menu3')" class="action-icon" src="{% static 'image/plus.png' %}">
+            </div>
           </div>
         </div>
         <div class="item1">
           <div class="label1">배달정보</div>
           <div class="row row-margin25">
-            <img class="action-icon margin" src="{% static 'image/inactive-check.png' %}" >
+            <img id='to-home-inactive' class="action-icon margin" src="{% static 'image/inactive-check.png' %}"
+              onclick="toggleIcon()">
+            <img id='to-home-active' class="action-icon margin" src="{% static 'image/active-check.png' %}"
+              onclick="toggleIcon()">
             <div class="column">
               <div class="label4">개인수령</div>
               <div class="label4-width between">
@@ -63,8 +66,17 @@
             </div>
           </div>
           <div class="row">
-            <img class="action-icon margin" src="{% static 'image/active-check.png' %}" >
-            <div class="label4">중간 지점 수령</div>
+            <img id='to-middle-active' class="action-icon margin" src="{% static 'image/active-check.png' %}"
+              onclick="toggleIcon()">
+            <img id='to-middle-inactive' class="action-icon margin" src="{% static 'image/inactive-check.png' %}"
+              onclick="toggleIcon()">
+            <div class="column">
+              <div class="label4">중간 지점 수령</div>
+              <div class="label4-width between">
+                <div class="label5">북구 복현동 it4호관</div>
+                <div class="action-btn2">지정</div>
+              </div>
+            </div>
           </div>
           <div>
 
@@ -97,9 +109,9 @@
           <div class="item2">
             <div class="label1">모집시간</div>
             <div class="icon-between">
-              <img class="action-icon" src="{% static 'image/minus.png' %}">
-              <div class="label2">2</div>
-              <img class="action-icon" src="{% static 'image/plus.png' %}">
+              <img onclick="increaseTime(-10)" class="action-icon" src="{% static 'image/minus.png' %}">
+              <div id='target-time' class="label2">20분</div>
+              <img onclick="increaseTime(10)" class="action-icon" src="{% static 'image/plus.png' %}">
             </div>
           </div>
         </div>
@@ -114,32 +126,70 @@
         <div class="action-btn" id="action-modal">
           공구 모집하기
         </div>
-      </div>  
+      </div>
     </div>
     <div id="modal" class="modal-wrapper">
       <div class="modal-card">
         <div class="modal-label">공구 모집 시작</div>
         <div class="modal-label2">진행 현황은 MY페이지에서 확인해주세요</div>
-        <a class="action-btn3" href="{% url 'user_home' %}">
-          홈으로
-        </a>
-        <a class="action-btn3 non-margin" href="{% url 'user_detail' %}">
-          현황보기
-        </a>
+        <div class="row">
+          <a class="action-btn3" href="{% url 'user_home' %}">
+            홈으로
+          </a>
+          <a class="action-btn3 non-margin" href="{% url 'user_detail' %}">
+            현황보기
+          </a>
+        </div>
       </div>
     </div>
     <script>
       var modal = document.getElementById('modal');
- 
+
       var btn = document.getElementById("action-modal");
-        
-      btn.onclick = function() {
+
+      btn.onclick = function () {
         modal.style.display = "flex";
       }
 
-      window.onclick = function(event) {
+      window.onclick = function (event) {
         if (event.target == modal) {
           modal.style.display = "none";
+        }
+      }
+    </script>
+    <script>
+      var time = 20;
+      var count = 1;
+      function increaseTime(value) {
+        if (time > 10 || value > 0) {
+          time += value;
+          document.getElementById("target-time").innerHTML = `${time}분`;
+        }
+      }
+      function increaseMenu(value, target) {
+
+        if (count > 1 || value > 0) {
+          count += value;
+          document.getElementById(target).innerHTML = count;
+        }
+      }
+    </script>
+    <script language="javascript" type="text/javascript">
+      function toggleIcon() {
+        const icon1 = document.getElementById('to-home-active');
+        const icon2 = document.getElementById('to-home-inactive');
+        const icon3 = document.getElementById('to-middle-active');
+        const icon4 = document.getElementById('to-middle-inactive');
+        if (icon1.style.display === 'none' && icon2.style.display === 'flex') {
+          icon1.style.display = 'flex';
+          icon2.style.display = 'none';
+          icon3.style.display = 'none';
+          icon4.style.display = 'flex';
+        } else {
+          icon1.style.display = 'none';
+          icon2.style.display = 'flex';
+          icon3.style.display = 'flex';
+          icon4.style.display = 'none';
         }
       }
     </script>

@@ -3,12 +3,12 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="{% static 'css/user_detail.css' %}">
-    <link rel="stylesheet" type="text/css" href="{% static 'css/global.css' %}">
-    <link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@400;700&display=swap" rel="stylesheet">
-    <title>Document</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" type="text/css" href="{% static 'css/user_detail.css' %}">
+  <link rel="stylesheet" type="text/css" href="{% static 'css/global.css' %}">
+  <link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@400;700&display=swap" rel="stylesheet">
+  <title>Document</title>
 </head>
 
 <body>
@@ -37,9 +37,13 @@
           <div class="label4">참여내역</div>
           <div class="label5">2명 / 6명</div>
         </div>
-        <div class="row row-margin16">
+        <div class="row row-margin10">
           <div class="label4">남은시간</div>
           <div class="label5">07:58</div>
+        </div>
+        <div class="row row-margin16">
+          <div class="label4">배달지</div>
+          <div class="label5">CU 경북대점</div>
         </div>
         <div class="action-btn2">취소하기</div>
       </div>
@@ -58,33 +62,29 @@
           <div class="label5">5,000원</div>
         </div>
       </div>
-      <div class="label3">결제완료</div>
-      <div class="inactive-wrapper">
-
-      </div>
     </div>
   </div>
-    <div class="nav-wrapper">
-      <a href="{% url 'user_home' %}">
-        <div class="column nav">
-          <img class="nav-icon" src="{% static 'image/nav-home.png' %}" >
-          <div class="nav-label">홈</div>
-        </div>
-      </a>
-      <a href="{% url 'user_map' %}">
-        <div class="column nav">
-          <img class="nav-icon" src="{% static 'image/nav-map.png' %}" >
-          <div class="nav-label">모집중공고</div>
-        </div>
-      </a>
-      <a href="{% url 'user_detail' %}">
-        <div class="column nav">
-          <div class="nav-active"></div>
-          <img class="nav-icon" src="{% static 'image/nav-profile.png' %}" >
-          <div class="nav-label">마이페이지</div>
-        </div>
-      </a>
-    </div>
+  <div class="nav-wrapper">
+    <a href="{% url 'user_home' %}">
+      <div class="column nav">
+        <img class="nav-icon" src="{% static 'image/nav-home.png' %}">
+        <div class="nav-label">홈</div>
+      </div>
+    </a>
+    <a href="{% url 'user_map' %}">
+      <div class="column nav">
+        <img class="nav-icon" src="{% static 'image/nav-map.png' %}">
+        <div class="nav-label">모집중공고</div>
+      </div>
+    </a>
+    <a href="{% url 'user_detail' %}">
+      <div class="column nav">
+        <div class="nav-active"></div>
+        <img class="nav-icon" src="{% static 'image/nav-profile.png' %}">
+        <div class="nav-label">마이페이지</div>
+      </div>
+    </a>
+  </div>
 </body>
 
 </html>
