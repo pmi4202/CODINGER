@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="{% static 'css/store_order_detail.css' %}">
 </head>
 <body>
+    <img src="{% static 'image/logo.png' %}" alt="" height="80px" width="80px">
     <div class="grid">
         <div class="order_list-1">
             <div class="mg1">
@@ -25,10 +26,10 @@
                 <a href="{% url 'store_order2' %}">진행중</a>
             </div>
             <div class="mg5">
-                <a>완료내역</a>
+                <a href="{% url 'store_order3' %}">완료내역</a>            
             </div>
             <div class="mg6">
-                <a>취소내역</a>
+                <a href="{% url 'store_order4' %}">취소내역</a>            
             </div>
         </div>
         <div class="order_list-3">
@@ -104,17 +105,17 @@
                 <div></div>
             </div>
             <div class="popup-in3">
-                <div class="pop7">
-                    {% if order.deliveryType == "개별배송" %}
+                {% if order.deliveryType == "개별배송" %}
+                    <div class="pop7">
                         <div class="pop6">배송지<p class="num">{{order.totalPeople}}</p></div>
-                        {% for address in deliveryInfo %}
-                            <div>{{address.user.address}}</div>
-                        {% endfor %}
-                    {% else %}
-                        <div class="pop6">배송지<p class="num">1</p></div>
-                        <div>{{order.address}}</div>
-                    {% endif %}
-                </div>
+                    </div>
+                    {% for address in deliveryInfo %}
+                        <div>{{address.user.address}}</div>
+                    {% endfor %}
+                {% else %}
+                    <div class="pop6">배송지<p class="num">1</p></div>
+                    <div>{{order.address}}</div>
+                {% endif %}
                 <div></div>
                 <div></div>
                 <div></div>

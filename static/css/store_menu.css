@@ -2,7 +2,7 @@
 
 .grid{
     display: grid;
-    margin-top: 50px;
+    margin-top: 0px;
     grid-template-columns: 90px 90px 87vw;
     grid-template-rows: 1000px;
     margin-left: -8px;
