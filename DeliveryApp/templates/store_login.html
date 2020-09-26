@@ -11,7 +11,7 @@
     <form method="POST" action="{% url 'store_login'%}">
         {% csrf_token %}
         <div class="Login_Form" >
-            <h1>로고자리</h1>
+            <h1><img src="{% static 'image/logo.png' %}" alt="" height="200px" width="200px"></h1>
             <div class='txtb1'><input type="text" placeholder='아이디'name="id">
             <span data-placeholder='Username'></span>
         </div>

@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="{% static 'css/store_order.css' %}">
 </head>
 <body>
+    <img src="{% static 'image/logo.png' %}" alt="" height="80px" width="80px">
     <div class="grid">
         <div class="order_list-1">
             <div class="mg1">
@@ -25,10 +26,10 @@
                 <a href="{% url 'store_order2' %}">진행중</a>
             </div>
             <div class="mg5">
-                <a>완료내역</a>
+                <a href="{% url 'store_order3' %}">완료내역</a>            
             </div>
             <div class="mg6">
-                <a>취소내역</a>
+                <a href="{% url 'store_order4' %}">취소내역</a>            
             </div>
         </div>
         <div class="order_list-3">
