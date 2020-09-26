@@ -111,6 +111,8 @@
 }
 
 .label4 {
+  text-align: left;
+  width: max-content;
   margin-right: 17px;
   font-size: 13px;
   font-weight: bold;
