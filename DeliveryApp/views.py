@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth.models import User
 from django.contrib import auth
-from .models import Store, Menu, Order, DeliveryPrice, User, DeliveryInfo, Option, Category, MenuSimple
+from .models import Store, Menu, Order, DeliveryPrice, AppUser, DeliveryInfo, Option, Category, MenuSimple
 from datetime import timedelta, datetime
 from django.utils import timezone
 from django.utils.timezone import utc

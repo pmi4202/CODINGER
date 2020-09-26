@@ -52,9 +52,9 @@ class MenuSimple(models.Model):
     menuName = models.CharField(max_length=20)
     menuNumber = models.PositiveIntegerField(default=0)
 
-class User(models.Model):
-    userEmail = models.EmailField()
+class AppUser(models.Model):
     userName = models.CharField(max_length=50)
+    nickName = models.CharField(max_length=30, default="")
     address = models.CharField(max_length=50)
 
     def __str__(self):
@@ -64,7 +64,7 @@ class DeliveryInfo(models.Model):
     #
     deliveryInfoList = models.ForeignKey(Order, on_delete=models.CASCADE, related_name='deliveryInfoList', blank=False, default="")
     #
-    user = models.OneToOneField(User, on_delete=models.CASCADE) # 유저 관계설정
+    user = models.OneToOneField(AppUser, on_delete=models.CASCADE) # 유저 관계설정
     storeRequest = models.TextField()
     deliveryRequest = models.TextField() 
 

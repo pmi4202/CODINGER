@@ -19,14 +19,15 @@
         <div class="label">
           <div>회원가입</div>
         </div>
-        <input type="text" placeholder="닉네임" id="name"/>
-        <input type="text" placeholder="아이디" id="id"/>
-        <input type="text" placeholder="패스워드" id="password"/>
-        <input type="text" placeholder="패스워드 재입력" id="password2"/>
-        <input type="text" placeholder="주소" id="address"/>
-        <a class="newsignup" href="{% url 'user_login' %}">
-          확인
-        </a>
+        <form method="POST" action="{% url 'user_signup' %}">
+          {% csrf_token %}
+          <input type="text" placeholder="닉네임" name="name"/>
+          <input type="text" placeholder="아이디" name="id"/>
+          <input type="password" placeholder="패스워드" name="password1"/>
+          <input type="password" placeholder="패스워드 재입력" name="password2"/>
+          <input type="text" placeholder="주소" name="address"/>
+          <input type="submit" class="newsignup" value="확인">
+        </form>
       </div>
     </div>
   </div>

@@ -16,11 +16,13 @@
     <div class="content-wrapper">
       <div class="content-card">
         <img class="whiteboard1" src="{% static 'image/login1_2.png' %}" alt="">
-        <input type="text" placeholder="아이디" name ="id"/>
-        <input type="text" placeholder="패스워드" name ="password"/>
-        <a class="newlogin" href="{% url 'user_detail' %}">
-          로그인
-        </a>
+        
+        <form method="POST" action="{% url 'user_login'%}">
+          {% csrf_token %}
+          <input type="text" placeholder="아이디" name ="id"/>
+          <input type="text" placeholder="패스워드" name ="password"/>
+          <input class="newlogin" type="submit" value="로그인">
+        </form>
         <!-- <div class="newlogin">로그인</div> -->
         <div class="new"> 아직 회원이 아니신가요?</div>
         <a class="newsignup" href="{% url 'user_signup' %}">

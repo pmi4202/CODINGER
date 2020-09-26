@@ -1,5 +1,7 @@
 from django.shortcuts import render, redirect, get_object_or_404
-from DeliveryApp.models import Store, Menu, Order, DeliveryPrice, User, DeliveryInfo, Option, Category
+from django.contrib.auth.models import User
+from django.contrib import auth
+from DeliveryApp.models import Store, Menu, Order, DeliveryPrice, AppUser, DeliveryInfo, Option, Category
 
 # Create your views here.
 #앱 로그인
@@ -9,14 +11,15 @@ def user_login(request):
       username = request.POST['id']
       password = request.POST['password']
       # 로그인
-      users = User.objects.filter(userName= username)
+      user = auth.authenticate(request, username=username, password=password)
+      users = AppUser.objects.filter(userName= username)
       if users:
-        user = auth.authenticate(request, username=username, password=password)
+        return redirect('store_login')
 
       # 성공
       if user is not None:
           auth.login(request, user)
-          return redirect('store_order')
+          return redirect('user_detail')
       # 실패
       else:
           return render(request, 'user_login.html', {'error': 'id or password is incorrect.'})
@@ -25,7 +28,15 @@ def user_login(request):
 
 #앱 회원가입
 def user_signup(request):
-  
+  if request.method == 'POST':
+      # 비밀번호 확인도 같다면
+      if request.POST['password1'] ==request.POST['password2']:
+          # 유저 만들기
+          user = User.objects.create_user(username=request.POST['id'], password=request.POST['password1'])
+          auth.login(request, user) #로그인
+          user_info = AppUser(userName = user.username, nickName = request.POST['name'], address=request.POST['address'])
+          return redirect('user_detail')
+  # 포스트 방식 아니면 페이지 띄우기
   return render(request, 'user_signup.html')
 #앱 메인
 def user_home(request):
