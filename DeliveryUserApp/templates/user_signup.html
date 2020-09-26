@@ -19,10 +19,11 @@
         <div class="label">
           <div>회원가입</div>
         </div>
-        <input type="text" placeholder="닉네임" />
-        <input type="text" placeholder="아이디" />
-        <input type="text" placeholder="패스워드" />
-        <input type="text" placeholder="패스워드 재입력" />
+        <input type="text" placeholder="닉네임" id="name"/>
+        <input type="text" placeholder="아이디" id="id"/>
+        <input type="text" placeholder="패스워드" id="password"/>
+        <input type="text" placeholder="패스워드 재입력" id="password2"/>
+        <input type="text" placeholder="주소" id="address"/>
         <a class="newsignup" href="{% url 'user_login' %}">
           확인
         </a>

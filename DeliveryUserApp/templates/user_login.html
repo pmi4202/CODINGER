@@ -16,8 +16,8 @@
     <div class="content-wrapper">
       <div class="content-card">
         <img class="whiteboard1" src="{% static 'image/login1_2.png' %}" alt="">
-        <input type="text" placeholder="아이디" />
-        <input type="text" placeholder="패스워드" />
+        <input type="text" placeholder="아이디" name ="id"/>
+        <input type="text" placeholder="패스워드" name ="password"/>
         <a class="newlogin" href="{% url 'user_detail' %}">
           로그인
         </a>
